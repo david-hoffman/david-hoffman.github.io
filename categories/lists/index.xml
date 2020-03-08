@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lists on David P. Hoffman, PhD.</title>
+    <link>https://david-hoffman.github.io/categories/lists/</link>
+    <description>Recent content in Lists on David P. Hoffman, PhD.</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} David P. Hoffman</copyright>
+    <lastBuildDate>Sun, 01 Mar 2020 13:01:26 -0800</lastBuildDate>
+    
+	    <atom:link href="https://david-hoffman.github.io/categories/lists/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Things I&#39;ve Forgotten</title>
+      <link>https://david-hoffman.github.io/post/things-ive-forgotten/</link>
+      <pubDate>Sun, 01 Mar 2020 13:01:26 -0800</pubDate>
+      
+      <guid>https://david-hoffman.github.io/post/things-ive-forgotten/</guid>
+      <description>&lt;p&gt;In my professional life I&amp;rsquo;m always learning new things. Regretably, I&amp;rsquo;m also constantly forgetting things. It seems as though my brain only has enough space for a given number of facts and figures, and that number is constantly changing. I figured, if I&amp;rsquo;ve had to learn something more than once, I may as well make a centralized and permanent note of it. Moreover, if I do it in a public forum (👋) someone else may benefit from my mistakes.&lt;/p&gt;
+&lt;p&gt;This list has been roughly divided into three sections: &lt;em&gt;Optics&lt;/em&gt;, &lt;em&gt;Lasers&lt;/em&gt;, and &lt;em&gt;Code&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;optics&#34;&gt;Optics&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Aperature&lt;/em&gt; stops are &lt;em&gt;pupil&lt;/em&gt; conjugate&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Field&lt;/em&gt; stops are &lt;em&gt;sample&lt;/em&gt; conjugate&lt;/li&gt;
+&lt;li&gt;Pupil diameter $= NA f$, where the objective&amp;rsquo;s numerical aperature is NA and its effective focal length is $f$. The focal length can be calculated from the magnification and standard tube lens. For example, for a 60X Nikon objective where the tube lens has a nominal focal length of 200 mm the effective focal length of the objective is 200 mm/60 = 3.33 mm.&lt;/li&gt;
+&lt;li&gt;Fourier transform property of lens: for a gaussian beam propogating through a lens the beam sizes at each conjugate plane can be related to one another by the following equation:
+$$
+\sigma&amp;rsquo; \sigma = \frac{\lambda f}{\pi}
+$$
+Where $\sigma&#39;$ and $\sigma$ are the beam sizes at each conjugate plane and $\lambda$ is the wavelength of the light and $f$ is the focal length of the lens.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;lasers&#34;&gt;Lasers&lt;/h2&gt;
+&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

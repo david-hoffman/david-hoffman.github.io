@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>microscopy on David P. Hoffman, PhD.</title>
+    <link>https://david-hoffman.github.io/categories/microscopy/</link>
+    <description>Recent content in microscopy on David P. Hoffman, PhD.</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} David P. Hoffman</copyright>
+    <lastBuildDate>Fri, 17 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://david-hoffman.github.io/categories/microscopy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Freeze-frame of whole cells</title>
+      <link>https://david-hoffman.github.io/publication/clem/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://david-hoffman.github.io/publication/clem/</guid>
+      <description>&lt;p&gt;This is my favorite movie from the paper.&lt;/p&gt;
+&lt;p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://player.vimeo.com/video/383152270&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;vimeo video&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;It&amp;#39;s here!!!&lt;a href=&#34;https://t.co/11j9LUa7xu&#34;&gt;https://t.co/11j9LUa7xu&lt;/a&gt;&lt;br&gt;OMG! OMG! 😱😱😱&lt;/p&gt;&amp;mdash; David Hoffman (@davephoffman) &lt;a href=&#34;https://twitter.com/davephoffman/status/1217884019817189376?ref_src=twsrc%5Etfw&#34;&gt;January 16, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tiled Reconstruction Improves Structured Illumination Microscopy</title>
+      <link>https://david-hoffman.github.io/publication/sim-tiling/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://david-hoffman.github.io/publication/sim-tiling/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

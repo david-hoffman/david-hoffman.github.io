@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sim on David P. Hoffman, PhD.</title>
+    <link>https://david-hoffman.github.io/tags/sim/</link>
+    <description>Recent content in sim on David P. Hoffman, PhD.</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} David P. Hoffman</copyright>
+    <lastBuildDate>Sat, 11 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://david-hoffman.github.io/tags/sim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tiled Reconstruction Improves Structured Illumination Microscopy</title>
+      <link>https://david-hoffman.github.io/publication/sim-tiling/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://david-hoffman.github.io/publication/sim-tiling/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

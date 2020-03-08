@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on David P. Hoffman, PhD.</title>
+    <link>https://david-hoffman.github.io/categories/</link>
+    <description>Recent content in Categories on David P. Hoffman, PhD.</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} David P. Hoffman</copyright>
+    <lastBuildDate>Sun, 01 Mar 2020 13:01:26 -0800</lastBuildDate>
+    
+	    <atom:link href="https://david-hoffman.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lists</title>
+      <link>https://david-hoffman.github.io/categories/lists/</link>
+      <pubDate>Sun, 01 Mar 2020 13:01:26 -0800</pubDate>
+      
+      <guid>https://david-hoffman.github.io/categories/lists/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>microscopy</title>
+      <link>https://david-hoffman.github.io/categories/microscopy/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://david-hoffman.github.io/categories/microscopy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FSRS</title>
+      <link>https://david-hoffman.github.io/categories/fsrs/</link>
+      <pubDate>Wed, 21 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://david-hoffman.github.io/categories/fsrs/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

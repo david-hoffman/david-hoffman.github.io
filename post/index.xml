@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on David P. Hoffman, PhD.</title>
+    <link>https://david-hoffman.github.io/post/</link>
+    <description>Recent content in Posts on David P. Hoffman, PhD.</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} David P. Hoffman</copyright>
+    
+	    <atom:link href="https://david-hoffman.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Conversion Factors</title>
+      <link>https://david-hoffman.github.io/post/conversion-factors/</link>
+      <pubDate>Wed, 04 Mar 2020 15:41:25 -0800</pubDate>
+      
+      <guid>https://david-hoffman.github.io/post/conversion-factors/</guid>
+      <description>&lt;h2 id=&#34;energy-conversion-factors&#34;&gt;Energy Conversion Factors&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;1 kcal/mol&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;0.04336 eV&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;0.00159 h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;349.75 cm$^{-1}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;6.948 × 10$^{-14}$ erg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;4.184 kJ/mol&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;1 eV&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;23.06 kcal/mol&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;0.03675 h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;8065.6 cm$^{-1}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;1.602 × 10$^{-12}$ erg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;1 h&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;627.51 kcal/mol&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;27.212 eV&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;219,474.6 cm$^{-1}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;4.36 × 10$^{-11}$ erg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;2 Ry&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;1 erg&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;1.439 × 10$^{13}$ kcal/mol&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;6.2415 × 10$^{11}$ eV&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;2.2937 × 10$^{10}$ h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;5.034 × 10$^{15}$ cm$^{-1}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;colors-of-light&#34;&gt;Colors of Light&lt;/h2&gt;
+&lt;h3 id=&#34;visible-light&#34;&gt;Visible Light&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Color&lt;/th&gt;
+&lt;th&gt;nm&lt;/th&gt;
+&lt;th&gt;eV&lt;/th&gt;
+&lt;th&gt;$\text{cm}^{-1}$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Red&lt;/td&gt;
+&lt;td&gt;700&lt;/td&gt;
+&lt;td&gt;1.77&lt;/td&gt;
+&lt;td&gt;14,300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Orange&lt;/td&gt;
+&lt;td&gt;620&lt;/td&gt;
+&lt;td&gt;2.00&lt;/td&gt;
+&lt;td&gt;16,100&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Yellow&lt;/td&gt;
+&lt;td&gt;580&lt;/td&gt;
+&lt;td&gt;2.14&lt;/td&gt;
+&lt;td&gt;17,300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Green&lt;/td&gt;
+&lt;td&gt;530&lt;/td&gt;
+&lt;td&gt;2.34&lt;/td&gt;
+&lt;td&gt;18,900&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Blue&lt;/td&gt;
+&lt;td&gt;470&lt;/td&gt;
+&lt;td&gt;2.64&lt;/td&gt;
+&lt;td&gt;21,300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Violet&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;td&gt;2.95&lt;/td&gt;
+&lt;td&gt;23,800&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;all-light&#34;&gt;All Light&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Color&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;nm&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;eV&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;$\text{cm}^{-1}$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Radio&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{12}$ &amp;mdash; $3\times 10^{8}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$4\times 10^{-10}$ &amp;mdash; $4\times 10^{-6}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{-6}$ &amp;mdash; $3\times 10^{-2}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Microwaves&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{8}$ &amp;mdash; $3\times 10^{6}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$4\times 10^{-6}$ &amp;mdash; $4\times 10^{-4}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{-2}$ &amp;mdash; $3$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Far IR&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{6}$ &amp;mdash; $3\times 10^{4}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$4\times 10^{-4}$ &amp;mdash; $4\times 10^{-2}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3$ &amp;mdash; $300$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Near IR&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{4}$ &amp;mdash; $700$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$4\times 10^{-2}$ &amp;mdash; $2$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$300$ &amp;mdash; $15,000$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Visible&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$700$ &amp;mdash; $420$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$2$ &amp;mdash; $3$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$15,000$ &amp;mdash; $24,000$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Near UV&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$420$ &amp;mdash; $300$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3$ &amp;mdash; $4$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$24,000$ &amp;mdash; $30,000$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Vac UV&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$300$ &amp;mdash; $3$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$4$ &amp;mdash; $400$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$30,000$ &amp;mdash; 3\e{6}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;X-rays&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3$ &amp;mdash; $0.003$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$400$ &amp;mdash; $4\times 10^{5}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{6}$ &amp;mdash; $3\times 10^{9}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;free-energies&#34;&gt;Free Energies&lt;/h2&gt;
+&lt;p&gt;$$
+\Delta(G) = RT \ln(K)
+$$
+$$
+\Delta(G_1) - \Delta(G_2) = RT\ln\left(\frac{K_1}{K_2}\right)
+$$
+$$
+\Delta\Delta(G) = 1\text{ kcal/mol} \Longleftrightarrow \frac{K_1}{K_2} = 5.4
+$$
+$$
+\frac{K_1}{K_2} = 10^1 \Longleftrightarrow \Delta\Delta G = 1.36
+$$
+$$
+\frac{K_1}{K_2} = 10^2 \Longleftrightarrow \Delta\Delta G = 2.76
+$$
+$$
+\frac{K_1}{K_2} = 10^4 \Longleftrightarrow \Delta\Delta G = 5.53
+$$
+$$
+\frac{K_1}{K_2} = 10^6 \Longleftrightarrow \Delta\Delta G = 8.29
+$$
+$$
+\Delta G = 1.36 \left( pK_{a1} - pK_{a2}\right)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;atomic-units&#34;&gt;Atomic Units&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Length&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Bohr radius, $a_0$&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;0.52918 Å&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Force Constant&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1 au&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$1.5569 \times 10^6$ dyn/cm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Mass&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;au, m$_\text{e}$&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$9.1095\times 10^{-31}$ kg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$5.5\times 10^{-4}$ amu&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;amu, m($^{12}$C)/12&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$1.66\times 10^{-27}$ kg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1822 au&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Time&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;au&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$2.4189\times 10^{-17}$ s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dipole Moment&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;au&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.54 D&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$8.478\times 10^{-30}$ C-m&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;miscellaneous&#34;&gt;Miscellaneous&lt;/h2&gt;
+&lt;h3 id=&#34;force-constants&#34;&gt;Force Constants&lt;/h3&gt;
+&lt;p&gt;$$
+1\text{ dyn/cm} = 1.44 \times 10^{-3}\frac{\text{ kcal/mol}}{\text{Å}^2}
+$$
+$$
+1\text{ Mdyn/cm} = 1440\frac{\text{ kcal/mol}}{\text{Å}^2}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;thermal&#34;&gt;Thermal&lt;/h3&gt;
+&lt;p&gt;$$
+k_BT (298\text{ K}) = 9.4366 \times 10^{-4}\text{ h}
+$$
+$$
+RT (298\text{ K}) = 2.4789\text{ kJ/mol} = 0.5925\text{ kcal/mol}
+$$
+$$
+e^2 = 14.3998\text{ eV-Å} = 332.059\text{ (kcal/mol)-Å}
+$$&lt;/p&gt;
+&lt;a href=&#34;https://david-hoffman.github.io/files/conversion_factors.pdf&#34; target=&#34;_blank&#34;&gt;Download a prettier PDF version of this post&lt;/a&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Derivation of the Transform Limit</title>
+      <link>https://david-hoffman.github.io/post/transform-limit/</link>
+      <pubDate>Wed, 04 Mar 2020 15:24:05 -0800</pubDate>
+      
+      <guid>https://david-hoffman.github.io/post/transform-limit/</guid>
+      <description>&lt;p&gt;Let us define the dispersion of a function about zero as,&lt;/p&gt;
+&lt;p&gt;$$
+D_0(f)=\int_{-\infty}^\infty x^2 |f(x)|^2 dx
+$$&lt;/p&gt;
+&lt;p&gt;Where $f(x)$ is some normalized square integrable function. In this case we&amp;rsquo;ll use a gaussian which is defined as,&lt;/p&gt;
+&lt;p&gt;$$
+f(x)\propto e^{-x^2/2\sigma^2}
+$$&lt;/p&gt;
+&lt;p&gt;This could be, for instance, the amplitude of the electric field of some laser pulse. We also know that the fourier transform of a gaussian is still a gaussian, i.e.&lt;/p&gt;
+&lt;p&gt;$$
+\mathcal{F}[f(x)](k)=\hat{f}(k)\propto e^{-2\pi^2\sigma^2k^2}
+$$&lt;/p&gt;
+&lt;p&gt;We can relate the two dispersions to one another by multiplying them together, i.e.,&lt;/p&gt;
+&lt;p&gt;$$
+D_0(f)D_0(\hat{f})=\sigma^2_x\sigma^2_k
+$$&lt;/p&gt;
+&lt;p&gt;Remember that we know&lt;/p&gt;
+&lt;p&gt;$$
+\sigma^2=\int_{-\infty}^{\infty}x^2\frac{e^{-x^2/2\sigma^2}}{\sqrt{2\pi\sigma^2}}dx
+$$&lt;/p&gt;
+&lt;p&gt;Using this fact we can say that&lt;/p&gt;
+&lt;p&gt;$$
+\sigma^2_x=\frac{\sigma^2}{2}
+$$&lt;/p&gt;
+&lt;p&gt;And&lt;/p&gt;
+&lt;p&gt;$$
+\sigma^2_k=\frac{1}{8\pi^2\sigma^2}
+$$&lt;/p&gt;
+&lt;p&gt;Which means that our dispersion relation is&lt;/p&gt;
+&lt;p&gt;$$
+D_0(f)D_0(\hat{f})=\frac{1}{16\pi^2}
+$$&lt;/p&gt;
+&lt;p&gt;We can relate this to the FWHM of our pulse in either the $x$ or $k$ domain using the fact that $\text{FWHM}=2 \sqrt{2\ln 2} \sigma $,&lt;/p&gt;
+&lt;p&gt;$$
+\Delta x \Delta k=\frac{2\ln2}{\pi}\approx0.441
+$$&lt;/p&gt;
+&lt;p&gt;Where $\Delta x$ is the FWHM of the square of $f(x)$ in the $x$ domain. For instance, if $f(x)$ was the electric field of our pulse than $|f(x)|^2$ would be the intensity that we would measure of the pulse and $\Delta x$ would be the measured FWHM of the intensity of the pulse.&lt;/p&gt;
+&lt;p&gt;We can make this more concrete by saying that we measured the frequency of the pulse in cm$^{-1}$ and the duration in fs,&lt;/p&gt;
+&lt;p&gt;$$
+\Delta t (\text{fs}) \Delta \nu (\text{cm}^{-1})\left(\frac{ 2.99 \times 10^{-5}\text{ cm}}{\text{fs}}\right)=0.441
+$$&lt;/p&gt;
+&lt;p&gt;We can rearrange this to be&lt;/p&gt;
+&lt;p&gt;$$
+\Delta t (\text{fs}) \Delta \nu (\text{cm}^{-1})=1470\text{ fs cm}^{-1}
+$$&lt;/p&gt;
+&lt;p&gt;Or&lt;/p&gt;
+&lt;p&gt;$$
+\Delta t (\text{ps}) \Delta \nu (\text{cm}^{-1})=15\text{ ps cm}^{-1}
+$$&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Things I&#39;ve Forgotten</title>
+      <link>https://david-hoffman.github.io/post/things-ive-forgotten/</link>
+      <pubDate>Sun, 01 Mar 2020 13:01:26 -0800</pubDate>
+      
+      <guid>https://david-hoffman.github.io/post/things-ive-forgotten/</guid>
+      <description>&lt;p&gt;In my professional life I&amp;rsquo;m always learning new things. Regretably, I&amp;rsquo;m also constantly forgetting things. It seems as though my brain only has enough space for a given number of facts and figures, and that number is constantly changing. I figured, if I&amp;rsquo;ve had to learn something more than once, I may as well make a centralized and permanent note of it. Moreover, if I do it in a public forum (👋) someone else may benefit from my mistakes.&lt;/p&gt;
+&lt;p&gt;This list has been roughly divided into three sections: &lt;em&gt;Optics&lt;/em&gt;, &lt;em&gt;Lasers&lt;/em&gt;, and &lt;em&gt;Code&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;optics&#34;&gt;Optics&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Aperature&lt;/em&gt; stops are &lt;em&gt;pupil&lt;/em&gt; conjugate&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Field&lt;/em&gt; stops are &lt;em&gt;sample&lt;/em&gt; conjugate&lt;/li&gt;
+&lt;li&gt;Pupil diameter $= NA f$, where the objective&amp;rsquo;s numerical aperature is NA and its effective focal length is $f$. The focal length can be calculated from the magnification and standard tube lens. For example, for a 60X Nikon objective where the tube lens has a nominal focal length of 200 mm the effective focal length of the objective is 200 mm/60 = 3.33 mm.&lt;/li&gt;
+&lt;li&gt;Fourier transform property of lens: for a gaussian beam propogating through a lens the beam sizes at each conjugate plane can be related to one another by the following equation:
+$$
+\sigma&amp;rsquo; \sigma = \frac{\lambda f}{\pi}
+$$
+Where $\sigma&#39;$ and $\sigma$ are the beam sizes at each conjugate plane and $\lambda$ is the wavelength of the light and $f$ is the focal length of the lens.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;lasers&#34;&gt;Lasers&lt;/h2&gt;
+&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

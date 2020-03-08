@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academia 4.3.1">
+  <meta name="generator" content="Hugo 0.65.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="David P. Hoffman">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Chemical reactions are defined by the change in the relative positions and bonding of nuclei in molecules. I have used femtosecond stimulated Raman spectroscopy (FSRS) to probe these transformations with structural specificity and high time precision revealing the mechanisms of two important classes of reactions; isomerization about an N=N bond and interfacial/intermolecular electron transfer.
+Isomerization about a double bond is one of the simplest, yet most important, photochemical reactions. In contrast to carbon double bonds, nitrogen double bonds can react via two possible mechanisms; rotation or inversion. To determine which pathway is predominant, I studied an azobenzene derivative using both FSRS and impulsive stimulated Raman spectroscopy (ISRS). The FSRS experiments demonstrated that the photochemical reaction occurs concomitantly with the 700 fs non-radiative decay of the excited state; because no major change in N=N stretching frequency was measured, I surmised that the reaction proceeds through an inversion pathway. My subsequent ISRS experiments confirmed this hypothesis; I observed a highly displaced, low frequency, inversion-like mode, indicating that initial movement out of the Franck-Condon region proceeds along an inversion coordinate.
+To probe which nuclear motions facilitate electron transfer and charge recombination, I used FSRS and the newly developed 2D-FSRS techniques to study two model systems, triphenylamine dyes bound to TiO2 nanoparticles and a molecular charge transfer (CT) dimer. In the dye-nanoparticle system I discovered that charge separation persists much longer (&gt; 100 ps) than previously thought by using the juxtaposition of the FSRS and transient absorption data to separate the dynamics of the dye from that of the injected electron. Additionally, I discovered that dye constructs with an added vinyl group were susceptible to quenching via isomerization. The CT dimer offered an opportunity to study a system in which charge recombination occurred on a shorter timescale (~10 ps). Here I found that impulsively excited coherent nuclear motion in the excited state survived for more than 5 ps. These long lived coherences enabled the performance of 2D-FSRS to identify the coupling and tuning modes of the conical intersection that connects the charge transfer excited state with the neutral ground state and therefore the nuclear motions responsible for charge recombination. Furthermore, these data demonstrate that the photochemical reactivity is not mediated by phase-space randomization but rather by specific, coherent, nuclear trajectories.
+In this thesis I have demonstrated the power and utility of FSRS in probing condensed phase chemical reaction dynamics and provided a glimpse of the capabilities of 2D-FSRS. In general, 2D-FSRS provides a direct measure of the anharmonic coupling that controls reactivity. Looking forward, higher time resolution (broader band) 2D-FSRS will open up a whole new approach for characterizing transition states and energy transfer processes.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://david-hoffman.github.io/publication/thesis/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#fc6f5c">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academia.min.28efaa82099e1d59f8a909df089d578c.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-159401260-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://david-hoffman.github.io/publication/thesis/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@davephoffman">
+  <meta property="twitter:creator" content="@davephoffman">
+  
+  <meta property="og:site_name" content="David P. Hoffman, PhD.">
+  <meta property="og:url" content="https://david-hoffman.github.io/publication/thesis/">
+  <meta property="og:title" content="PhD Thesis | David P. Hoffman, PhD.">
+  <meta property="og:description" content="Chemical reactions are defined by the change in the relative positions and bonding of nuclei in molecules. I have used femtosecond stimulated Raman spectroscopy (FSRS) to probe these transformations with structural specificity and high time precision revealing the mechanisms of two important classes of reactions; isomerization about an N=N bond and interfacial/intermolecular electron transfer.
+Isomerization about a double bond is one of the simplest, yet most important, photochemical reactions. In contrast to carbon double bonds, nitrogen double bonds can react via two possible mechanisms; rotation or inversion. To determine which pathway is predominant, I studied an azobenzene derivative using both FSRS and impulsive stimulated Raman spectroscopy (ISRS). The FSRS experiments demonstrated that the photochemical reaction occurs concomitantly with the 700 fs non-radiative decay of the excited state; because no major change in N=N stretching frequency was measured, I surmised that the reaction proceeds through an inversion pathway. My subsequent ISRS experiments confirmed this hypothesis; I observed a highly displaced, low frequency, inversion-like mode, indicating that initial movement out of the Franck-Condon region proceeds along an inversion coordinate.
+To probe which nuclear motions facilitate electron transfer and charge recombination, I used FSRS and the newly developed 2D-FSRS techniques to study two model systems, triphenylamine dyes bound to TiO2 nanoparticles and a molecular charge transfer (CT) dimer. In the dye-nanoparticle system I discovered that charge separation persists much longer (&gt; 100 ps) than previously thought by using the juxtaposition of the FSRS and transient absorption data to separate the dynamics of the dye from that of the injected electron. Additionally, I discovered that dye constructs with an added vinyl group were susceptible to quenching via isomerization. The CT dimer offered an opportunity to study a system in which charge recombination occurred on a shorter timescale (~10 ps). Here I found that impulsively excited coherent nuclear motion in the excited state survived for more than 5 ps. These long lived coherences enabled the performance of 2D-FSRS to identify the coupling and tuning modes of the conical intersection that connects the charge transfer excited state with the neutral ground state and therefore the nuclear motions responsible for charge recombination. Furthermore, these data demonstrate that the photochemical reactivity is not mediated by phase-space randomization but rather by specific, coherent, nuclear trajectories.
+In this thesis I have demonstrated the power and utility of FSRS in probing condensed phase chemical reaction dynamics and provided a glimpse of the capabilities of 2D-FSRS. In general, 2D-FSRS provides a direct measure of the anharmonic coupling that controls reactivity. Looking forward, higher time resolution (broader band) 2D-FSRS will open up a whole new approach for characterizing transition states and energy transfer processes."><meta property="og:image" content="https://david-hoffman.github.io/publication/thesis/featured.jpg">
+  <meta property="twitter:image" content="https://david-hoffman.github.io/publication/thesis/featured.jpg"><meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2020-03-05T09:57:53-08:00">
+  
+  <meta property="article:modified_time" content="2020-03-05T11:54:25-08:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>PhD Thesis | David P. Hoffman, PhD.</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">David P. Hoffman, PhD.</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>about me</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>blog</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publication"><span>publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>contact me</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/cv.pdf"><span>resume</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <div class="pub" itemscope itemtype="http://schema.org/CreativeWork">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container split-header">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+        <img class="img-fluid w-100" src="/publication/thesis/featured_hub4126514c6f7ccf9d97223f25882e65c_1011896_680x500_fill_q90_lanczos_smart1.jpg" itemprop="image" alt="">
+        
+    </div>
+    <div class="col-lg-8">
+      <h1 itemprop="name">PhD Thesis</h1>
+
+      
+
+      
+
+
+
+<meta content="2014-05-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2020-03-05 11:54:25 -0800 PST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/admin/">David P. Hoffman</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 2014</time>
+  </span>
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://david-hoffman.github.io/publication/thesis/&amp;text=PhD%20Thesis" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://david-hoffman.github.io/publication/thesis/&amp;t=PhD%20Thesis" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=PhD%20Thesis&amp;body=https://david-hoffman.github.io/publication/thesis/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://david-hoffman.github.io/publication/thesis/&amp;title=PhD%20Thesis" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1" href="https://escholarship.org/content/qt61x7x2r8/qt61x7x2r8.pdf?t=ny5vly" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1" href="https://escholarship.org/uc/item/61x7x2r8" target="_blank" rel="noopener">
+  Source Document
+</a>
+
+
+
+
+</div>
+
+
+    </div>
+    
+    </div>
+  </div>
+</div>
+
+  <div class="article-container">
+
+    
+    <h3>Abstract</h3>
+    <p class="pub-abstract" itemprop="text">Chemical reactions are defined by the change in the relative positions and bonding of nuclei in molecules. I have used femtosecond stimulated Raman spectroscopy (FSRS) to probe these transformations with structural specificity and high time precision revealing the mechanisms of two important classes of reactions; isomerization about an N=N bond and interfacial/intermolecular electron transfer.
+Isomerization about a double bond is one of the simplest, yet most important, photochemical reactions. In contrast to carbon double bonds, nitrogen double bonds can react via two possible mechanisms; rotation or inversion. To determine which pathway is predominant, I studied an azobenzene derivative using both FSRS and impulsive stimulated Raman spectroscopy (ISRS). The FSRS experiments demonstrated that the photochemical reaction occurs concomitantly with the 700 fs non-radiative decay of the excited state; because no major change in N=N stretching frequency was measured, I surmised that the reaction proceeds through an inversion pathway. My subsequent ISRS experiments confirmed this hypothesis; I observed a highly displaced, low frequency, inversion-like mode, indicating that initial movement out of the Franck-Condon region proceeds along an inversion coordinate.
+To probe which nuclear motions facilitate electron transfer and charge recombination, I used FSRS and the newly developed 2D-FSRS techniques to study two model systems, triphenylamine dyes bound to TiO2 nanoparticles and a molecular charge transfer (CT) dimer. In the dye-nanoparticle system I discovered that charge separation persists much longer (&gt; 100 ps) than previously thought by using the juxtaposition of the FSRS and transient absorption data to separate the dynamics of the dye from that of the injected electron. Additionally, I discovered that dye constructs with an added vinyl group were susceptible to quenching via isomerization. The CT dimer offered an opportunity to study a system in which charge recombination occurred on a shorter timescale (~10 ps). Here I found that impulsively excited coherent nuclear motion in the excited state survived for more than 5 ps. These long lived coherences enabled the performance of 2D-FSRS to identify the coupling and tuning modes of the conical intersection that connects the charge transfer excited state with the neutral ground state and therefore the nuclear motions responsible for charge recombination. Furthermore, these data demonstrate that the photochemical reactivity is not mediated by phase-space randomization but rather by specific, coherent, nuclear trajectories.
+In this thesis I have demonstrated the power and utility of FSRS in probing condensed phase chemical reaction dynamics and provided a glimpse of the capabilities of 2D-FSRS. In general, 2D-FSRS provides a direct measure of the anharmonic coupling that controls reactivity. Looking forward, higher time resolution (broader band) 2D-FSRS will open up a whole new approach for characterizing transition states and energy transfer processes.</p>
+    
+
+    
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-12 col-md-3 pub-row-heading">Type</div>
+          <div class="col-12 col-md-9">
+            
+            
+            <a href="/publication/#7">
+              Thesis
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="d-md-none space-below"></div>
+    
+
+    
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-12 col-md-3 pub-row-heading">Publication</div>
+          <div class="col-12 col-md-9">Molecular Choreography of Isomerization and Electron Transfer Using One and Two Dimensional Femtosecond Stimulated Raman Spectroscopy</div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="d-md-none space-below"></div>
+    
+
+    <div class="space-below"></div>
+
+    <div class="article-style"></div>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="https://david-hoffman.github.io/">David P. Hoffman</a></h5>
+      <h6 class="card-subtitle">Engineer IV @ <a href="eikontx.com">Eikon Therapeutics, Inc.</a></h6>
+      <p class="card-text" itemprop="description">I&rsquo;m a scientist/engineer who builds complex optical systems and loves data and python</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="/#contact" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/davephoffman" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://www.linkedin.com/in/dphoffman/" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/david-hoffman" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://stackoverflow.com/users/5030014/david-hoffman" target="_blank" rel="noopener">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.com/citations?user=HGG__poAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="/files/cv.pdf" >
+              <i class="ai ai-cv"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  </div>
+</div>
+
+
+
+      
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academia.min.281fa180ccfa1769ea3c7dd430814861.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+        <p>
+          © 2020 David P. Hoffman &middot; 
+          Powered by
+          <a href="https://themefisher.com" target="_blank" rel="noopener">themefisher</a> for
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-inline network-icon text-right">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://www.linkedin.com/in/dphoffman/" target="_blank" rel="noopener" title="Linkin with me"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://twitter.com/davephoffman" target="_blank" rel="noopener" title="DM Me"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/david-hoffman" target="_blank" rel="noopener" title="Check out my code"><i class="fab fa-github" aria-hidden="true"></i></a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

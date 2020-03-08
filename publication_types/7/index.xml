@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>7 on David P. Hoffman, PhD.</title>
+    <link>https://david-hoffman.github.io/publication_types/7/</link>
+    <description>Recent content in 7 on David P. Hoffman, PhD.</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} David P. Hoffman</copyright>
+    <lastBuildDate>Fri, 16 May 2014 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://david-hoffman.github.io/publication_types/7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PhD Thesis</title>
+      <link>https://david-hoffman.github.io/publication/thesis/</link>
+      <pubDate>Fri, 16 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://david-hoffman.github.io/publication/thesis/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

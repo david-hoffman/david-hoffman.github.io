@@ -12,6 +12,84 @@
     
     
     <item>
+      <title>Angle to Position and Back</title>
+      <link>https://david-hoffman.github.io/post/angle-to-position-and-back/</link>
+      <pubDate>Wed, 11 Mar 2020 13:46:31 -0700</pubDate>
+      
+      <guid>https://david-hoffman.github.io/post/angle-to-position-and-back/</guid>
+      <description>&lt;p&gt;When designing an fluorescent microscope (or general optical system) one often wants to scan the beam position and/or angle at the sample (or object plane). It&amp;rsquo;s useful to remember that for any lens, especially for objective lenses, the back pupil plane is Fourier conjugate to the sample (object) plane of the lens.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; This has two important consequences for system design.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A beam that is focused in the back pupil will be collimated at the object plane and &lt;em&gt;vice versa&lt;/em&gt;. For instance, if you completely fill the back pupil of an objective with light (preferably overfilling it) then you will have a diffraction limited spot at the sample plane.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;If the beam enters the back pupil at an angle relative to the optical axis the position at the sample plane will be shifted relative to the optical axis.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Basically: &lt;strong&gt;angle&lt;/strong&gt; in the back pupil is &lt;strong&gt;position&lt;/strong&gt; at the object plane and &lt;strong&gt;position&lt;/strong&gt; in the back pupil is &lt;strong&gt;angle&lt;/strong&gt; at the object plane.&lt;/p&gt;
+&lt;h2 id=&#34;scanning-the-beam-position&#34;&gt;Scanning the beam position&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;angle_to_position.png&#34; alt=&#34;How input angle at the back focal plane effects positional offset at the object plane&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We can make a simple geometrical argument for this case (see figure above). The most important ray here is the chief ray (solid orange line) which passes through the center of the lens, the marginal rays (dashed orange lines) have been added for clarity. In this case we imagine a collimated beam of light entering the back aperture of an aplanatic lens at an angle $\theta$ with respect to the optical axis. The collimated (parallel) rays converge at the focal plane a distance $f$ away from the lens forming a spot at a perpendicular distance $y$ from the optical axis. We can relate these quantities together with the following equation based solely on geometrical reasoning:&lt;/p&gt;
+&lt;p&gt;$$
+y = f \tan \theta
+$$&lt;/p&gt;
+&lt;p&gt;For simple lenses and large angles this equation doesn&amp;rsquo;t hold. But for specially designed optical systems, particularly &lt;a href=&#34;https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=2910&#34;&gt;scan lenses&lt;/a&gt; which are designed to specifically for this task, it can hold for very large angles and therefore fields of view.&lt;/p&gt;
+&lt;h2 id=&#34;scanning-the-beam-angle&#34;&gt;Scanning the beam angle&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;position_to_angle.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here we take a slightly different approach. We know that if we were to launch a ray parallel to the optical axis from the very edge of the objective&amp;rsquo;s back pupil then the ray exiting the front of the objective would make an angle $\theta$ with the optical axis such that $NA = n \sin \theta_{max}$ (the classic equation for numerical aperture). That means that if the ray were launched a distance $y$ from the optical axis that was less than half the pupil diameter we could define an &lt;em&gt;effective&lt;/em&gt; NA as $NA_{eff} = y / f$ where $f$ is the focal length of the lens. We can derive this equation knowing that the pupil &lt;em&gt;diameter&lt;/em&gt; is $D = 2 NA f$. This means we can solve for $\theta$ as a function of $y$.&lt;/p&gt;
+&lt;p&gt;$$
+\theta = \sin^{-1} \left(\frac{y}{fn}\right)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;why-arent-the-two-equations-the-same&#34;&gt;Why aren&amp;rsquo;t the two equations the same?&lt;/h3&gt;
+&lt;p&gt;I was surprised that these two equations would be different. The best explanation I can come up with is that for a well corrected, high magnification, system (such as a microscope objective) the entrance pupil (the pupil facing the object) is curved (in fact it lies on part of a spherical shell) while the exit pupil (the pupil facing infinity space) is flat.&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;I&amp;rsquo;ll use sample plane and object plane interchangeably throughout. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Approximately &lt;a href=&#34;https://david-hoffman.github.io/post/things-ive-forgotten&#34;&gt;$\sigma&amp;rsquo; \sigma = \frac{\lambda f}{\pi}$&lt;/a&gt; &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Things I&#39;ve Forgotten</title>
+      <link>https://david-hoffman.github.io/post/things-ive-forgotten/</link>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://david-hoffman.github.io/post/things-ive-forgotten/</guid>
+      <description>&lt;p&gt;In my professional life I&amp;rsquo;m always learning new things. Regrettably, I&amp;rsquo;m also constantly forgetting things. It seems as though my brain only has enough space for a given number of facts and figures, and that number is constantly changing. I figured, if I&amp;rsquo;ve had to learn something more than once, I may as well make a centralized and permanent note of it. Moreover, if I do it in a public forum (👋) someone else may benefit from my mistakes.&lt;/p&gt;
+&lt;p&gt;This list has been roughly divided into three sections: &lt;em&gt;Optics&lt;/em&gt;, &lt;em&gt;Lasers&lt;/em&gt;, and &lt;em&gt;Code&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;optics&#34;&gt;Optics&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Aperature&lt;/em&gt; stops are &lt;em&gt;pupil&lt;/em&gt; conjugate&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Field&lt;/em&gt; stops are &lt;em&gt;sample&lt;/em&gt; conjugate&lt;/li&gt;
+&lt;li&gt;Pupil diameter &lt;a href=&#34;https://www.microscopyu.com/microscopy-basics/infinity-optical-systems&#34;&gt;$=2 NA f$&lt;/a&gt;, where the objective&amp;rsquo;s numerical aperture is NA and its effective focal length is $f$. The focal length can be calculated from the magnification and standard tube lens. For example, for a 60X Nikon objective where the tube lens has a nominal focal length of 200 mm the effective focal length of the objective is 200 mm/60 = 3.33 mm.&lt;/li&gt;
+&lt;li&gt;Fourier transform property of lens: for a Gaussian beam propagating through a lens the beam sizes at each conjugate plane can be related to one another by the following equation:
+$$
+\sigma&amp;rsquo; \sigma = \frac{\lambda f}{\pi}
+$$
+Where $\sigma&#39;$ and $\sigma$ are the beam sizes at each conjugate plane and $\lambda$ is the wavelength of the light and $f$ is the focal length of the lens.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://david-hoffman.github.io/post/angle-to-position-and-back&#34;&gt;The relationship between angle and position at the sample and angle and position at the back pupil of a microscope objective.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Herschel&amp;rsquo;s and Abbe&amp;rsquo;s Sine conditions
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Herschel&amp;rsquo;s Condition&lt;/strong&gt; invariance of axial magnification&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Abbe&amp;rsquo;s Sine Condition&lt;/strong&gt; invariance of lateral magnification (and no coma or spherical aberration)&lt;/li&gt;
+&lt;li&gt;Impossible to satisfy both conditions &lt;em&gt;simultaneously&lt;/em&gt;, thus perfect volumetric imaging is impossible (this is different from collecting separate 2D planes like in normal microscopy).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;lasers&#34;&gt;Lasers&lt;/h2&gt;
+&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+&lt;h2 id=&#34;useful-links&#34;&gt;Useful links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.newport.com/n/focusing-and-collimating&#34;&gt;https://www.newport.com/n/focusing-and-collimating&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.loreti.it/chapterspdf/ch06_diffn_effcy.pdf&#34;&gt;http://www.loreti.it/chapterspdf/ch06_diffn_effcy.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Conversion Factors</title>
       <link>https://david-hoffman.github.io/post/conversion-factors/</link>
       <pubDate>Wed, 04 Mar 2020 15:41:25 -0800</pubDate>
@@ -373,30 +451,6 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \Delta t (\text{ps}) \Delta \nu (\text{cm}^{-1})=15\text{ ps cm}^{-1}
 $$&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Things I&#39;ve Forgotten</title>
-      <link>https://david-hoffman.github.io/post/things-ive-forgotten/</link>
-      <pubDate>Sun, 01 Mar 2020 13:01:26 -0800</pubDate>
-      
-      <guid>https://david-hoffman.github.io/post/things-ive-forgotten/</guid>
-      <description>&lt;p&gt;In my professional life I&amp;rsquo;m always learning new things. Regretably, I&amp;rsquo;m also constantly forgetting things. It seems as though my brain only has enough space for a given number of facts and figures, and that number is constantly changing. I figured, if I&amp;rsquo;ve had to learn something more than once, I may as well make a centralized and permanent note of it. Moreover, if I do it in a public forum (👋) someone else may benefit from my mistakes.&lt;/p&gt;
-&lt;p&gt;This list has been roughly divided into three sections: &lt;em&gt;Optics&lt;/em&gt;, &lt;em&gt;Lasers&lt;/em&gt;, and &lt;em&gt;Code&lt;/em&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;optics&#34;&gt;Optics&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Aperature&lt;/em&gt; stops are &lt;em&gt;pupil&lt;/em&gt; conjugate&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Field&lt;/em&gt; stops are &lt;em&gt;sample&lt;/em&gt; conjugate&lt;/li&gt;
-&lt;li&gt;Pupil diameter $= NA f$, where the objective&amp;rsquo;s numerical aperature is NA and its effective focal length is $f$. The focal length can be calculated from the magnification and standard tube lens. For example, for a 60X Nikon objective where the tube lens has a nominal focal length of 200 mm the effective focal length of the objective is 200 mm/60 = 3.33 mm.&lt;/li&gt;
-&lt;li&gt;Fourier transform property of lens: for a gaussian beam propogating through a lens the beam sizes at each conjugate plane can be related to one another by the following equation:
-$$
-\sigma&amp;rsquo; \sigma = \frac{\lambda f}{\pi}
-$$
-Where $\sigma&#39;$ and $\sigma$ are the beam sizes at each conjugate plane and $\lambda$ is the wavelength of the light and $f$ is the focal length of the lens.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;lasers&#34;&gt;Lasers&lt;/h2&gt;
-&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
 </description>
     </item>
     

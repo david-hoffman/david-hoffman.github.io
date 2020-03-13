@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>microscopy on David P. Hoffman, PhD.</title>
+    <link>https://david-hoffman.github.io/tags/microscopy/</link>
+    <description>Recent content in microscopy on David P. Hoffman, PhD.</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} David P. Hoffman</copyright>
+    <lastBuildDate>Wed, 11 Mar 2020 13:46:31 -0700</lastBuildDate>
+    
+	    <atom:link href="https://david-hoffman.github.io/tags/microscopy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Angle to Position and Back</title>
+      <link>https://david-hoffman.github.io/post/angle-to-position-and-back/</link>
+      <pubDate>Wed, 11 Mar 2020 13:46:31 -0700</pubDate>
+      
+      <guid>https://david-hoffman.github.io/post/angle-to-position-and-back/</guid>
+      <description>&lt;p&gt;When designing an fluorescent microscope (or general optical system) one often wants to scan the beam position and/or angle at the sample (or object plane). It&amp;rsquo;s useful to remember that for any lens, especially for objective lenses, the back pupil plane is Fourier conjugate to the sample (object) plane of the lens.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; This has two important consequences for system design.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A beam that is focused in the back pupil will be collimated at the object plane and &lt;em&gt;vice versa&lt;/em&gt;. For instance, if you completely fill the back pupil of an objective with light (preferably overfilling it) then you will have a diffraction limited spot at the sample plane.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;If the beam enters the back pupil at an angle relative to the optical axis the position at the sample plane will be shifted relative to the optical axis.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Basically: &lt;strong&gt;angle&lt;/strong&gt; in the back pupil is &lt;strong&gt;position&lt;/strong&gt; at the object plane and &lt;strong&gt;position&lt;/strong&gt; in the back pupil is &lt;strong&gt;angle&lt;/strong&gt; at the object plane.&lt;/p&gt;
+&lt;h2 id=&#34;scanning-the-beam-position&#34;&gt;Scanning the beam position&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;angle_to_position.png&#34; alt=&#34;How input angle at the back focal plane effects positional offset at the object plane&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We can make a simple geometrical argument for this case (see figure above). The most important ray here is the chief ray (solid orange line) which passes through the center of the lens, the marginal rays (dashed orange lines) have been added for clarity. In this case we imagine a collimated beam of light entering the back aperture of an aplanatic lens at an angle $\theta$ with respect to the optical axis. The collimated (parallel) rays converge at the focal plane a distance $f$ away from the lens forming a spot at a perpendicular distance $y$ from the optical axis. We can relate these quantities together with the following equation based solely on geometrical reasoning:&lt;/p&gt;
+&lt;p&gt;$$
+y = f \tan \theta
+$$&lt;/p&gt;
+&lt;p&gt;For simple lenses and large angles this equation doesn&amp;rsquo;t hold. But for specially designed optical systems, particularly &lt;a href=&#34;https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=2910&#34;&gt;scan lenses&lt;/a&gt; which are designed to specifically for this task, it can hold for very large angles and therefore fields of view.&lt;/p&gt;
+&lt;h2 id=&#34;scanning-the-beam-angle&#34;&gt;Scanning the beam angle&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;position_to_angle.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here we take a slightly different approach. We know that if we were to launch a ray parallel to the optical axis from the very edge of the objective&amp;rsquo;s back pupil then the ray exiting the front of the objective would make an angle $\theta$ with the optical axis such that $NA = n \sin \theta_{max}$ (the classic equation for numerical aperture). That means that if the ray were launched a distance $y$ from the optical axis that was less than half the pupil diameter we could define an &lt;em&gt;effective&lt;/em&gt; NA as $NA_{eff} = y / f$ where $f$ is the focal length of the lens. We can derive this equation knowing that the pupil &lt;em&gt;diameter&lt;/em&gt; is $D = 2 NA f$. This means we can solve for $\theta$ as a function of $y$.&lt;/p&gt;
+&lt;p&gt;$$
+\theta = \sin^{-1} \left(\frac{y}{fn}\right)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;why-arent-the-two-equations-the-same&#34;&gt;Why aren&amp;rsquo;t the two equations the same?&lt;/h3&gt;
+&lt;p&gt;I was surprised that these two equations would be different. The best explanation I can come up with is that for a well corrected, high magnification, system (such as a microscope objective) the entrance pupil (the pupil facing the object) is curved (in fact it lies on part of a spherical shell) while the exit pupil (the pupil facing infinity space) is flat.&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;I&amp;rsquo;ll use sample plane and object plane interchangeably throughout. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Approximately &lt;a href=&#34;https://david-hoffman.github.io/post/things-ive-forgotten&#34;&gt;$\sigma&amp;rsquo; \sigma = \frac{\lambda f}{\pi}$&lt;/a&gt; &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

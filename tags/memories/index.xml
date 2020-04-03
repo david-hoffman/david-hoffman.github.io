@@ -38,9 +38,13 @@ Where $\sigma&#39;$ and $\sigma$ are the beam sizes at each conjugate plane and 
 &lt;li&gt;Impossible to satisfy both conditions &lt;em&gt;simultaneously&lt;/em&gt;, thus perfect volumetric imaging is impossible (this is different from collecting separate 2D planes like in normal microscopy).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;If one approximates a diffraction limited PSF by a Gaussian profile the standard deviation of the profile is approximately equal to &lt;a href=&#34;https://en.wikipedia.org/wiki/Airy_disk#Approximation_using_a_Gaussian_profile&#34;&gt;$0.45 \lambda / 2 NA$&lt;/a&gt; assuming that the &lt;a href=&#34;https://en.wikipedia.org/wiki/Numerical_aperture&#34;&gt;f-number is approximately equal to $1/2 NA$&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;lasers&#34;&gt;Lasers&lt;/h2&gt;
 &lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;(╯°□°)╯︵ ┻━┻&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;useful-links&#34;&gt;Useful links&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.newport.com/n/focusing-and-collimating&#34;&gt;https://www.newport.com/n/focusing-and-collimating&lt;/a&gt;&lt;/li&gt;

@@ -38,7 +38,7 @@ $$&lt;/p&gt;
 \theta = \sin^{-1} \left(\frac{y}{fn}\right)
 $$&lt;/p&gt;
 &lt;h3 id=&#34;why-arent-the-two-equations-the-same&#34;&gt;Why aren&amp;rsquo;t the two equations the same?&lt;/h3&gt;
-&lt;p&gt;I was surprised that these two equations would be different. The best explanation I can come up with is that for a well corrected, high magnification, system (such as a microscope objective) the entrance pupil (the pupil facing the object) is curved (in fact it lies on part of a spherical shell) while the exit pupil (the pupil facing infinity space) is flat.&lt;/p&gt;
+&lt;p&gt;I was surprised that these two equations would be different. The best explanation I can come up with is that for a well corrected, high magnification, system (such as a microscope objective) the entrance pupil (the pupil facing the object) is curved (in fact it lies on part of a spherical shell) while the exit pupil (the pupil facing infinity space) is flat. The entrance pupil has to be curved because a single point source (ignoring the fact that it&amp;rsquo;s an oscillating dipole) forms a spherical wave.&lt;/p&gt;
 &lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;

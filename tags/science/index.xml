@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>science on David P. Hoffman, PhD.</title>
+    <link>https://david-hoffman.github.io/tags/science/</link>
+    <description>Recent content in science on David P. Hoffman, PhD.</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} David P. Hoffman</copyright>
+    <lastBuildDate>Wed, 04 Mar 2020 15:41:25 -0800</lastBuildDate>
+    
+	    <atom:link href="https://david-hoffman.github.io/tags/science/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Conversion Factors</title>
+      <link>https://david-hoffman.github.io/post/conversion-factors/</link>
+      <pubDate>Wed, 04 Mar 2020 15:41:25 -0800</pubDate>
+      
+      <guid>https://david-hoffman.github.io/post/conversion-factors/</guid>
+      <description>&lt;h2 id=&#34;energy-conversion-factors&#34;&gt;Energy Conversion Factors&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;1 kcal/mol&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;0.04336 eV&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;0.00159 h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;349.75 cm$^{-1}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;6.948 × 10$^{-14}$ erg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;4.184 kJ/mol&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;1 eV&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;23.06 kcal/mol&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;0.03675 h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;8065.6 cm$^{-1}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;1.602 × 10$^{-12}$ erg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;1 h&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;627.51 kcal/mol&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;27.212 eV&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;219,474.6 cm$^{-1}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;4.36 × 10$^{-11}$ erg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;2 Ry&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;1 erg&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;1.439 × 10$^{13}$ kcal/mol&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;6.2415 × 10$^{11}$ eV&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;2.2937 × 10$^{10}$ h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;5.034 × 10$^{15}$ cm$^{-1}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;colors-of-light&#34;&gt;Colors of Light&lt;/h2&gt;
+&lt;h3 id=&#34;visible-light&#34;&gt;Visible Light&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Color&lt;/th&gt;
+&lt;th&gt;nm&lt;/th&gt;
+&lt;th&gt;eV&lt;/th&gt;
+&lt;th&gt;$\text{cm}^{-1}$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Red&lt;/td&gt;
+&lt;td&gt;700&lt;/td&gt;
+&lt;td&gt;1.77&lt;/td&gt;
+&lt;td&gt;14,300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Orange&lt;/td&gt;
+&lt;td&gt;620&lt;/td&gt;
+&lt;td&gt;2.00&lt;/td&gt;
+&lt;td&gt;16,100&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Yellow&lt;/td&gt;
+&lt;td&gt;580&lt;/td&gt;
+&lt;td&gt;2.14&lt;/td&gt;
+&lt;td&gt;17,300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Green&lt;/td&gt;
+&lt;td&gt;530&lt;/td&gt;
+&lt;td&gt;2.34&lt;/td&gt;
+&lt;td&gt;18,900&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Blue&lt;/td&gt;
+&lt;td&gt;470&lt;/td&gt;
+&lt;td&gt;2.64&lt;/td&gt;
+&lt;td&gt;21,300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Violet&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;td&gt;2.95&lt;/td&gt;
+&lt;td&gt;23,800&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;all-light&#34;&gt;All Light&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Color&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;nm&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;eV&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;$\text{cm}^{-1}$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Radio&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{12}$ &amp;mdash; $3\times 10^{8}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$4\times 10^{-10}$ &amp;mdash; $4\times 10^{-6}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{-6}$ &amp;mdash; $3\times 10^{-2}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Microwaves&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{8}$ &amp;mdash; $3\times 10^{6}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$4\times 10^{-6}$ &amp;mdash; $4\times 10^{-4}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{-2}$ &amp;mdash; $3$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Far IR&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{6}$ &amp;mdash; $3\times 10^{4}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$4\times 10^{-4}$ &amp;mdash; $4\times 10^{-2}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3$ &amp;mdash; $300$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Near IR&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{4}$ &amp;mdash; $700$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$4\times 10^{-2}$ &amp;mdash; $2$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$300$ &amp;mdash; $15,000$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Visible&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$700$ &amp;mdash; $420$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$2$ &amp;mdash; $3$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$15,000$ &amp;mdash; $24,000$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Near UV&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$420$ &amp;mdash; $300$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3$ &amp;mdash; $4$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$24,000$ &amp;mdash; $30,000$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Vac UV&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$300$ &amp;mdash; $3$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$4$ &amp;mdash; $400$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$30,000$ &amp;mdash; 3\e{6}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;X-rays&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3$ &amp;mdash; $0.003$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$400$ &amp;mdash; $4\times 10^{5}$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;$3\times 10^{6}$ &amp;mdash; $3\times 10^{9}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;free-energies&#34;&gt;Free Energies&lt;/h2&gt;
+&lt;p&gt;$$
+\Delta(G) = RT \ln(K)
+$$
+$$
+\Delta(G_1) - \Delta(G_2) = RT\ln\left(\frac{K_1}{K_2}\right)
+$$
+$$
+\Delta\Delta(G) = 1\text{ kcal/mol} \Longleftrightarrow \frac{K_1}{K_2} = 5.4
+$$
+$$
+\frac{K_1}{K_2} = 10^1 \Longleftrightarrow \Delta\Delta G = 1.36
+$$
+$$
+\frac{K_1}{K_2} = 10^2 \Longleftrightarrow \Delta\Delta G = 2.76
+$$
+$$
+\frac{K_1}{K_2} = 10^4 \Longleftrightarrow \Delta\Delta G = 5.53
+$$
+$$
+\frac{K_1}{K_2} = 10^6 \Longleftrightarrow \Delta\Delta G = 8.29
+$$
+$$
+\Delta G = 1.36 \left( pK_{a1} - pK_{a2}\right)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;atomic-units&#34;&gt;Atomic Units&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Length&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Bohr radius, $a_0$&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;0.52918 Å&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Force Constant&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1 au&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$1.5569 \times 10^6$ dyn/cm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Mass&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;au, m$_\text{e}$&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$9.1095\times 10^{-31}$ kg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$5.5\times 10^{-4}$ amu&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;amu, m($^{12}$C)/12&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$1.66\times 10^{-27}$ kg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1822 au&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Time&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;au&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$2.4189\times 10^{-17}$ s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dipole Moment&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;au&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.54 D&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$8.478\times 10^{-30}$ C-m&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;miscellaneous&#34;&gt;Miscellaneous&lt;/h2&gt;
+&lt;h3 id=&#34;force-constants&#34;&gt;Force Constants&lt;/h3&gt;
+&lt;p&gt;$$
+1\text{ dyn/cm} = 1.44 \times 10^{-3}\frac{\text{ kcal/mol}}{\text{Å}^2}
+$$
+$$
+1\text{ Mdyn/cm} = 1440\frac{\text{ kcal/mol}}{\text{Å}^2}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;thermal&#34;&gt;Thermal&lt;/h3&gt;
+&lt;p&gt;$$
+k_BT (298\text{ K}) = 9.4366 \times 10^{-4}\text{ h}
+$$
+$$
+RT (298\text{ K}) = 2.4789\text{ kJ/mol} = 0.5925\text{ kcal/mol}
+$$
+$$
+e^2 = 14.3998\text{ eV-Å} = 332.059\text{ (kcal/mol)-Å}
+$$&lt;/p&gt;
+&lt;a href=&#34;https://david-hoffman.github.io/files/conversion_factors.pdf&#34; target=&#34;_blank&#34;&gt;Download a prettier PDF version of this post&lt;/a&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

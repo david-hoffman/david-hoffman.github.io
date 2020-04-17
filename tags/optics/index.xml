@@ -7,10 +7,352 @@
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} David P. Hoffman</copyright>
-    <lastBuildDate>Wed, 11 Mar 2020 13:46:31 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 11 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://david-hoffman.github.io/tags/optics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Oh no, I squished my OTF!</title>
+      <link>https://david-hoffman.github.io/post/otf-squishing/</link>
+      <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://david-hoffman.github.io/post/otf-squishing/</guid>
+      <description>&lt;h2 id=&#34;a-question-of-index&#34;&gt;A question of index&lt;/h2&gt;
+&lt;p&gt;Something I learned the hard way during my post-doc is the effect index mismatching can have on images taken with high NA air objectives (in my case a Nikon CFI L Plan EPI CRB 100X 0.85 NA lens). Many&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; previous&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; authors&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; have commented on and analyzed degradation of image quality when the index for which an objective is designed does not match the one in which it is used. Even so, many users of optical microscopes remain unaware of this issue. The problems induced by index mismatch can be summarized as follows (where $n_{obj}$ is the design index and $n_{sample}$ is the mounting index):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;NA is reduced to the index of the specimen, i.e. $NA = n_{sample}$, when $n_{obj} &amp;gt; n_{sample}$&lt;/li&gt;
+&lt;li&gt;Compression of the image when $n_{obj} &amp;lt; n_{sample}$ and a concomitant reduction in expected axial resolution&lt;/li&gt;
+&lt;li&gt;Increasing spherical aberration as the objective&amp;rsquo;s focus is moved deeper into the sample when $n_{obj} \neq n_{sample}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To explain the first problem imagine we are imaging a point source radiating spherical waves of light embedded in a medium of index $n_{sample}$ near the interface with a medium of index $n_{obj}$ (c.f. Figure 1). After a certain axial distance the spherical wave encounters the interface and refracts. Appealing to geometrical optical arguments we say that only the bottom hemisphere of light can be captured. The maximum angle of rays that can be captured are rays that propagate along the interface (i.e. at an angle of 90° relative to the interface normal) and these are refracted at an angle &lt;a href=&#34;https://en.wikipedia.org/wiki/Total_internal_reflection#Critical_angle&#34;&gt;$\theta_c = \arcsin(n_{sample}/n_{obj})$&lt;/a&gt;. According to &lt;a href=&#34;https://en.wikipedia.org/wiki/Snell%27s_law&#34;&gt;Snell&amp;rsquo;s law&lt;/a&gt; and the definition for &lt;a href=&#34;https://en.wikipedia.org/wiki/Numerical_aperture&#34;&gt;NA&lt;/a&gt; this means that the maximum possible NA for this configuration is $NA = n_{obj} \sin(\theta_c) = n_{sample} \sin(\pi/2) = n_{sample}$&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;TIRF_Diagram.png&#34; &gt;
+
+&lt;img src=&#34;TIRF_Diagram.png&#34; &gt;
+&lt;/a&gt;
+
+
+&lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+  &lt;h4&gt;A point source emitting from a lower index material to a higher index material&lt;/h4&gt;
+  
+&lt;/figcaption&gt;
+
+&lt;/figure&gt;
+
+&lt;p&gt;The second problem, when $n_{obj} &amp;lt; n_{sample}$, is trickier and I covered it in some detail in the &lt;a href=&#34;http://science.sciencemag.org/content/367/6475/eaaz5357/suppl/DC1&#34;&gt;supplemental material&lt;/a&gt; of our &lt;a href=&#34;https://science.sciencemag.org/content/367/6475/eaaz5357&#34;&gt;cryo paper&lt;/a&gt;. Looking at the OTF support in the $k_xk_z$ plane, as shown in Figure 2, we can see that the OTF gets &amp;ldquo;squished&amp;rdquo; in the $k_z$ direction. A key insight is that while the lateral resolution is independent of index due to Snell&amp;rsquo;s law, $NA = n_{obj}\sin(\theta_{obj}) = n_{sample}\sin(\theta_{sample})$, the axial resolution is not.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; Axial resolution (sometimes termed &lt;a href=&#34;https://en.wikipedia.org/wiki/Depth_of_field&#34;&gt;depth of field&lt;/a&gt; or depth of focus) for high NA systems has been derived before&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; and can be modified for differing indices of refraction to be&lt;/p&gt;
+&lt;p&gt;$$
+\Delta z = \frac{\lambda}{n_{sample} - \sqrt{n_{sample}^2 - NA^2}}
+$$&lt;/p&gt;
+&lt;p&gt;and herein lies the observed squishing effect&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;: as $n_{sample}$ increases relative to $NA$ the denominator decreases and $\Delta z$ increases.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;featured.png&#34; &gt;
+
+&lt;img src=&#34;featured.png&#34; &gt;
+&lt;/a&gt;
+
+
+&lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+  &lt;h4&gt;OTF support for fixed NA and variable index of refraction ($n$), specifically comparing air ($n=1$) to vitreous ice ($n=1.3$)&lt;/h4&gt;
+  
+&lt;/figcaption&gt;
+
+&lt;/figure&gt;
+
+&lt;p&gt;Investigating the third problem will require real math based on the work of Török&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, Török&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;, and Egner.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;focal-plane-displacement-in-mismatched-media-a-vectorial-calculation&#34;&gt;Focal plane displacement in mismatched media, a Vectorial Calculation&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ll be following the notation of Egner&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;. Equation 9 gives the vectorial point spread function in terms of three diffraction integrals. Note that for on axis light ($x=0$ and $y=0$) the integrands of $I_1(\vec{r})$ and  $I_2(\vec{r})$ are $0$ and $I_0(\vec{r})$ reduces to&lt;/p&gt;
+&lt;p&gt;$$
+I_0(z) = \int_0^\alpha \sqrt{\cos(\theta_1)}\sin(\theta_1)(\tau_s+\tau_p \cos(\theta_2))\exp(ik(\Phi(NFP)+n_2z\cos(\theta_2)))d\theta_1
+$$&lt;/p&gt;
+&lt;p&gt;Where&lt;/p&gt;
+&lt;p&gt;$$
+\Phi(NFP) = -NFP(n_1\cos\theta_1-n_2\cos\theta_2)
+$$&lt;/p&gt;
+&lt;p&gt;$k$ is the wavenumber of the light rays &lt;em&gt;in vacuo&lt;/em&gt;, i.e. $k = 2\pi/\lambda$. $\alpha$ is the aperture semi-angle of the lens, i.e. $\text{NA}=n_1 \sin\alpha$. Note that $n_1 = n_{obj}$ and $n_2 = n_{sample}$.&lt;/p&gt;
+&lt;p&gt;We can now implement these functions in Python.&lt;/p&gt;
+&lt;h2 id=&#34;python-time&#34;&gt;Python time&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;pylab inline
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; scipy.integrate
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; scipy.optimize
+
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; seaborn &lt;span style=&#34;color:#f92672&#34;&gt;as&lt;/span&gt; sns
+
+sns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;complex_quadrature&lt;/span&gt;(func, a, b, &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;kwargs):
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;scipy.integrate.quad doesn&amp;#39;t deal with complex numbers, so this hack does&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;real_func&lt;/span&gt;(x):
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; real(func(x))
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;imag_func&lt;/span&gt;(x):
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; imag(func(x))
+    real_integral &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; scipy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;integrate&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;quad(real_func, a, b, &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;kwargs)
+    imag_integral &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; scipy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;integrate&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;quad(imag_func, a, b, &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;kwargs)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (real_integral[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1j&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;imag_integral[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;], real_integral[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;:], imag_integral[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;:])
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@vectorize&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i0&lt;/span&gt;(z, NFP, n1, n2, NA, wl):
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;This calculates e-field amplitude _relative to_ NFP, only along the z axis with x, y = 0, 0&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+    theta_max &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; arcsin(NA &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; n1)
+    
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;integrand&lt;/span&gt;(theta1):
+        sin_t1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sin(theta1)
+        theta2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; arcsin(n1 &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; sin_t1 &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; n2)
+        sin_t2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sin(theta2)
+        cos_t1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cos(theta1)
+        cos_t2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cos(theta2)
+        ts &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; sin_t2 &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; cos_t1 &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; sin(theta1 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; theta2)
+        tp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ts &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; cos(theta1 &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; theta2)
+        
+        k &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; pi &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; wl
+        phi &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;NFP &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (n1 &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; cos_t1 &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; n2 &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; cos_t2)
+        &lt;span style=&#34;color:#75715e&#34;&gt;# make sure i is complex&lt;/span&gt;
+        i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; exp(&lt;span style=&#34;color:#ae81ff&#34;&gt;1j&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; k &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (phi &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; n2 &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; z &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; cos_t2))
+        i &lt;span style=&#34;color:#f92672&#34;&gt;*=&lt;/span&gt; sqrt(cos_t1) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; sin_t1 &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (ts &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; tp &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; cos_t2)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; i
+        
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; complex_quadrature(integrand, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, theta_max)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A short test to see if the calculation works using the example from Egner and Hell a 1.518 oil objective 1.47 NA&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;z &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;linspace(&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;128&lt;/span&gt;)
+a_exc &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; i0(z, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.518&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.47&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.33&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.514&lt;/span&gt;)
+a_em &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; i0(z, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.518&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.47&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.33&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.59&lt;/span&gt;)
+
+fig, ax &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;subplots(dpi&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;150&lt;/span&gt;)
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;plot(z, abs(a_exc)&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, label&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Excitation PSF&amp;#34;&lt;/span&gt;)
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;plot(z, abs(a_em)&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, label&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Emission PSF&amp;#34;&lt;/span&gt;)
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;plot(z, abs(a_exc)&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; abs(a_em)&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, label&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Confocal PSF&amp;#34;&lt;/span&gt;)
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;legend()
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;yaxis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_major_locator(plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NullLocator())
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_xlabel(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Axial Position (µm)&amp;#34;&lt;/span&gt;)
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_title(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Computation Test, Oil Objective&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;output_4_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# we need an esimate of the focal shift in order to reduce computation time&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;otf_ratio&lt;/span&gt;(n1, n2, NA):
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;The OTF ratio as calculated from the geometrical proof&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;func&lt;/span&gt;(n):
+        &lt;span style=&#34;color:#75715e&#34;&gt;# fmax takes care of limiting NA&lt;/span&gt;
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; sqrt(np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;fmax(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, n&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; NA&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;))
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; func(n1) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; func(n2)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;_find_afp&lt;/span&gt;(NFP, n1, n2, NA, wl_ex, wl_em&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None, &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;, res&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;32&lt;/span&gt;, width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;, ax&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None):
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Find the _apparent_ focal position based on the nominal focal position&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+    
+    &lt;span style=&#34;color:#75715e&#34;&gt;# if no emission wavelength is given, then calculate the widefield PSF&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; wl_em &lt;span style=&#34;color:#f92672&#34;&gt;is&lt;/span&gt; None:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i0_min&lt;/span&gt;(z):
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;abs(i0(z, NFP, n1, n2, NA, wl_ex))&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+    &lt;span style=&#34;color:#75715e&#34;&gt;# otherwise calculate the confocal PSF&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i0_min&lt;/span&gt;(z):
+            toreturn &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;abs(i0(z, NFP, n1, n2, NA, wl_ex))&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; 
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; toreturn &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; abs(i0(z, NFP, n1, n2, NA, wl_em))&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+        
+    &lt;span style=&#34;color:#75715e&#34;&gt;# calculate the approximate focal shift, so the optimization is close to the optimum&lt;/span&gt;
+    focal_shift &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; otf_ratio(n1, n2, NA)
+    
+    &lt;span style=&#34;color:#75715e&#34;&gt;# make a rough low res estimate relative to the estimated focal shift&lt;/span&gt;
+    low_res_z &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;linspace(&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;width, width, res) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; NFP &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (focal_shift &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+    low_res_a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;i0_min(low_res_z)
+    low_res_max_idx &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; low_res_a&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;argmax()
+    
+    &lt;span style=&#34;color:#75715e&#34;&gt;# optimize to find the proper location of the optimum&lt;/span&gt;
+    high_res_max &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; scipy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;optimize&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;minimize_scalar(i0_min, bounds&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(low_res_z[low_res_max_idx &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;], low_res_z[low_res_max_idx &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]), method&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bounded&amp;#39;&lt;/span&gt;, options&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;dict(xatol&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1e-10&lt;/span&gt;))
+    
+    &lt;span style=&#34;color:#75715e&#34;&gt;# looks like we failed to find a maximum&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; high_res_max&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;success:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;raise&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;RuntimeError&lt;/span&gt;(high_res_max&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;message)
+    
+    &lt;span style=&#34;color:#75715e&#34;&gt;# make a plot&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ax &lt;span style=&#34;color:#f92672&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; None:
+        ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;plot(low_res_z, low_res_a)
+        ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;axvline(high_res_max&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;x, c&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;r&amp;#34;&lt;/span&gt;)
+    
+    
+    max_intensity &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;high_res_max&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;fun
+    
+    &lt;span style=&#34;color:#75715e&#34;&gt;# return the shifted AFP&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; high_res_max&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;x &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; NFP, max_intensity
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;find_afp&lt;/span&gt;(NFP, &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;kwargs):
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;A simple version to vectorize over z, for convenience&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;array([_find_afp(z, &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;kwargs) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; z &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; NFP])
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;TypeError&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; _find_afp(NFP, &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;kwargs)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;testing&#34;&gt;Testing&lt;/h3&gt;
+&lt;p&gt;On page 409 of Egner&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; there are some example calculations that we can repeat to test the validity of the calculations.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; sns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;color_palette(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;inferno&amp;#34;&lt;/span&gt;):
+    &lt;span style=&#34;color:#75715e&#34;&gt;# our confocal calculations&lt;/span&gt;
+    fig, ax &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;subplots(dpi&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;150&lt;/span&gt;)
+    
+    nfps &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;) 
+    glycerol_cf &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; find_afp(
+        nfps,
+        &lt;span style=&#34;color:#ae81ff&#34;&gt;1.518&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.473&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.514&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.59&lt;/span&gt;,
+        res&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;128&lt;/span&gt;, width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, ax&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;ax
+    )
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;# values taken from table 20.1 of Egner and Hell&lt;/span&gt;
+    glycerol_lit &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;array((
+        (&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0.28&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0.55&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0.83&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.1&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.33&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.54&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2.30&lt;/span&gt;),
+        (&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.95&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.91&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.78&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.62&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.31&lt;/span&gt;)
+    ))&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;T
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;# percent differences between our calculations and theirs for focal shift&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;((glycerol_lit[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; (glycerol_cf[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;))) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; glycerol_lit[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;)
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;# percent differences between our calculations and theirs for peak intensity&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;((glycerol_lit[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; glycerol_cf[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; glycerol_cf[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;max()) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; glycerol_lit[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;)
+
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;yaxis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_major_locator(plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NullLocator())
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_xlabel(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Deviation from Nominal Focal Position (µm)&amp;#34;&lt;/span&gt;)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; line &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_lines():
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; len(line&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_data()[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;:
+            line&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;remove()
+
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_title(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Computation Test, Oil Objective in Glycerol&amp;#34;&lt;/span&gt;)
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;legend(nfps, title&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;NFP (µm)&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;[        inf  2.2220463   0.62956575  1.5641702   1.51523215 -0.91086836
+ -2.9878027   2.47268137]
+[ 0.         -2.05250791  2.91190777  2.94368608  1.49427111  6.83299954
+ 14.99787706 39.09604286]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;output_8_2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; sns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;color_palette(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;inferno&amp;#34;&lt;/span&gt;):
+    &lt;span style=&#34;color:#75715e&#34;&gt;# our confocal calculations&lt;/span&gt;
+    fig, ax &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;subplots(dpi&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;150&lt;/span&gt;)
+
+    nfps &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;)
+    water_cf &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; find_afp(
+        nfps,
+        &lt;span style=&#34;color:#ae81ff&#34;&gt;1.33&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.473&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.514&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.59&lt;/span&gt;,
+        res&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;256&lt;/span&gt;, width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;, ax&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;ax
+    )
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;# values taken from table 20.1 of Egner and Hell&lt;/span&gt;
+    water_lit &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;array((
+        (&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.83&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2.57&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3.3&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4.02&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4.72&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;7.57&lt;/span&gt;),
+        (&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.60&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.39&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.285&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.23&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.19&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.166&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.11&lt;/span&gt;)
+    ))&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;T
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;# percent differences between our calculations and theirs for focal shift&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;((water_lit[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; (water_cf[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;))) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; water_lit[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;)
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;# percent differences between our calculations and theirs for peak intensity&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;((water_lit[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; water_cf[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; water_cf[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;max()) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; water_lit[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;)
+
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;yaxis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_major_locator(plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NullLocator())
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_xlabel(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Deviation from Nominal Focal Position (µm)&amp;#34;&lt;/span&gt;)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; line &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_lines():
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; len(line&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_data()[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;:
+            line&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;remove()
+
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_xlim(&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;)
+
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_title(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Computation Test, Oil Objective in Water&amp;#34;&lt;/span&gt;)
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;legend(nfps, title&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;NFP (µm)&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;[        inf -3.89876815 -1.16698752  0.24182932  1.60682485  2.02297875
+  3.0281091   5.03027355]
+[ 0.         48.28097585 59.70939519 65.5089603  70.36385208 72.25077729
+ 75.80157613 81.9156686 ]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;output_9_2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Our simulations match the reported focal length shift to a few percent. However, there is larger error between the our intensity and theirs.&lt;/p&gt;
+&lt;h2 id=&#34;simulations-for-the-cryo-scope&#34;&gt;Simulations for the Cryo-scope&lt;/h2&gt;
+&lt;p&gt;Here the objective is a 0.85 NA air objective and the sample medium is vitreous ice so $n_1=1$ and $n_2=1.3$.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; sns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;color_palette(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;inferno&amp;#34;&lt;/span&gt;):
+    fig, ax &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;subplots(dpi&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;300&lt;/span&gt;)
+    
+    nfps &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;)
+    find_afp(nfps, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.85&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.52&lt;/span&gt;, res&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;128&lt;/span&gt;, ax&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;ax)
+
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;yaxis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_major_locator(plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NullLocator())
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_xlabel(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Deviation from Nominal Focal Position (µm)&amp;#34;&lt;/span&gt;)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; line &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_lines():
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; len(line&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_data()[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;:
+            line&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;remove()
+
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_title(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Computation Test, Air Objective in Ice&amp;#34;&lt;/span&gt;)
+    ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;legend(nfps, title&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;NFP (µm)&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;output_12_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Clearly, spherical aberrations start to become problematic when you&amp;rsquo;re more than 10 µm from the best focal position (and this effect is worse the larger the mismatch between refractive indices).&lt;/p&gt;
+&lt;p&gt;One question we can ask is: how well does our geometric argument fare against the more complex vectorial calculation? We&amp;rsquo;ll calculate the actual focal position with the complex calculation for multiple nominal focal positions and compare the to the simpler calculation to see the size of the deviation.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# make some NFPs in µm&lt;/span&gt;
+NFP &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;linspace(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;)
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# calculate the AFPs&lt;/span&gt;
+AFP &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; find_afp(NFP, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.85&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.52&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# geometrical stretch&lt;/span&gt;
+geom_m &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; otf_ratio(&lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.85&lt;/span&gt;)
+
+fig, ax &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;subplots(dpi&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;150&lt;/span&gt;)
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;plot(NFP, AFP[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;], &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;o&amp;#34;&lt;/span&gt;, label&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Vectorial&amp;#34;&lt;/span&gt;)
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;plot(NFP, NFP &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; geom_m, label&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Geometrical&amp;#34;&lt;/span&gt;)
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_ylabel(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Actual Focal Position (µm)&amp;#34;&lt;/span&gt;)
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_xlabel(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Nominal Focal Position (µm)&amp;#34;&lt;/span&gt;)
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_title(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Calculation Comparison&amp;#34;&lt;/span&gt;)
+ax&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;legend()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;output_15_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# geometrical stretch&lt;/span&gt;
+geom_m &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; otf_ratio(&lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1.3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0.85&lt;/span&gt;)
+
+fig, (ax1, ax2) &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;subplots(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, dpi&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;150&lt;/span&gt;, sharex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;True)
+ax1&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;plot(NFP, AFP[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; NFP &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; geom_m, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;o&amp;#34;&lt;/span&gt;)
+ax2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;plot(NFP[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;:], &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;((AFP[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; NFP &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; geom_m)&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;AFP[:, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;])[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;:], &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;o&amp;#34;&lt;/span&gt;)
+ax1&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_ylabel(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$\Delta$ (µm)&amp;#34;&lt;/span&gt;)
+ax2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_ylabel(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$\Delta$ (%)&amp;#34;&lt;/span&gt;)
+ax2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_xlabel(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Nominal Focal Position (µm)&amp;#34;&lt;/span&gt;)
+ax1&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_title(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Difference between Vectorial and Geometrical Calculations&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;output_16_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;slope_ratio &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (AFP[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;:, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; NFP[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;:])&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mean() &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; geom_m
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(f&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;The ratio between the complex slope and the simple slope is {slope_ratio:.0%}&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;The ratio between the complex slope and the simple slope is 99%
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At least as far as focal position is concerned the simple calculation is more than adequate over short distances.&lt;/p&gt;
+&lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;When talking about three dimensional imaging it seems that NA alone doesn&amp;rsquo;t tell the full story.&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; As shown &lt;a href=&#34;#a-question-of-index&#34;&gt;above&lt;/a&gt;, NA is the sole determinant of lateral resolution but the index of the sample comes into the equation for axial resolution. To put it another way, the lateral resolution of a 0.95 NA water objective is exactly the same (in theory) as the lateral resolution of 0.95 NA air objective &lt;em&gt;but&lt;/em&gt; the axial resolution of the water objective is more than 70% worse! Moreover, index mismatch adds spherical aberration to the images. This can be alleviated to a certain extent with confocal imaging (c.f. Figure 1). Even so, it is to the microscopist&amp;rsquo;s advantage to use an objective with a design index as close as possible to the sample of interest (except in the case of TIRF microscopy).&lt;/p&gt;
+&lt;p&gt;If you want to download the Jupyter notebook I used to create this post you can do so &lt;a href=&#34;https://david-hoffman.github.io/files/Vectorial%20Estimation%20of%20focal%20shift.ipynb&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.osapublishing.org/josaa/abstract.cfm?uri=josaa-12-2-325&#34;&gt;P. Török, P. Varga, Z. Laczik, G. R. Booker, Electromagnetic diffraction of light focused through a planar interface between materials of mismatched refractive indices: an integral representation. J. Opt. Soc. Am. A, JOSAA. 12, 325–332 (1995).&lt;/a&gt; &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;http://onlinelibrary.wiley.com/doi/10.1046/j.1365-2818.1997.2440802.x/abstract&#34;&gt;P. Török, S. J. Hewlett, P. Varga, The role of specimen-induced spherical aberration in confocal microscopy. Journal of Microscopy. 188, 158–172 (1997).&lt;/a&gt; &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://link.springer.com/chapter/10.1007/978-0-387-45524-2_20&#34;&gt;A. Egner, S. W. Hell, in Handbook Of Biological Confocal Microscopy (Springer, Boston, MA, 2006; https://link.springer.com/chapter/10.1007/978-0-387-45524-2_20), pp. 404–413.&lt;/a&gt; &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;It should be noted that &lt;a href=&#34;https://en.wikipedia.org/wiki/Fresnel_equations&#34;&gt;Fresnel reflections&lt;/a&gt; at the interface increase with increasing angle such that the apodization function of the pupil rolls off much faster. Thus while the lateral support of the OTF is unchanged its actual shape will be different and will result in lower &lt;em&gt;effective&lt;/em&gt; resolution at lower signal-to-noise ratios. &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1365-2818.1988.tb04563.x&#34;&gt;C. J. R. Sheppard, Depth of field in optical microscopy. Journal of Microscopy. 149, 73–75 (1988).&lt;/a&gt; &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Squishing in frequency which is expansion in real space. &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;This is definitely true for two dimensional imaging as well: characterizing the frequency response of any system with a single number is always a bad idea. In practice, how the OTF approaches zero transmission is as import, if not more so, than where it hits zero. If your microscope transmits high spatial frequencies, but strongly attenuates them, you&amp;rsquo;ll need a high, and in some cases an unphysically high, signal to noise ratio to make use of them. &lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
     
     <item>
       <title>Angle to Position and Back</title>
@@ -50,6 +392,25 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Freeze-frame of whole cells</title>
+      <link>https://david-hoffman.github.io/publication/clem/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://david-hoffman.github.io/publication/clem/</guid>
+      <description>&lt;p&gt;This is my favorite movie from the paper.&lt;/p&gt;
+&lt;p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://player.vimeo.com/video/383152270&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;vimeo video&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;It&amp;#39;s here!!!&lt;a href=&#34;https://t.co/11j9LUa7xu&#34;&gt;https://t.co/11j9LUa7xu&lt;/a&gt;&lt;br&gt;OMG! OMG! 😱😱😱&lt;/p&gt;&amp;mdash; David Hoffman (@davephoffman) &lt;a href=&#34;https://twitter.com/davephoffman/status/1217884019817189376?ref_src=twsrc%5Etfw&#34;&gt;January 16, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
 </description>
     </item>
     

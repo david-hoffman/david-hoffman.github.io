@@ -48,17 +48,17 @@
   </url>
   
   <url>
-    <loc>https://david-hoffman.github.io/post/angle-to-position-and-back/</loc>
-    <lastmod>2020-04-15T21:02:12-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://david-hoffman.github.io/tags/optics/</loc>
-    <lastmod>2020-04-15T21:02:12-07:00</lastmod>
+    <lastmod>2020-04-16T22:24:36-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://david-hoffman.github.io/categories/lists/</loc>
+    <loc>https://david-hoffman.github.io/tags/theory/</loc>
+    <lastmod>2020-04-16T22:24:36-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://david-hoffman.github.io/post/angle-to-position-and-back/</loc>
     <lastmod>2020-04-15T21:02:12-07:00</lastmod>
   </url>
   
@@ -73,7 +73,17 @@
   </url>
   
   <url>
+    <loc>https://david-hoffman.github.io/tags/chemistry/</loc>
+    <lastmod>2020-03-04T20:52:17-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://david-hoffman.github.io/post/conversion-factors/</loc>
+    <lastmod>2020-03-04T20:52:17-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://david-hoffman.github.io/tags/science/</loc>
     <lastmod>2020-03-04T20:52:17-08:00</lastmod>
   </url>
   
@@ -103,11 +113,6 @@
   </url>
   
   <url>
-    <loc>https://david-hoffman.github.io/categories/microscopy/</loc>
-    <lastmod>2020-03-05T11:54:25-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://david-hoffman.github.io/publication_types/</loc>
     <lastmod>2020-03-05T11:54:25-08:00</lastmod>
   </url>
@@ -119,6 +124,11 @@
   
   <url>
     <loc>https://david-hoffman.github.io/publication_types/3/</loc>
+    <lastmod>2020-03-05T11:54:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://david-hoffman.github.io/categories/microscopy/</loc>
     <lastmod>2020-03-05T11:54:25-08:00</lastmod>
   </url>
   

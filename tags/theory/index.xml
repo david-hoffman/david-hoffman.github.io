@@ -1,123 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>microscopy on David P. Hoffman, PhD.</title>
-    <link>https://david-hoffman.github.io/tags/microscopy/</link>
-    <description>Recent content in microscopy on David P. Hoffman, PhD.</description>
+    <title>theory on David P. Hoffman, PhD.</title>
+    <link>https://david-hoffman.github.io/tags/theory/</link>
+    <description>Recent content in theory on David P. Hoffman, PhD.</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} David P. Hoffman</copyright>
-    <lastBuildDate>Thu, 16 Apr 2020 19:59:12 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 11 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://david-hoffman.github.io/tags/microscopy/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://david-hoffman.github.io/tags/theory/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Nyquist Sampling SMLM</title>
-      <link>https://david-hoffman.github.io/post/nyquist-sampling-smlm/</link>
-      <pubDate>Thu, 16 Apr 2020 19:59:12 -0700</pubDate>
-      
-      <guid>https://david-hoffman.github.io/post/nyquist-sampling-smlm/</guid>
-      <description>&lt;p&gt;People have been arguing over the &amp;ldquo;real&amp;rdquo; resolution of &lt;a href=&#34;https://en.wikipedia.org/wiki/Super-resolution_microscopy#Localization_microscopy&#34;&gt;single molecule localization microscopy&lt;/a&gt; (&lt;a href=&#34;https://www.microscopyu.com/techniques/super-resolution/single-molecule-super-resolution-imaging&#34;&gt;SMLM&lt;/a&gt;) since it&amp;rsquo;s inception&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; (see the many references in Legant et al.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;). New comers are often wowed by the insanely small localization &lt;em&gt;precisions&lt;/em&gt; achievable with modern SMLM microscopes and dyes which can routinely drop below 10 nm (a factor of nearly 20 fold below the diffraction limit 🤯). However, it is clear to &amp;ldquo;those skilled in the art&amp;rdquo; that this merely represents the lower bound for the &lt;em&gt;actual resolution&lt;/em&gt; of one&amp;rsquo;s image.&lt;/p&gt;
-&lt;p&gt;Early on in the debate, many made frequent appeals to the concept of &lt;a href=&#34;https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem&#34;&gt;Nyquist sampling&lt;/a&gt; which simply states that you must sample at twice the highest frequency you&amp;rsquo;re hoping to measure. Because images are made up of &lt;em&gt;spatial&lt;/em&gt; frequencies the argument is that you need a localization &lt;em&gt;density&lt;/em&gt; of at least twice the highest frequency you&amp;rsquo;re trying to measure. For instance, let&amp;rsquo;s say you wanted to measure &lt;a href=&#34;https://en.wikipedia.org/wiki/Endoplasmic_reticulum&#34;&gt;ER&lt;/a&gt; tubules of approximately 50 nm in diameter then you&amp;rsquo;d need at least one localization every 25 nm or 40 localizations every micron &amp;mdash; &lt;em&gt;in a single dimension&lt;/em&gt;! If you&amp;rsquo;d like to measure such a structure in 3D then you&amp;rsquo;d need &lt;em&gt;64,000 molecules per cubic micron&lt;/em&gt;! That means you&amp;rsquo;ll need millions or even billions&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; of localizations to achieve the resolution you want.&lt;/p&gt;
-&lt;p&gt;Unfortunately, the argument laid out above is really a best case scenario and even if you achieved such a high localization rate your signal to noise ratio (SNR) would be 1. To understand why, consider the simple model shown in Fig. 1 below. Here our sample is a one dimensional square wave of period $L$ (wavelength) and height $S$ (signal) offset by an amount $B$ (background). The background is representative of non-specific labeling or junk during imaging.&lt;/p&gt;
-
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;1D%20Model.png&#34; &gt;
-
-&lt;img src=&#34;1D%20Model.png&#34; &gt;
-&lt;/a&gt;
-
-
-&lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
-  &lt;h4&gt;A square wave of period (wavelength) $L$ shown as the thick orange line. The dashed orange line is the background component of intensity $B$ and the green solid line is the signal component of intensity $S$&lt;/h4&gt;
-  
-&lt;/figcaption&gt;
-
-&lt;/figure&gt;
-
-&lt;p&gt;A simple argument would lead you to believe that you want a single molecule localized per period meaning that our desired labeling density is $\rho = 1 / L$. But this doesn&amp;rsquo;t take into account any noise sources. It&amp;rsquo;s reasonable to assume that protein production, labeling, and imaging (i.e. detection, localization, etc.) all lead to roughly &lt;a href=&#34;https://en.wikipedia.org/wiki/Poisson_distribution&#34;&gt;Poisson statistics&lt;/a&gt; for localization density. A Poisson distribution has a well defined variance, namely $\sigma^2 = \mu$ where $\mu$ is the mean value, thus the standard deviation is $\sigma = \sqrt{\mu}$. In the case of one localization per period that means you have an SNR of &lt;strong&gt;1&lt;/strong&gt; 😱.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; If you wanted to have an SNR of 2 you&amp;rsquo;d need 4 localizations, on average, per period. Referring back to our example of ER tubules above this translates to &lt;strong&gt;4 million localizations per cubic micron&lt;/strong&gt;.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;Including background noise isn&amp;rsquo;t much harder. Assuming the background is also Poisson distributed we can use the &lt;a href=&#34;https://en.wikipedia.org/wiki/Skellam_distribution&#34;&gt;Skellam distribution&lt;/a&gt; setting $\mu_1 = S + B$ and $\mu_2 = B$ which gives an SNR of&lt;/p&gt;
-&lt;p&gt;$$
-SNR = \frac{\mu_1 - \mu_2}{\sqrt{\mu_1 + \mu_2}} = \frac{S}{\sqrt{S + 2B}}
-$$&lt;/p&gt;
-&lt;p&gt;We can rearrange the above equation, setting $S$ equal to the number of localized molecules per period $N$, to read&lt;/p&gt;
-&lt;p&gt;$$
-N = \frac{SNR^2}{2}\left(1 + \sqrt{1 + \frac{8 B}{SNR^2}}\right)
-$$&lt;/p&gt;
-&lt;p&gt;For example, if you want and SNR of 3 and your background is 2 molecules, on average, then you&amp;rsquo;d need an average of 12 molecules per period. Again, going back to the ER example that means you&amp;rsquo;d need &lt;strong&gt;111 million localizations per cubic micron&lt;/strong&gt;.&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;We can compare this analytical formula to the simulations of Legant et al.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; (&lt;a href=&#34;https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.3797/MediaObjects/41592_2016_BFnmeth3797_MOESM225_ESM.pdf&#34;&gt;see supplemental figures 1 and 3 therein&lt;/a&gt;). In that publication a sinusoidal pattern was used but we can normalize the two by averaging the sinusoid&amp;rsquo;s intensity over half periods and using the resulting peak-to-peak intensity as our $S$. For a sinusoid of amplitude $A$ (i.e. $y(x) = A \sin x$) The integrated amplitude is $2 A /\pi$. Therefore our normalization factor is $\pi / 4$.&lt;/p&gt;
-&lt;p&gt;For SI figure 1 we have the following analytical SNRs:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;0.89&lt;/li&gt;
-&lt;li&gt;1.25&lt;/li&gt;
-&lt;li&gt;1.99&lt;/li&gt;
-&lt;li&gt;2.8&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For SI figure 3 we have the following analytical SNRs:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1.31&lt;/li&gt;
-&lt;li&gt;1.05&lt;/li&gt;
-&lt;li&gt;1.86&lt;/li&gt;
-&lt;li&gt;1.49&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;Getting really good &lt;strong&gt;real&lt;/strong&gt; resolution in SMLM (i.e. anything below ~50 nm average in $x$, $y$, and $z$) is really hard and requires minimal background and really really good labeling density.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt; One saving grace is that this argument assumes you have &lt;em&gt;absolutely &lt;strong&gt;no&lt;/strong&gt; prior knowledge&lt;/em&gt; about the structure you&amp;rsquo;re imaging. Take for example Fig 2. below. It doesn&amp;rsquo;t take a whole lot of points before it becomes obvious we&amp;rsquo;re imaging a circle. It takes many more points to get an accurate measure of the width of the circle. But once you&amp;rsquo;re fairly confident that it&amp;rsquo;s a circle you can perform a radial average to determine the width; this type of methodology has been used to great effect before.&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; In short, the resolution of your image is &lt;em&gt;not&lt;/em&gt; equivalent to your localization precision and resolution, in the traditional sense, may not even be relevant to what you&amp;rsquo;re trying to measure.&lt;/p&gt;
-
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;featured.png&#34; &gt;
-
-&lt;img src=&#34;featured.png&#34; &gt;
-&lt;/a&gt;
-
-
-&lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
-  &lt;h4&gt;Randomly sampling points on a circle.&lt;/h4&gt;
-  
-&lt;/figcaption&gt;
-
-&lt;/figure&gt;
-
-&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.sciencemag.org/content/313/5793/1642&#34;&gt;E. Betzig, G. H. Patterson, R. Sougrat, O. W. Lindwasser, S. Olenych, J. S. Bonifacino, M. W. Davidson, J. Lippincott-Schwartz, H. F. Hess, Imaging Intracellular Fluorescent Proteins at Nanometer Resolution. Science. 313, 1642–1645 (2006).&lt;/a&gt; &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.nature.com/articles/nmeth.3797&#34;&gt;W. R. Legant, L. Shao, J. B. Grimm, T. A. Brown, D. E. Milkie, B. B. Avants, L. D. Lavis, E. Betzig, High-density three-dimensional localization microscopy across large volumes. Nat Meth. 13, 359–365 (2016)&lt;/a&gt; &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Noting that $SNR = \mu/\sigma$. PS: I personally would never try to make a scientific argument based on data with an SNR of 1. &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Remember this would be 4M / µm$^3$ &lt;em&gt;only&lt;/em&gt; for the actual ER tubule. Considering that the mean diameter of a tubule is 50 nm this equates to roughly 8k molecules per micron of tubule. &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;This equates to roughly 220k molecules per micron of tubule. Also, 1 cubic micron is roughly 500 linear microns of ER tubule 😅. &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;One of the reasons regular &lt;a href=&#34;https://en.wikipedia.org/wiki/Electron_microscope&#34;&gt;EM&lt;/a&gt; is so damn good is due to the fact that the labeling density (e.g. &lt;a href=&#34;https://en.wikipedia.org/wiki/Staining#Electron_microscopy&#34;&gt;osmium staining&lt;/a&gt;) is so high. Even if you could build an optical microscope with the resolution of an electron microscope you&amp;rsquo;d never get to take advantage of it. &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:7&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;http://science.sciencemag.org/content/341/6146/655&#34;&gt;A. Szymborska, A. de Marco, N. Daigle, V. C. Cordes, J. A. G. Briggs, J. Ellenberg, Nuclear Pore Scaffold Structure Analyzed by Super-Resolution Microscopy and Particle Averaging. Science. 341, 655–658 (2013).&lt;/a&gt; &lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
-</description>
-    </item>
     
     <item>
       <title>Oh no, I squished my OTF!</title>
@@ -458,66 +351,6 @@ ax1&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_title(&lt;span st
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Angle to Position and Back</title>
-      <link>https://david-hoffman.github.io/post/angle-to-position-and-back/</link>
-      <pubDate>Wed, 11 Mar 2020 13:46:31 -0700</pubDate>
-      
-      <guid>https://david-hoffman.github.io/post/angle-to-position-and-back/</guid>
-      <description>&lt;p&gt;When designing an fluorescent microscope (or general optical system) one often wants to scan the beam position and/or angle at the sample (or object plane). It&amp;rsquo;s useful to remember that for any lens, especially for objective lenses, the back pupil plane is Fourier conjugate to the sample (object) plane of the lens.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; This has two important consequences for system design.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;A beam that is focused in the back pupil will be collimated at the object plane and &lt;em&gt;vice versa&lt;/em&gt;. For instance, if you completely fill the back pupil of an objective with light (preferably overfilling it) then you will have a diffraction limited spot at the sample plane.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
-&lt;li&gt;If the beam enters the back pupil at an angle relative to the optical axis the position at the sample plane will be shifted relative to the optical axis.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Basically: &lt;strong&gt;angle&lt;/strong&gt; in the back pupil is &lt;strong&gt;position&lt;/strong&gt; at the object plane and &lt;strong&gt;position&lt;/strong&gt; in the back pupil is &lt;strong&gt;angle&lt;/strong&gt; at the object plane.&lt;/p&gt;
-&lt;h2 id=&#34;scanning-the-beam-position&#34;&gt;Scanning the beam position&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;angle_to_position.png&#34; alt=&#34;How input angle at the back focal plane effects positional offset at the object plane&#34;&gt;&lt;/p&gt;
-&lt;p&gt;We can make a simple geometrical argument for this case (see figure above). The most important ray here is the chief ray (solid orange line) which passes through the center of the lens, the marginal rays (dashed orange lines) have been added for clarity. In this case we imagine a collimated beam of light entering the back aperture of an aplanatic lens at an angle $\theta$ with respect to the optical axis. The collimated (parallel) rays converge at the focal plane a distance $f$ away from the lens forming a spot at a perpendicular distance $y$ from the optical axis. We can relate these quantities together with the following equation based solely on geometrical reasoning:&lt;/p&gt;
-&lt;p&gt;$$
-y = f \tan \theta
-$$&lt;/p&gt;
-&lt;p&gt;For simple lenses and large angles this equation doesn&amp;rsquo;t hold. But for specially designed optical systems, particularly &lt;a href=&#34;https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=2910&#34;&gt;scan lenses&lt;/a&gt; which are designed to specifically for this task, it can hold for very large angles and therefore fields of view.&lt;/p&gt;
-&lt;h2 id=&#34;scanning-the-beam-angle&#34;&gt;Scanning the beam angle&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;position_to_angle.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Here we take a slightly different approach. We know that if we were to launch a ray parallel to the optical axis from the very edge of the objective&amp;rsquo;s back pupil then the ray exiting the front of the objective would make an angle $\theta$ with the optical axis such that $NA = n \sin \theta_{max}$ (the classic equation for numerical aperture). That means that if the ray were launched a distance $y$ from the optical axis that was less than half the pupil diameter we could define an &lt;em&gt;effective&lt;/em&gt; NA as $NA_{eff} = y / f$ where $f$ is the focal length of the lens. We can derive this equation knowing that the pupil &lt;em&gt;diameter&lt;/em&gt; is $D = 2 NA f$. This means we can solve for $\theta$ as a function of $y$.&lt;/p&gt;
-&lt;p&gt;$$
-\theta = \sin^{-1} \left(\frac{y}{fn}\right)
-$$&lt;/p&gt;
-&lt;h3 id=&#34;why-arent-the-two-equations-the-same&#34;&gt;Why aren&amp;rsquo;t the two equations the same?&lt;/h3&gt;
-&lt;p&gt;I was surprised that these two equations would be different. The best explanation I can come up with is that for a well corrected, high magnification, system (such as a microscope objective) the entrance pupil (the pupil facing the object) is curved (in fact it lies on part of a spherical shell) while the exit pupil (the pupil facing infinity space) is flat. The entrance pupil has to be curved because a single point source (ignoring the fact that it&amp;rsquo;s an oscillating dipole) forms a spherical wave.&lt;/p&gt;
-&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;I&amp;rsquo;ll use sample plane and object plane interchangeably throughout. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Approximately &lt;a href=&#34;https://david-hoffman.github.io/post/things-ive-forgotten&#34;&gt;$\sigma&amp;rsquo; \sigma = \frac{\lambda f}{\pi}$&lt;/a&gt; &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Freeze-frame of whole cells</title>
-      <link>https://david-hoffman.github.io/publication/clem/</link>
-      <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://david-hoffman.github.io/publication/clem/</guid>
-      <description>&lt;p&gt;This is my favorite movie from the paper.&lt;/p&gt;
-&lt;p&gt;
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://player.vimeo.com/video/383152270&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;vimeo video&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
- &lt;/div&gt;
-
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;It&amp;#39;s here!!!&lt;a href=&#34;https://t.co/11j9LUa7xu&#34;&gt;https://t.co/11j9LUa7xu&lt;/a&gt;&lt;br&gt;OMG! OMG! 😱😱😱&lt;/p&gt;&amp;mdash; David Hoffman (@davephoffman) &lt;a href=&#34;https://twitter.com/davephoffman/status/1217884019817189376?ref_src=twsrc%5Etfw&#34;&gt;January 16, 2020&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 </description>
     </item>
     

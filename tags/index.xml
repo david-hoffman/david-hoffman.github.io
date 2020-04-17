@@ -7,7 +7,7 @@
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} David P. Hoffman</copyright>
-    <lastBuildDate>Wed, 11 Mar 2020 13:46:31 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2020 19:59:12 -0700</lastBuildDate>
     
 	    <atom:link href="https://david-hoffman.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,27 @@
     <item>
       <title>microscopy</title>
       <link>https://david-hoffman.github.io/tags/microscopy/</link>
-      <pubDate>Wed, 11 Mar 2020 13:46:31 -0700</pubDate>
+      <pubDate>Thu, 16 Apr 2020 19:59:12 -0700</pubDate>
       
       <guid>https://david-hoffman.github.io/tags/microscopy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>noise</title>
+      <link>https://david-hoffman.github.io/tags/noise/</link>
+      <pubDate>Thu, 16 Apr 2020 19:59:12 -0700</pubDate>
+      
+      <guid>https://david-hoffman.github.io/tags/noise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>smlm</title>
+      <link>https://david-hoffman.github.io/tags/smlm/</link>
+      <pubDate>Thu, 16 Apr 2020 19:59:12 -0700</pubDate>
+      
+      <guid>https://david-hoffman.github.io/tags/smlm/</guid>
       <description></description>
     </item>
     

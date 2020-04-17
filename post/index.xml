@@ -51,7 +51,7 @@ $$&lt;/p&gt;
 N = \frac{SNR^2}{2}\left(1 + \sqrt{1 + \frac{8 B}{SNR^2}}\right)
 $$&lt;/p&gt;
 &lt;p&gt;For example, if you want and SNR of 3 and your background is 2 molecules, on average, then you&amp;rsquo;d need an average of 12 molecules per period. Again, going back to the ER example that means you&amp;rsquo;d need &lt;strong&gt;111 million localizations per cubic micron&lt;/strong&gt;.&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;We can compare this analytical formula to the simulations of Legant&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; (see supplemental figures 1 and 3 therein). In that publication a sinusoidal pattern was used but we can normalize the two by averaging the sinusoid&amp;rsquo;s intensity over half periods and using the resulting peak-to-peak intensity as our $S$. For a sinusoid of amplitude $A$ (i.e. $y(x) = A \sin x$) The integrated amplitude is $2 A /\pi$. Therefore our normalization factor is $\pi / 4$.&lt;/p&gt;
+&lt;p&gt;We can compare this analytical formula to the simulations of Legant et al.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; (&lt;a href=&#34;https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.3797/MediaObjects/41592_2016_BFnmeth3797_MOESM225_ESM.pdf&#34;&gt;see supplemental figures 1 and 3 therein&lt;/a&gt;). In that publication a sinusoidal pattern was used but we can normalize the two by averaging the sinusoid&amp;rsquo;s intensity over half periods and using the resulting peak-to-peak intensity as our $S$. For a sinusoid of amplitude $A$ (i.e. $y(x) = A \sin x$) The integrated amplitude is $2 A /\pi$. Therefore our normalization factor is $\pi / 4$.&lt;/p&gt;
 &lt;p&gt;For SI figure 1 we have the following analytical SNRs:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;0.89&lt;/li&gt;
@@ -67,7 +67,28 @@ $$&lt;/p&gt;
 &lt;li&gt;1.49&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;Getting really good &lt;strong&gt;real&lt;/strong&gt; resolution in SMLM (i.e. anything below ~50 nm) is really hard and requires minimal background and really really good labeling density.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Getting really good &lt;strong&gt;real&lt;/strong&gt; resolution in SMLM (i.e. anything below ~50 nm average in $x$, $y$, and $z$) is really hard and requires minimal background and really really good labeling density.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt; One saving grace is that this argument assumes you have &lt;em&gt;absolutely &lt;strong&gt;no&lt;/strong&gt; prior knowledge&lt;/em&gt; about the structure you&amp;rsquo;re imaging. Take for example Fig 2. below. It doesn&amp;rsquo;t take a whole lot of points before it becomes obvious we&amp;rsquo;re imaging a circle. It takes many more points to get an accurate measure of the width of the circle. But once you&amp;rsquo;re fairly confident that it&amp;rsquo;s a circle you can perform a radial average to determine the width; this type of methodology has been used to great effect before.&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; In short, the resolution of your image is &lt;em&gt;not&lt;/em&gt; equivalent to your localization precision and resolution, in the traditional sense, may not even be relevant to what you&amp;rsquo;re trying to measure.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;featured.png&#34; &gt;
+
+&lt;img src=&#34;featured.png&#34; &gt;
+&lt;/a&gt;
+
+
+&lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+  &lt;h4&gt;Randomly sampling points on a circle.&lt;/h4&gt;
+  
+&lt;/figcaption&gt;
+
+&lt;/figure&gt;
+
 &lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
@@ -88,6 +109,9 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
 &lt;p&gt;One of the reasons regular &lt;a href=&#34;https://en.wikipedia.org/wiki/Electron_microscope&#34;&gt;EM&lt;/a&gt; is so damn good is due to the fact that the labeling density (e.g. &lt;a href=&#34;https://en.wikipedia.org/wiki/Staining#Electron_microscopy&#34;&gt;osmium staining&lt;/a&gt;) is so high. Even if you could build an optical microscope with the resolution of an electron microscope you&amp;rsquo;d never get to take advantage of it. &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;http://science.sciencemag.org/content/341/6146/655&#34;&gt;A. Szymborska, A. de Marco, N. Daigle, V. C. Cordes, J. A. G. Briggs, J. Ellenberg, Nuclear Pore Scaffold Structure Analyzed by Super-Resolution Microscopy and Particle Averaging. Science. 341, 655–658 (2013).&lt;/a&gt; &lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;

@@ -39,7 +39,7 @@ def main():
         ax.yaxis.set_major_locator(plt.NullLocator())
         ax.set_title(f"{frac} Points")
 
-    fig.savefig("featured.png", dpi=150, transparent=True)
+    fig.savefig("featured.png", dpi=150, transparent=False)
 
     plt.show()
 

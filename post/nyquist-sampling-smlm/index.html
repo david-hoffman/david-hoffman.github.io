@@ -130,7 +130,7 @@
   
   <meta property="article:published_time" content="2020-04-16T19:59:12-07:00">
   
-  <meta property="article:modified_time" content="2020-04-16T22:24:36-07:00">
+  <meta property="article:modified_time" content="2020-04-17T14:33:30-07:00">
   
 
   
@@ -373,7 +373,7 @@
 <div class="container split-header">
   <div class="row justify-content-center">
     <div class="col-lg-8">
-        <img class="img-fluid w-100" src="/post/nyquist-sampling-smlm/featured_hu00a9c32942908823507a283a232fc2b5_34354_680x500_fill_q90_lanczos_smart1_2.png" itemprop="image" alt="">
+        <img class="img-fluid w-100" src="/post/nyquist-sampling-smlm/featured_hu8bf6223da52faa719b705f458673d472_39671_680x500_fill_q90_lanczos_smart1_2.png" itemprop="image" alt="">
         <span
           class="article-header-caption">How many points until you see the circle?</span>
     </div>
@@ -389,10 +389,22 @@
 
 
 <meta content="2020-04-16 19:59:12 -0700 PDT" itemprop="datePublished">
-<meta content="2020-04-16 22:24:36 -0700 PDT" itemprop="dateModified">
+<meta content="2020-04-17 14:33:30 -0700 PDT" itemprop="dateModified">
 
 <div class="article-metadata">
 
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/admin/">David P. Hoffman</a></span>
+
+  </div>
   
   
 
@@ -404,7 +416,7 @@
           Last updated on
       
     
-    <time>Apr 16, 2020</time>
+    <time>Apr 17, 2020</time>
   </span>
   
 
@@ -413,7 +425,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    6 min read
   </span>
   
 
@@ -546,7 +558,7 @@ $$</p>
 N = \frac{SNR^2}{2}\left(1 + \sqrt{1 + \frac{8 B}{SNR^2}}\right)
 $$</p>
 <p>For example, if you want and SNR of 3 and your background is 2 molecules, on average, then you&rsquo;d need an average of 12 molecules per period. Again, going back to the ER example that means you&rsquo;d need <strong>111 million localizations per cubic micron</strong>.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
-<p>We can compare this analytical formula to the simulations of Legant<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> (see supplemental figures 1 and 3 therein). In that publication a sinusoidal pattern was used but we can normalize the two by averaging the sinusoid&rsquo;s intensity over half periods and using the resulting peak-to-peak intensity as our $S$. For a sinusoid of amplitude $A$ (i.e. $y(x) = A \sin x$) The integrated amplitude is $2 A /\pi$. Therefore our normalization factor is $\pi / 4$.</p>
+<p>We can compare this analytical formula to the simulations of Legant et al.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.3797/MediaObjects/41592_2016_BFnmeth3797_MOESM225_ESM.pdf">see supplemental figures 1 and 3 therein</a>). In that publication a sinusoidal pattern was used but we can normalize the two by averaging the sinusoid&rsquo;s intensity over half periods and using the resulting peak-to-peak intensity as our $S$. For a sinusoid of amplitude $A$ (i.e. $y(x) = A \sin x$) The integrated amplitude is $2 A /\pi$. Therefore our normalization factor is $\pi / 4$.</p>
 <p>For SI figure 1 we have the following analytical SNRs:</p>
 <ul>
 <li>0.89</li>
@@ -562,7 +574,28 @@ $$</p>
 <li>1.49</li>
 </ul>
 <h2 id="conclusion">Conclusion</h2>
-<p>Getting really good <strong>real</strong> resolution in SMLM (i.e. anything below ~50 nm) is really hard and requires minimal background and really really good labeling density.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></p>
+<p>Getting really good <strong>real</strong> resolution in SMLM (i.e. anything below ~50 nm average in $x$, $y$, and $z$) is really hard and requires minimal background and really really good labeling density.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup> One saving grace is that this argument assumes you have <em>absolutely <strong>no</strong> prior knowledge</em> about the structure you&rsquo;re imaging. Take for example Fig 2. below. It doesn&rsquo;t take a whole lot of points before it becomes obvious we&rsquo;re imaging a circle. It takes many more points to get an accurate measure of the width of the circle. But once you&rsquo;re fairly confident that it&rsquo;s a circle you can perform a radial average to determine the width; this type of methodology has been used to great effect before.<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> In short, the resolution of your image is <em>not</em> equivalent to your localization precision and resolution, in the traditional sense, may not even be relevant to what you&rsquo;re trying to measure.</p>
+
+
+
+
+
+
+<figure>
+
+  <a data-fancybox="" href="featured.png" >
+
+<img src="featured.png" >
+</a>
+
+
+<figcaption data-pre="Figure " data-post=":" class="numbered">
+  <h4>Randomly sampling points on a circle.</h4>
+  
+</figcaption>
+
+</figure>
+
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -584,12 +617,25 @@ $$</p>
 <li id="fn:6" role="doc-endnote">
 <p>One of the reasons regular <a href="https://en.wikipedia.org/wiki/Electron_microscope">EM</a> is so damn good is due to the fact that the labeling density (e.g. <a href="https://en.wikipedia.org/wiki/Staining#Electron_microscopy">osmium staining</a>) is so high. Even if you could build an optical microscope with the resolution of an electron microscope you&rsquo;d never get to take advantage of it. <a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
+<li id="fn:7" role="doc-endnote">
+<p><a href="http://science.sciencemag.org/content/341/6146/655">A. Szymborska, A. de Marco, N. Daigle, V. C. Cordes, J. A. G. Briggs, J. Ellenberg, Nuclear Pore Scaffold Structure Analyzed by Super-Resolution Microscopy and Particle Averaging. Science. 341, 655–658 (2013).</a> <a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
 </section>
 
     </div>
 
     
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/microscopy/">microscopy</a>
+  
+  <a class="badge badge-light" href="/tags/smlm/">smlm</a>
+  
+  <a class="badge badge-light" href="/tags/noise/">noise</a>
+  
+</div>
 
 
 
@@ -603,6 +649,10 @@ $$</p>
 
 
 
+  
+  
+    
+  
   
 
 
@@ -746,6 +796,16 @@ $$</p>
 
 
       
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/angle-to-position-and-back/">Angle to Position and Back</a></li>
+          
+        </ul>
+      </div>
       
     
 

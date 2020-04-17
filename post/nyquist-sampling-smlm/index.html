@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academia 4.3.1">
+  <meta name="generator" content="Hugo 0.65.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="David P. Hoffman">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Getting really good **real** resolution in SMLM is really hard.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://david-hoffman.github.io/post/nyquist-sampling-smlm/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#fc6f5c">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academia.min.28efaa82099e1d59f8a909df089d578c.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-159401260-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://david-hoffman.github.io/post/nyquist-sampling-smlm/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@davephoffman">
+  <meta property="twitter:creator" content="@davephoffman">
+  
+  <meta property="og:site_name" content="David P. Hoffman, PhD.">
+  <meta property="og:url" content="https://david-hoffman.github.io/post/nyquist-sampling-smlm/">
+  <meta property="og:title" content="Nyquist Sampling SMLM | David P. Hoffman, PhD.">
+  <meta property="og:description" content="Getting really good **real** resolution in SMLM is really hard."><meta property="og:image" content="https://david-hoffman.github.io/post/nyquist-sampling-smlm/featured.png">
+  <meta property="twitter:image" content="https://david-hoffman.github.io/post/nyquist-sampling-smlm/featured.png"><meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2020-04-16T19:59:12-07:00">
+  
+  <meta property="article:modified_time" content="2020-04-16T22:24:36-07:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Nyquist Sampling SMLM | David P. Hoffman, PhD.</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">David P. Hoffman, PhD.</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>about me</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>blog</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publication"><span>publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>contact me</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/cv.pdf"><span>resume</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article py-5" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container split-header">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+        <img class="img-fluid w-100" src="/post/nyquist-sampling-smlm/featured_hu00a9c32942908823507a283a232fc2b5_34354_680x500_fill_q90_lanczos_smart1_2.png" itemprop="image" alt="">
+        <span
+          class="article-header-caption">How many points until you see the circle?</span>
+    </div>
+    <div class="col-lg-8">
+      <h1 itemprop="name">Nyquist Sampling SMLM</h1>
+
+      
+      <p class="page-subtitle">Mo&rsquo; resolution mo&rsquo; problems</p>
+      
+
+      
+
+
+
+<meta content="2020-04-16 19:59:12 -0700 PDT" itemprop="datePublished">
+<meta content="2020-04-16 22:24:36 -0700 PDT" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Apr 16, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://david-hoffman.github.io/post/nyquist-sampling-smlm/&amp;text=Nyquist%20Sampling%20SMLM" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://david-hoffman.github.io/post/nyquist-sampling-smlm/&amp;t=Nyquist%20Sampling%20SMLM" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Nyquist%20Sampling%20SMLM&amp;body=https://david-hoffman.github.io/post/nyquist-sampling-smlm/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://david-hoffman.github.io/post/nyquist-sampling-smlm/&amp;title=Nyquist%20Sampling%20SMLM" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+    </div>
+  </div>
+</div>
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p>People have been arguing over the &ldquo;real&rdquo; resolution of <a href="https://en.wikipedia.org/wiki/Super-resolution_microscopy#Localization_microscopy">single molecule localization microscopy</a> (<a href="https://www.microscopyu.com/techniques/super-resolution/single-molecule-super-resolution-imaging">SMLM</a>) since it&rsquo;s inception<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (see the many references in Legant et al.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>). New comers are often wowed by the insanely small localization <em>precisions</em> achievable with modern SMLM microscopes and dyes which can routinely drop below 10 nm (a factor of nearly 20 fold below the diffraction limit 🤯). However, it is clear to &ldquo;those skilled in the art&rdquo; that this merely represents the lower bound for the <em>actual resolution</em> of one&rsquo;s image.</p>
+<p>Early on in the debate, many made frequent appeals to the concept of <a href="https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem">Nyquist sampling</a> which simply states that you must sample at twice the highest frequency you&rsquo;re hoping to measure. Because images are made up of <em>spatial</em> frequencies the argument is that you need a localization <em>density</em> of at least twice the highest frequency you&rsquo;re trying to measure. For instance, let&rsquo;s say you wanted to measure <a href="https://en.wikipedia.org/wiki/Endoplasmic_reticulum">ER</a> tubules of approximately 50 nm in diameter then you&rsquo;d need at least one localization every 25 nm or 40 localizations every micron &mdash; <em>in a single dimension</em>! If you&rsquo;d like to measure such a structure in 3D then you&rsquo;d need <em>64,000 molecules per cubic micron</em>! That means you&rsquo;ll need millions or even billions<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> of localizations to achieve the resolution you want.</p>
+<p>Unfortunately, the argument laid out above is really a best case scenario and even if you achieved such a high localization rate your signal to noise ratio (SNR) would be 1. To understand why, consider the simple model shown in Fig. 1 below. Here our sample is a one dimensional square wave of period $L$ (wavelength) and height $S$ (signal) offset by an amount $B$ (background). The background is representative of non-specific labeling or junk during imaging.</p>
+
+
+
+
+
+
+<figure>
+
+  <a data-fancybox="" href="1D%20Model.png" >
+
+<img src="1D%20Model.png" >
+</a>
+
+
+<figcaption data-pre="Figure " data-post=":" class="numbered">
+  <h4>A square wave of period (wavelength) $L$ shown as the thick orange line. The dashed orange line is the background component of intensity $B$ and the green solid line is the signal component of intensity $S$</h4>
+  
+</figcaption>
+
+</figure>
+
+<p>A simple argument would lead you to believe that you want a single molecule localized per period meaning that our desired labeling density is $\rho = 1 / L$. But this doesn&rsquo;t take into account any noise sources. It&rsquo;s reasonable to assume that protein production, labeling, and imaging (i.e. detection, localization, etc.) all lead to roughly <a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson statistics</a> for localization density. A Poisson distribution has a well defined variance, namely $\sigma^2 = \mu$ where $\mu$ is the mean value, thus the standard deviation is $\sigma = \sqrt{\mu}$. In the case of one localization per period that means you have an SNR of <strong>1</strong> 😱.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> If you wanted to have an SNR of 2 you&rsquo;d need 4 localizations, on average, per period. Referring back to our example of ER tubules above this translates to <strong>4 million localizations per cubic micron</strong>.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<p>Including background noise isn&rsquo;t much harder. Assuming the background is also Poisson distributed we can use the <a href="https://en.wikipedia.org/wiki/Skellam_distribution">Skellam distribution</a> setting $\mu_1 = S + B$ and $\mu_2 = B$ which gives an SNR of</p>
+<p>$$
+SNR = \frac{\mu_1 - \mu_2}{\sqrt{\mu_1 + \mu_2}} = \frac{S}{\sqrt{S + 2B}}
+$$</p>
+<p>We can rearrange the above equation, setting $S$ equal to the number of localized molecules per period $N$, to read</p>
+<p>$$
+N = \frac{SNR^2}{2}\left(1 + \sqrt{1 + \frac{8 B}{SNR^2}}\right)
+$$</p>
+<p>For example, if you want and SNR of 3 and your background is 2 molecules, on average, then you&rsquo;d need an average of 12 molecules per period. Again, going back to the ER example that means you&rsquo;d need <strong>111 million localizations per cubic micron</strong>.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<p>We can compare this analytical formula to the simulations of Legant<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> (see supplemental figures 1 and 3 therein). In that publication a sinusoidal pattern was used but we can normalize the two by averaging the sinusoid&rsquo;s intensity over half periods and using the resulting peak-to-peak intensity as our $S$. For a sinusoid of amplitude $A$ (i.e. $y(x) = A \sin x$) The integrated amplitude is $2 A /\pi$. Therefore our normalization factor is $\pi / 4$.</p>
+<p>For SI figure 1 we have the following analytical SNRs:</p>
+<ul>
+<li>0.89</li>
+<li>1.25</li>
+<li>1.99</li>
+<li>2.8</li>
+</ul>
+<p>For SI figure 3 we have the following analytical SNRs:</p>
+<ul>
+<li>1.31</li>
+<li>1.05</li>
+<li>1.86</li>
+<li>1.49</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Getting really good <strong>real</strong> resolution in SMLM (i.e. anything below ~50 nm) is really hard and requires minimal background and really really good labeling density.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="http://www.sciencemag.org/content/313/5793/1642">E. Betzig, G. H. Patterson, R. Sougrat, O. W. Lindwasser, S. Olenych, J. S. Bonifacino, M. W. Davidson, J. Lippincott-Schwartz, H. F. Hess, Imaging Intracellular Fluorescent Proteins at Nanometer Resolution. Science. 313, 1642–1645 (2006).</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://www.nature.com/articles/nmeth.3797">W. R. Legant, L. Shao, J. B. Grimm, T. A. Brown, D. E. Milkie, B. B. Avants, L. D. Lavis, E. Betzig, High-density three-dimensional localization microscopy across large volumes. Nat Meth. 13, 359–365 (2016)</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>Noting that $SNR = \mu/\sigma$. PS: I personally would never try to make a scientific argument based on data with an SNR of 1. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>Remember this would be 4M / µm$^3$ <em>only</em> for the actual ER tubule. Considering that the mean diameter of a tubule is 50 nm this equates to roughly 8k molecules per micron of tubule. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p>This equates to roughly 220k molecules per micron of tubule. Also, 1 cubic micron is roughly 500 linear microns of ER tubule 😅. <a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p>One of the reasons regular <a href="https://en.wikipedia.org/wiki/Electron_microscope">EM</a> is so damn good is due to the fact that the labeling density (e.g. <a href="https://en.wikipedia.org/wiki/Staining#Electron_microscopy">osmium staining</a>) is so high. Even if you could build an optical microscope with the resolution of an electron microscope you&rsquo;d never get to take advantage of it. <a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="https://david-hoffman.github.io/">David P. Hoffman</a></h5>
+      <h6 class="card-subtitle">Senior Optical Engineer @ <a href="https://www.10xgenomics.com/">10x Genomics</a></h6>
+      <p class="card-text" itemprop="description">I&rsquo;m a scientist/engineer who builds complex optical systems and loves data and python</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="/#contact" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/davephoffman" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://www.linkedin.com/in/dphoffman/" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/david-hoffman" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://stackoverflow.com/users/5030014/david-hoffman" target="_blank" rel="noopener">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.com/citations?user=HGG__poAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="/files/cv.pdf" >
+              <i class="ai ai-cv"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academia.min.281fa180ccfa1769ea3c7dd430814861.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+        <p>
+          © 2020 David P. Hoffman &middot; 
+          Powered by
+          <a href="https://themefisher.com" target="_blank" rel="noopener">themefisher</a> for
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-inline network-icon text-right">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://www.linkedin.com/in/dphoffman/" target="_blank" rel="noopener" title="Linkin with me"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://twitter.com/davephoffman" target="_blank" rel="noopener" title="DM Me"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/david-hoffman" target="_blank" rel="noopener" title="Check out my code"><i class="fab fa-github" aria-hidden="true"></i></a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

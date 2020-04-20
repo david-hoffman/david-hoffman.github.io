@@ -41,6 +41,7 @@ Where $\sigma&#39;$ and $\sigma$ are the beam sizes at each conjugate plane and 
 &lt;li&gt;If one approximates a diffraction limited PSF by a Gaussian profile the standard deviation of the profile is approximately equal to &lt;a href=&#34;https://en.wikipedia.org/wiki/Airy_disk#Approximation_using_a_Gaussian_profile&#34;&gt;$0.45 \lambda / 2 NA$&lt;/a&gt; assuming that the &lt;a href=&#34;https://en.wikipedia.org/wiki/Numerical_aperture&#34;&gt;f-number is approximately equal to $1/2 NA$&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;$f = \left(1 - \sqrt{1 - (\text{NA} / n)^2}\right) / 2$ where $f$ is the fraction of light collected by the objective as a function of numerical aperature (NA) and medium index ($n$). When NA is small this can be approximated as $(NA/n)^2/4$. Derived from &lt;a href=&#34;https://en.wikipedia.org/wiki/Solid_angle&#34;&gt;this&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1365-2818.1988.tb04563.x&#34;&gt;Depth of field&lt;/a&gt; is $\Delta z = \lambda / \left(n_{sample} - \sqrt{n^2_{sample} - (\text{NA} / n_{obj})^2}\right)$&lt;/li&gt;
+&lt;li&gt;Airy units defined as $1.22 \lambda / NA$.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;lasers&#34;&gt;Lasers&lt;/h2&gt;
 &lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;

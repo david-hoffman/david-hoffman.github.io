@@ -7,10 +7,130 @@
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} David P. Hoffman</copyright>
-    <lastBuildDate>Sat, 11 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2020 14:21:08 -0700</lastBuildDate>
     
 	    <atom:link href="https://david-hoffman.github.io/tags/optics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Don&#39;t Deconvolve Your PSF</title>
+      <link>https://david-hoffman.github.io/post/dont-deconvolve-your-psf/</link>
+      <pubDate>Wed, 15 Jul 2020 14:21:08 -0700</pubDate>
+      
+      <guid>https://david-hoffman.github.io/post/dont-deconvolve-your-psf/</guid>
+      <description>&lt;blockquote&gt;
+&lt;h2 id=&#34;post-processing-cannot-increase-information&#34;&gt;Post-processing cannot increase information&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;— &lt;a href=&#34;https://en.wikipedia.org/wiki/Data_processing_inequality&#34;&gt;Normand Beaudry&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is axiomatic in science generally, but especially in microscopy.&lt;/p&gt;
+&lt;p&gt;At it&amp;rsquo;s core a microscope is a low pass filter, and what it&amp;rsquo;s filtering is spatial information. A sample&amp;rsquo;s structure (that&amp;rsquo;s what you&amp;rsquo;re trying to measure with a microscope) is made up of various &lt;a href=&#34;https://en.wikipedia.org/wiki/Spatial_frequency&#34;&gt;spatial frequencies&lt;/a&gt; and the microscope, due to the wave nature of light, can only capture the lower frequency ones (remember, higher spatial frequencies &lt;em&gt;are the Fourier representation of higher resolution information&lt;/em&gt;). The upper limit of spatial frequencies that a microscope can transmit is known as the &lt;a href=&#34;https://en.wikipedia.org/wiki/Diffraction-limited_system#The_Abbe_diffraction_limit_for_a_microscope&#34;&gt;&lt;em&gt;diffraction limit&lt;/em&gt;&lt;/a&gt;. Super-resolution microscopes bypass this limit by cleverly encoding higher spatial frequencies such that they fall into the pass-band of the microscope. Regardless, every microscope, even a &amp;ldquo;super&amp;rdquo; one, has a maximum spatial frequency which it can transmit.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;What&amp;rsquo;s all this got to do with deconvolution? Well I&amp;rsquo;ve seen a few people, papers, and even microscope companies making claims that deconvolution will improve the &lt;em&gt;resolution&lt;/em&gt; of your data.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; Unfortunately, this is 🐴💩. A microscope&amp;rsquo;s resolution is &lt;em&gt;fundamentally&lt;/em&gt; limited by &lt;strong&gt;the laws of physics&lt;/strong&gt;. You cannot recover information that was &lt;em&gt;never&lt;/em&gt; present in the first place.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; To make matters worse most of these offenders will use the &lt;a href=&#34;https://en.wikipedia.org/wiki/Point_spread_function&#34;&gt;point spread function&lt;/a&gt; (PSF), the ultimate arbiter of microscope performance, to &lt;em&gt;demonstrate&lt;/em&gt; this improvement. What I mean is, they&amp;rsquo;ll show a side-by-side comparison of the raw PSF and the deconvolved PSF. What do you think will happen if you run an iterative deconvolution algorithm with the kernel and image being the same? If they&amp;rsquo;re identical you&amp;rsquo;ll get a single bright pixel! Even if they&amp;rsquo;re just similar you&amp;rsquo;ll get a fantastical result and if you&amp;rsquo;re not careful, you might look at that result and think,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Gee, this deconvolution thing sure is swell! It turned this blurry, ugly PSF into a sharp, beautiful one! I can&amp;rsquo;t wait to buy this expensive microscope and/or software and try it out on &lt;em&gt;my&lt;/em&gt; data because I&amp;rsquo;ll see the same improvement in resolution!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Unfortunately for you, if you did think this, you&amp;rsquo;d be wrong; very, &lt;em&gt;very&lt;/em&gt; wrong.&lt;/p&gt;
+&lt;p&gt;To make this concrete, let&amp;rsquo;s look at an example (Fig 1.). Here I&amp;rsquo;ve generated a simulated widefield epi-fluorescent PSF&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; (top) and the corresponding &lt;a href=&#34;https://en.wikipedia.org/wiki/Optical_transfer_function&#34;&gt;optical transfer function&lt;/a&gt; (OTF, bottom) for a 1.46 NA oil objective (left column) at a pixel size of 40 nm and an emission wavelength of 525 nm (same as GFP). Next (middle column) I&amp;rsquo;ve simulated an image of a point source; essentially this is just the PSF with added &lt;a href=&#34;https://en.wikipedia.org/wiki/Shot_noise&#34;&gt;shot noise&lt;/a&gt; and &lt;a href=&#34;http://camera.hamamatsu.com/us/en/camera_simulation_engine/index.html&#34;&gt;camera noise&lt;/a&gt; for an &lt;a href=&#34;https://www.pco-tech.com/scientific-cameras/pcoedge-42-bi/&#34;&gt;sCMOS camera&lt;/a&gt;. Note that for both the ground truth PSF (left column) and simulated image of a point emitter (middle column) the OTF is bounded by the traditional Abbe diffraction limit (white circle, bottom row). However, if I deconvolve&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; the image (middle column) with the PSF (left column) you can see that the result exceeds the traditional diffraction limit (right column), substantially.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;Simulated%20PSF%20Plot.png&#34; &gt;
+
+&lt;img src=&#34;Simulated%20PSF%20Plot.png&#34; &gt;
+&lt;/a&gt;
+
+
+&lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+  &lt;h4&gt;Simulating the effect of deconvolving an image of a point emitter. A gamma correction of 0.5 was applied to the top row and the bottom row is shown on a logarithmic scale. White lines indicate the Abbe diffraction limit. Scale bar is 1 µm.&lt;/h4&gt;
+  
+&lt;/figcaption&gt;
+
+&lt;/figure&gt;
+
+&lt;p&gt;&amp;ldquo;Ok,&amp;rdquo; you say, &amp;ldquo;but why do I, as a microscopy user, care about this subterfuge?&amp;rdquo; That&amp;rsquo;s a good question and it leads to my second example (Fig. 2). As my simulated sample (first column) I&amp;rsquo;ve used the ubiquitous &lt;a href=&#34;https://en.wikipedia.org/wiki/1951_USAF_resolution_test_chart&#34;&gt;USAF-1951 target&lt;/a&gt;. The full target is shown on the top row and a zoom of the central ROI (red square) is shown on the bottom row (scale bar is 1 µm). I&amp;rsquo;ve scaled the image such that the finest resolution pattern is 80 nm (160 nm per line pair). Next (second column) I simulate an image of this sample taken by a microscope with the PSF shown in the left column of Fig. 1. Note that the Abbe diffraction limited resolution of this microscope is 180 nm: over two fold worse than the finest pattern shown in the bottom row. Deconvolving the simulated image with the ground truth PSF (third column) results in a definite improvement of &lt;em&gt;contrast&lt;/em&gt;&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt; but the line pairs that are unresolved in the original image remain unresolved in the deconvolved image, as expected. Finally, I demonstrate what a deconvolved image might look like if one were to believe the resolution &amp;ldquo;enhancement&amp;rdquo; shown in Fig. 1 (right column). Here, even the finest resolution pattern is clearly resolved. In essence, I&amp;rsquo;ve more than &amp;ldquo;doubled&amp;rdquo; the resolution of the microscope with a simple algorithm; and I didn&amp;rsquo;t need to pay the megabucks for a SIM, STED, or PALM scope!&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;Simulated%20Image%20Plot.png&#34; &gt;
+
+&lt;img src=&#34;Simulated%20Image%20Plot.png&#34; &gt;
+&lt;/a&gt;
+
+
+&lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+  &lt;h4&gt;Can deconvolution resolve the &amp;ldquo;unresolvable&amp;rdquo;? No, it can&amp;rsquo;t.&lt;/h4&gt;
+  
+&lt;/figcaption&gt;
+
+&lt;/figure&gt;
+
+&lt;p&gt;Now you might say,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Oh come one, those are simulations and I won&amp;rsquo;t believe anything except for hard, experimental, evidence!&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sounds like you&amp;rsquo;re my kind of scientist! Lucky for you I&amp;rsquo;ve gone ahead and collected the 3D-PSF of a &lt;a href=&#34;https://www.microscope.healthcare.nikon.com/selectors/objective-comparison/-1848&#34;&gt;0.95 NA air objective&lt;/a&gt; using a sub-diffractive (100 nm) fluorescent bead (left column, Fig. 3). Then I&amp;rsquo;ve deconvolved&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; this image using two different estimates of the PSF: for the first (middle column) I radially averaged the image itself; for the second (right column) I simulated the PSF based on the microscope parameters.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; In both cases, there is a significant, and yet completely imaginary, &amp;ldquo;improvement&amp;rdquo; in the apparent resolution.&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt; Equally troubling is the fact that the &lt;a href=&#34;https://ieeexplore.ieee.org/document/196731&#34;&gt;&amp;ldquo;missing cone&amp;rdquo;&lt;/a&gt; has been completely filled, which erroneously suggests that deconvolution can impart optical sectioning.&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;Real%20PSF%20Plot.png&#34; &gt;
+
+&lt;img src=&#34;Real%20PSF%20Plot.png&#34; &gt;
+&lt;/a&gt;
+
+
+&lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; class=&#34;numbered&#34;&gt;
+  &lt;h4&gt;Does the same thing happen with real data? Sure does! Scale bars are 1 µm and 1 µm$^{-1}$, respectively.&lt;/h4&gt;
+  
+&lt;/figcaption&gt;
+
+&lt;/figure&gt;
+
+&lt;p&gt;Deconvolution is a powerful tool, but like all powerful tools it can be powerfully misused. The resolution of an imaging system is limited by physics and, unfortunately, cannot be improved with algorithms. Deconvolution is an extremely useful tool to improve your images (it denoises while increasing contrast! 🤩) and can be an effective preprocessing step before subsequent analyses, but please, please, &lt;em&gt;please&lt;/em&gt; do &lt;strong&gt;not&lt;/strong&gt; deconvolve your PSF, that just doesn&amp;rsquo;t make any sense.&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;At some point I&amp;rsquo;ll rant &lt;em&gt;ad nauseam&lt;/em&gt; about resolution and it&amp;rsquo;s definition (or lack thereof) in optical microscopy. For now let&amp;rsquo;s just say that the maximum spatial frequency a system can pass isn&amp;rsquo;t quite as important as the maximum spatial frequency &lt;em&gt;you can measure&lt;/em&gt;: a number that is completely SNR dependent. The OTF of the microscope really describes the &lt;strong&gt;best&lt;/strong&gt; case scenario which is rarely, if ever, achieved in practice. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;I&amp;rsquo;m not going to name any names 🤐. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Yeah, yeah, yeah, I can hear you complaining already, &amp;ldquo;But I just read &lt;a href=&#34;https://www.nature.com/collections/cfcdjceech&#34;&gt;these&lt;/a&gt; papers and they show that the deep learning networks &lt;em&gt;can&lt;/em&gt; improve resolution!&amp;rdquo; That&amp;rsquo;s an argument for a different day, but I&amp;rsquo;ll leave you with &lt;a href=&#34;https://www.sciencemag.org/news/2018/05/ai-researchers-allege-machine-learning-alchemy&#34;&gt;this&lt;/a&gt; for now. &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Using my &lt;a href=&#34;https://github.com/david-hoffman/pyOTF&#34;&gt;&lt;code&gt;pyotf&lt;/code&gt; package&lt;/a&gt; &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;A standard &lt;a href=&#34;http://en.wikipedia.org/wiki/Richardson%E2%80%93Lucy_deconvolution&#34;&gt;Richardson-Lucy&lt;/a&gt; &lt;a href=&#34;https://github.com/david-hoffman/pyDecon/blob/7304674947a1efc5b00b41927ffb600ec03a2144/decon.py#L138&#34;&gt;deconvolution algorithm&lt;/a&gt; was run for 10 iterations without acceleration. Running the simulation with a &lt;a href=&#34;https://scikit-image.org/docs/dev/api/skimage.restoration.html#skimage.restoration.richardson_lucy&#34;&gt;different implementation&lt;/a&gt; yielded similar results. &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;If you define resolution as FWHM, which I think is wrong, then that improves as well. &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Using the same Richardson-Lucy algorithm as above except with 20 iterations and linear acceleration. &lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;More when using the radially averaged image, likely because it captures more of the aberrations of the microscope. &lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
     
     <item>
       <title>Oh no, I squished my OTF!</title>

@@ -654,6 +654,10 @@ Where $\sigma&#39;$ and $\sigma$ are the beam sizes at each conjugate plane and 
 &lt;li&gt;A subtle detail in Gustafsson et al.:&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for confocal microscopy you can model the total PSF as $PSF_\text{total} = PSF_\text{excitation} \times PSF_\text{detection}$ but this isn&amp;rsquo;t true for SIM or LLSM. The key is in the transformation from equation (4) to equation (5). Here Gustafsson makes the argument that if you keep the axial excitation pattern constant relative to the objective you now multiply the PSF by the axial component of the excitation before the convolution, thus the effective PSF is now $PSF_\text{total} = PSF_\text{axial excitation} \times PSF_\text{detection}$. For confocal, the excitation spot is also scanned so all components of the excitation have the same coordinate frame as the detection and therefore their PSFs can be multiplied. In light-sheet microscopy the light-sheet is (hopefully) kept aligned with focal plane of the detection objective and thus the situation is the same as for SIM, i.e. the effective axial PSF is the multiplication of the axial excitation profile and the axial detection PSF but the lateral PSF is just the lateral detection PSF.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;lasers&#34;&gt;Lasers&lt;/h2&gt;
+&lt;h2 id=&#34;lab&#34;&gt;Lab&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.henkel-adhesives.com/us/en/product/structural-adhesives/loctite_ea_608.html&#34;&gt;Loctite EA 608&lt;/a&gt; can be removed by applying heat as it&amp;rsquo;s strength decreases with increasing temperature. Using a heat gun at 500+ °F for ~1 min seems to work for me.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;(╯°□°)╯︵ ┻━┻&lt;/li&gt;

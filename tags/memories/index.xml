@@ -40,9 +40,9 @@ Where $\sigma&#39;$ and $\sigma$ are the beam sizes at each conjugate plane and 
 &lt;/li&gt;
 &lt;li&gt;If one approximates a diffraction limited PSF by a Gaussian profile the standard deviation of the profile is approximately equal to &lt;a href=&#34;https://en.wikipedia.org/wiki/Airy_disk#Approximation_using_a_Gaussian_profile&#34;&gt;$0.45 \lambda / 2 NA$&lt;/a&gt; assuming that the &lt;a href=&#34;https://en.wikipedia.org/wiki/Numerical_aperture&#34;&gt;f-number is approximately equal to $1/2 NA$&lt;/a&gt; (As a consequence: $FWHM \approx \lambda / 2 NA$)&lt;/li&gt;
 &lt;li&gt;$f = \left(1 - \sqrt{1 - (\text{NA} / n)^2}\right) / 2$ where $f$ is the fraction of light collected by the objective as a function of numerical aperture (NA) and medium index ($n$). When NA is small this can be approximated as $(NA/n)^2/4$. Derived from &lt;a href=&#34;https://en.wikipedia.org/wiki/Solid_angle&#34;&gt;this&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1365-2818.1988.tb04563.x&#34;&gt;Depth of field&lt;/a&gt; is &lt;a href=&#34;https://david-hoffman.github.io/post/otf-squishing/&#34;&gt;$\Delta z = \lambda / \left(n_{sample} - \sqrt{n^2_{sample} - \text{NA}^2}\right)$&lt;/a&gt;[^1]&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1365-2818.1988.tb04563.x&#34;&gt;Depth of field&lt;/a&gt; is &lt;a href=&#34;https://david-hoffman.github.io/post/otf-squishing/&#34;&gt;$\Delta z = \lambda / \left(n_{sample} - \sqrt{n^2_{sample} - \text{NA}^2}\right)$&lt;/a&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
 &lt;li&gt;An Airy unit (au) is defined as $1.22 \lambda / \text{NA}$.&lt;/li&gt;
-&lt;li&gt;A subtle detail in Gustafsson et al.:[^g2008] for confocal microscopy you can model the total PSF as $PSF_\text{total} = PSF_\text{excitation} \times PSF_\text{detection}$ but this isn&amp;rsquo;t true for SIM or LLSM. The key is in the transformation from equation (4) to equation (5). Here Gustafsson makes the argument that if you keep the axial excitation pattern constant relative to the objective you now multiply the PSF by the axial component of the excitation before the convolution, thus the effective PSF is now $PSF_\text{total} = PSF_\text{axial excitation} \times PSF_\text{detection}$. For confocal, the excitation spot is also scanned so all components of the excitation have the same coordinate frame as the detection and therefore their PSFs can be multiplied. In light-sheet microscopy the light-sheet is (hopefully) kept aligned with focal plane of the detection objective and thus the situation is the same as for SIM, i.e. the effective axial PSF is the multiplication of the axial excitation profile and the axial detection PSF but the lateral PSF is just the lateral detection PSF.&lt;/li&gt;
+&lt;li&gt;A subtle detail in Gustafsson et al.:&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for confocal microscopy you can model the total PSF as $PSF_\text{total} = PSF_\text{excitation} \times PSF_\text{detection}$ but this isn&amp;rsquo;t true for SIM or LLSM. The key is in the transformation from equation (4) to equation (5). Here Gustafsson makes the argument that if you keep the axial excitation pattern constant relative to the objective you now multiply the PSF by the axial component of the excitation before the convolution, thus the effective PSF is now $PSF_\text{total} = PSF_\text{axial excitation} \times PSF_\text{detection}$. For confocal, the excitation spot is also scanned so all components of the excitation have the same coordinate frame as the detection and therefore their PSFs can be multiplied. In light-sheet microscopy the light-sheet is (hopefully) kept aligned with focal plane of the detection objective and thus the situation is the same as for SIM, i.e. the effective axial PSF is the multiplication of the axial excitation profile and the axial detection PSF but the lateral PSF is just the lateral detection PSF.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;lasers&#34;&gt;Lasers&lt;/h2&gt;
 &lt;h2 id=&#34;lab&#34;&gt;Lab&lt;/h2&gt;
@@ -54,22 +54,30 @@ Where $\sigma&#39;$ and $\sigma$ are the beam sizes at each conjugate plane and 
 &lt;li&gt;(╯°□°)╯︵ ┻━┻&lt;/li&gt;
 &lt;li&gt;Assuming that &lt;code&gt;in1.shape == in2.shape&lt;/code&gt; then &lt;code&gt;fftconvolve(in1, in2, &amp;quot;same&amp;quot;) != irfftn(rfftn(in1), rfftn(in2))&lt;/code&gt;. The left hand side calculates the convolution with &lt;em&gt;explicit zero padding&lt;/em&gt; while the right hand side calculates the convolution with &lt;em&gt;implicit reflection&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;get_max&lt;/span&gt;(xdata, ydata, axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;):
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Get the x value that corresponds to the max y value&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+    idx_max &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ydata&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;argmax(axis)
+    max_x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;take_along_axis(xdata, np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;expand_dims(idx_max, axis), axis)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;squeeze()
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; max_x
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;def get_max(xdata, ydata, axis=0):
-&amp;ldquo;&amp;ldquo;&amp;ldquo;Get the x value that corresponds to the max y value&amp;rdquo;&amp;rdquo;&amp;rdquo;
-idx_max = ydata.argmax(axis)
-max_x = np.take_along_axis(xdata, np.expand_dims(idx_max, axis), axis).squeeze()
-return max_x&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-## Useful links
-
-- https://www.newport.com/n/focusing-and-collimating
-- http://www.loreti.it/chapterspdf/ch06_diffn_effcy.pdf
-
-[^1]: If $\text{NA} &amp;gt; n_{sample}$ indicating that the objective is being used in a medium that is of a lower index than for which it was designed then $\Delta z = \lambda / n_{sample}$
-
-[^g2008]: [M. G. L. Gustafsson, L. Shao, P. M. Carlton, C. J. R. Wang, I. N. Golubovskaya, W. Z. Cande, D. A. Agard, J. W. Sedat, Three-Dimensional Resolution Doubling in Wide-Field Fluorescence Microscopy by Structured Illumination. Biophysical Journal. 94, 4957–4970 (2008).](http://www.sciencedirect.com/science/article/pii/S0006349508703606)&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;h2 id=&#34;useful-links&#34;&gt;Useful links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.newport.com/n/focusing-and-collimating&#34;&gt;https://www.newport.com/n/focusing-and-collimating&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.loreti.it/chapterspdf/ch06_diffn_effcy.pdf&#34;&gt;http://www.loreti.it/chapterspdf/ch06_diffn_effcy.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;If $\text{NA} &amp;gt; n_{sample}$ indicating that the objective is being used in a medium that is of a lower index than for which it was designed then $\Delta z = \lambda / n_{sample}$ &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0006349508703606&#34;&gt;M. G. L. Gustafsson, L. Shao, P. M. Carlton, C. J. R. Wang, I. N. Golubovskaya, W. Z. Cande, D. A. Agard, J. W. Sedat, Three-Dimensional Resolution Doubling in Wide-Field Fluorescence Microscopy by Structured Illumination. Biophysical Journal. 94, 4957–4970 (2008).&lt;/a&gt; &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
     </item>
     
   </channel>

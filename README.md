@@ -55,10 +55,17 @@ Editorial headings and titles use sentence case. Keep scientific acronyms and
 proper names intact, and retain formal paper titles in citation fields. Update
 listings, search titles, feeds, and metadata when an editorial title changes.
 
-Research images share the corner marks and small labels in `figures.css`.
+Research images share the corner marks and small labels in `figures.css`. Each
+label describes its image in a few words; do not repeat a generic label across
+unrelated images.
 Scientific plots retain their original pixels on a white background; existing
 figure numbers remain tied to their captions. Portraits use CSS grayscale and
 do not receive research frames.
+
+Emoji add personality in the matching homepage/author interests and occasional
+article punchlines. Keep editorial headings and résumé details free of emoji,
+avoid stacking redundant reactions, and preserve quotations verbatim. Article
+edits must also reach the search index and relevant feeds.
 
 Colors follow `prefers-color-scheme` automatically. Print uses the light palette.
 The hero viewer supports mouse dragging, zoom buttons, and keyboard controls

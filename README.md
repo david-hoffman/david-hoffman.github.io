@@ -23,6 +23,8 @@ Ctrl+C. If port 8000 is occupied, use `python3 scripts/preview.py --port 8001`.
 | `site/index.html` | Résumé homepage and selected work |
 | `site/assets/site.css` | Shared visual styles |
 | `site/assets/archive.css` | Article, publication, and index layouts |
+| `site/assets/figures.css` | Research image frames, portrait layout, and image controls |
+| `site/assets/image-viewer.js` | Progressive hero image zoom and pan |
 | `site/post/` | Scientific writing and its original figures |
 | `site/publication/` | Publications and abstracts |
 | `site/tags/`, `site/categories/`, `site/authors/`, `site/publication_types/` | Existing browsing routes |
@@ -46,6 +48,23 @@ figures as well as the text.
 The [repository maintenance skill](skills/maintain-website/SKILL.md) gives agents
 the site-specific editing workflow. It is versioned here and linked from
 `AGENTS.md`; no global skill installation is needed.
+
+## Visual conventions
+
+Editorial headings and titles use sentence case. Keep scientific acronyms and
+proper names intact, and retain formal paper titles in citation fields. Update
+listings, search titles, feeds, and metadata when an editorial title changes.
+
+Research images share the corner marks and small labels in `figures.css`.
+Scientific plots retain their original pixels on a white background; existing
+figure numbers remain tied to their captions. Portraits use CSS grayscale and
+do not receive research frames.
+
+Colors follow `prefers-color-scheme` automatically. Print uses the light palette.
+The hero viewer supports mouse dragging, zoom buttons, and keyboard controls
+(+/− to zoom, arrows to pan, 0 to reset). On touch screens, default page scrolling
+is preserved at 100%; zoom in before dragging or pinching the image. Without
+JavaScript, the image and research link remain available.
 
 ## Contact form
 

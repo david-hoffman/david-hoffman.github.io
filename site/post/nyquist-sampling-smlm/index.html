@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nyquist Sampling SMLM | David P. Hoffman</title>
+  <meta name="description" content="Getting really good **real** resolution in SMLM is really hard.">
+  <link rel="canonical" href="https://david-hoffman.github.io/post/nyquist-sampling-smlm/">
+  <meta property="og:title" content="Nyquist Sampling SMLM">
+  <meta property="og:description" content="Getting really good **real** resolution in SMLM is really hard.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://david-hoffman.github.io/post/nyquist-sampling-smlm/">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:site" content="@davephoffman">
+  <meta property="twitter:creator" content="@davephoffman">
+  <meta property="og:image" content="https://david-hoffman.github.io/post/nyquist-sampling-smlm/featured.png">
+  <meta property="twitter:image" content="https://david-hoffman.github.io/post/nyquist-sampling-smlm/featured.png">
+  <meta property="article:published_time" content="2020-04-16T19:59:12-07:00">
+  <meta property="article:modified_time" content="2020-04-17T14:33:30-07:00">
+  <link rel="icon" href="/img/icon-32.png" sizes="32x32">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/archive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/">David P. Hoffman<span class="brand-note">SCIENTIST &amp; ENGINEER</span></a>
+    <nav aria-label="Main navigation">
+      <a href="/#work">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/post/">Writing</a>
+      <a href="/publication/">Publications</a>
+      <a class="nav-contact" href="/#contact">Contact ↗</a>
+    </nav>
+  </header>
+  <main id="main" class="archive-main">
+    <header class="article-heading">
+      <a class="archive-back" href="/post/">← All writing</a>
+      <p class="eyebrow">Writing</p>
+      <h1>Nyquist Sampling SMLM</h1>
+      <p class="article-meta">David P. Hoffman · Updated Apr 17, 2020 · 6 min read</p>
+
+    </header>
+    <article class="article-body">
+<figure class="article-figure"><img src="/post/nyquist-sampling-smlm/featured_hu8bf6223da52faa719b705f458673d472_39671_680x500_fill_q90_lanczos_smart1_2.png" alt="Nyquist Sampling SMLM" loading="lazy"><figcaption>How many points until you see the circle?</figcaption></figure>
+
+<p>People have been arguing over the &ldquo;real&rdquo; resolution of <a href="https://en.wikipedia.org/wiki/Super-resolution_microscopy#Localization_microscopy">single molecule localization microscopy</a> (<a href="https://www.microscopyu.com/techniques/super-resolution/single-molecule-super-resolution-imaging">SMLM</a>) since it&rsquo;s inception<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (see the many references in Legant et al.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>). New comers are often wowed by the insanely small localization <em>precisions</em> achievable with modern SMLM microscopes and dyes which can routinely drop below 10 nm (a factor of nearly 20 fold below the diffraction limit 🤯). However, it is clear to &ldquo;those skilled in the art&rdquo; that this merely represents the lower bound for the <em>actual resolution</em> of one&rsquo;s image.</p>
+<p>Early on in the debate, many made frequent appeals to the concept of <a href="https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem">Nyquist sampling</a> which simply states that you must sample at twice the highest frequency you&rsquo;re hoping to measure. Because images are made up of <em>spatial</em> frequencies the argument is that you need a localization <em>density</em> of at least twice the highest frequency you&rsquo;re trying to measure. For instance, let&rsquo;s say you wanted to measure <a href="https://en.wikipedia.org/wiki/Endoplasmic_reticulum">ER</a> tubules of approximately 50 nm in diameter then you&rsquo;d need at least one localization every 25 nm or 40 localizations every micron &mdash; <em>in a single dimension</em>! If you&rsquo;d like to measure such a structure in 3D then you&rsquo;d need <em>64,000 molecules per cubic micron</em>! That means you&rsquo;ll need millions or even billions<sup id="fnref:2-2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> of localizations to achieve the resolution you want.</p>
+<p>Unfortunately, the argument laid out above is really a best case scenario and even if you achieved such a high localization rate your signal to noise ratio (SNR) would be 1. To understand why, consider the simple model shown in Fig. 1 below. Here our sample is a one dimensional square wave of period $L$ (wavelength) and height $S$ (signal) offset by an amount $B$ (background). The background is representative of non-specific labeling or junk during imaging.</p>
+<figure>
+  <a data-fancybox="" href="1D%20Model.png" >
+<img src="1D%20Model.png" >
+</a>
+<figcaption class="numbered">
+  <h4><strong>Figure 1:</strong> A square wave of period (wavelength) $L$ shown as the thick orange line. The dashed orange line is the background component of intensity $B$ and the green solid line is the signal component of intensity $S$</h4>
+</figcaption>
+</figure>
+<p>A simple argument would lead you to believe that you want a single molecule localized per period meaning that our desired labeling density is $\rho = 1 / L$. But this doesn&rsquo;t take into account any noise sources. It&rsquo;s reasonable to assume that protein production, labeling, and imaging (i.e. detection, localization, etc.) all lead to roughly <a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson statistics</a> for localization density. A Poisson distribution has a well defined variance, namely $\sigma^2 = \mu$ where $\mu$ is the mean value, thus the standard deviation is $\sigma = \sqrt{\mu}$. In the case of one localization per period that means you have an SNR of <strong>1</strong> 😱.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> If you wanted to have an SNR of 2 you&rsquo;d need 4 localizations, on average, per period. Referring back to our example of ER tubules above this translates to <strong>4 million localizations per cubic micron</strong>.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<p>Including background noise isn&rsquo;t much harder. Assuming the background is also Poisson distributed we can use the <a href="https://en.wikipedia.org/wiki/Skellam_distribution">Skellam distribution</a> setting $\mu_1 = S + B$ and $\mu_2 = B$ which gives an SNR of</p>
+<p>$$
+SNR = \frac{\mu_1 - \mu_2}{\sqrt{\mu_1 + \mu_2}} = \frac{S}{\sqrt{S + 2B}}
+$$</p>
+<p>We can rearrange the above equation, setting $S$ equal to the number of localized molecules per period $N$, to read</p>
+<p>$$
+N = \frac{SNR^2}{2}\left(1 + \sqrt{1 + \frac{8 B}{SNR^2}}\right)
+$$</p>
+<p>For example, if you want and SNR of 3 and your background is 2 molecules, on average, then you&rsquo;d need an average of 12 molecules per period. Again, going back to the ER example that means you&rsquo;d need <strong>111 million localizations per cubic micron</strong>.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<p>We can compare this analytical formula to the simulations of Legant et al.<sup id="fnref:2-3"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.3797/MediaObjects/41592_2016_BFnmeth3797_MOESM225_ESM.pdf">see supplemental figures 1 and 3 therein</a>). In that publication a sinusoidal pattern was used but we can normalize the two by averaging the sinusoid&rsquo;s intensity over half periods and using the resulting peak-to-peak intensity as our $S$. For a sinusoid of amplitude $A$ (i.e. $y(x) = A \sin x$) The integrated amplitude is $2 A /\pi$. Therefore our normalization factor is $\pi / 4$.</p>
+<p>For SI figure 1 we have the following analytical SNRs:</p>
+<ul>
+<li>0.89</li>
+<li>1.25</li>
+<li>1.99</li>
+<li>2.8</li>
+</ul>
+<p>For SI figure 3 we have the following analytical SNRs:</p>
+<ul>
+<li>1.31</li>
+<li>1.05</li>
+<li>1.86</li>
+<li>1.49</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Getting really good <strong>real</strong> resolution in SMLM (i.e. anything below ~50 nm average in $x$, $y$, and $z$) is really hard and requires minimal background and really really good labeling density.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup> One saving grace is that this argument assumes you have <em>absolutely <strong>no</strong> prior knowledge</em> about the structure you&rsquo;re imaging. Take for example Fig 2. below. It doesn&rsquo;t take a whole lot of points before it becomes obvious we&rsquo;re imaging a circle. It takes many more points to get an accurate measure of the width of the circle. But once you&rsquo;re fairly confident that it&rsquo;s a circle you can perform a radial average to determine the width; this type of methodology has been used to great effect before.<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> In short, the resolution of your image is <em>not</em> equivalent to your localization precision and resolution, in the traditional sense, may not even be relevant to what you&rsquo;re trying to measure.</p>
+<figure>
+  <a data-fancybox="" href="featured.png" >
+<img src="featured.png" >
+</a>
+<figcaption class="numbered">
+  <h4><strong>Figure 2:</strong> Randomly sampling points on a circle.</h4>
+</figcaption>
+</figure>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="http://www.sciencemag.org/content/313/5793/1642">E. Betzig, G. H. Patterson, R. Sougrat, O. W. Lindwasser, S. Olenych, J. S. Bonifacino, M. W. Davidson, J. Lippincott-Schwartz, H. F. Hess, Imaging Intracellular Fluorescent Proteins at Nanometer Resolution. Science. 313, 1642–1645 (2006).</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://www.nature.com/articles/nmeth.3797">W. R. Legant, L. Shao, J. B. Grimm, T. A. Brown, D. E. Milkie, B. B. Avants, L. D. Lavis, E. Betzig, High-density three-dimensional localization microscopy across large volumes. Nat Meth. 13, 359–365 (2016)</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>Noting that $SNR = \mu/\sigma$. PS: I personally would never try to make a scientific argument based on data with an SNR of 1. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>Remember this would be 4M / µm$^3$ <em>only</em> for the actual ER tubule. Considering that the mean diameter of a tubule is 50 nm this equates to roughly 8k molecules per micron of tubule. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p>This equates to roughly 220k molecules per micron of tubule. Also, 1 cubic micron is roughly 500 linear microns of ER tubule 😅. <a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p>One of the reasons regular <a href="https://en.wikipedia.org/wiki/Electron_microscope">EM</a> is so damn good is due to the fact that the labeling density (e.g. <a href="https://en.wikipedia.org/wiki/Staining#Electron_microscopy">osmium staining</a>) is so high. Even if you could build an optical microscope with the resolution of an electron microscope you&rsquo;d never get to take advantage of it. <a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7" role="doc-endnote">
+<p><a href="http://science.sciencemag.org/content/341/6146/655">A. Szymborska, A. de Marco, N. Daigle, V. C. Cordes, J. A. G. Briggs, J. Ellenberg, Nuclear Pore Scaffold Structure Analyzed by Super-Resolution Microscopy and Particle Averaging. Science. 341, 655–658 (2013).</a> <a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+    </article>
+<nav class="article-tags" aria-label="Topics"><a href="/tags/microscopy/">microscopy</a> <a href="/tags/smlm/">smlm</a> <a href="/tags/noise/">noise</a></nav>
+  </main>
+  <footer class="site-footer">
+    <p>David P. Hoffman <span>Scientist &amp; engineer</span></p>
+    <nav aria-label="Footer navigation">
+      <a href="https://github.com/david-hoffman">GitHub ↗</a>
+      <a href="https://scholar.google.com/citations?user=HGG__poAAAAJ&amp;hl=en">Google Scholar ↗</a>
+      <a href="/search/">Search</a>
+      <a href="/index.xml">RSS</a>
+    </nav>
+  </footer>
+  <script src="/assets/vendor/mathjax/config.js"></script>
+  <script defer src="/assets/vendor/mathjax/tex-svg.js"></script>
+</body>
+</html>

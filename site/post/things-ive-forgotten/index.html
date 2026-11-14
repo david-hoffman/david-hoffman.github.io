@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Things I&#x27;ve Forgotten | David P. Hoffman</title>
+  <meta name="description" content="My basic _modus operandi_ has been to learn and then, if not immediately, soon after forget them. This is a list I maintain of things once a remember them.">
+  <link rel="canonical" href="https://david-hoffman.github.io/post/things-ive-forgotten/">
+  <meta property="og:title" content="Things I&#x27;ve Forgotten">
+  <meta property="og:description" content="My basic _modus operandi_ has been to learn and then, if not immediately, soon after forget them. This is a list I maintain of things once a remember them.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://david-hoffman.github.io/post/things-ive-forgotten/">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:site" content="@davephoffman">
+  <meta property="twitter:creator" content="@davephoffman">
+  <meta property="og:image" content="https://david-hoffman.github.io/post/things-ive-forgotten/featured.jpg">
+  <meta property="twitter:image" content="https://david-hoffman.github.io/post/things-ive-forgotten/featured.jpg">
+  <meta property="article:published_time" content="2020-03-11T00:00:00+00:00">
+  <meta property="article:modified_time" content="2022-02-10T16:11:41-08:00">
+  <link rel="icon" href="/img/icon-32.png" sizes="32x32">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/archive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/">David P. Hoffman<span class="brand-note">SCIENTIST &amp; ENGINEER</span></a>
+    <nav aria-label="Main navigation">
+      <a href="/#work">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/post/">Writing</a>
+      <a href="/publication/">Publications</a>
+      <a class="nav-contact" href="/#contact">Contact ↗</a>
+    </nav>
+  </header>
+  <main id="main" class="archive-main">
+    <header class="article-heading">
+      <a class="archive-back" href="/post/">← All writing</a>
+      <p class="eyebrow">Writing</p>
+      <h1>Things I&#x27;ve Forgotten</h1>
+      <p class="article-meta">David P. Hoffman · Updated Feb 10, 2022 · 4 min read</p>
+
+    </header>
+    <article class="article-body">
+<figure class="article-figure"><img src="/post/things-ive-forgotten/featured_hu44175b6db3225b1b427e270094c90790_114472_680x500_fill_q90_lanczos_smart1.jpg" alt="Things I&#x27;ve Forgotten" loading="lazy"><figcaption><a href="https://www.amazon.com/Mr-Forgetful-Men-Little-Miss/dp/0843174196">Mr. Forgetful</a></figcaption></figure>
+
+<p>In my professional life I&rsquo;m always learning new things. Regrettably, I&rsquo;m also constantly forgetting things. It seems as though my brain only has enough space for a given number of facts and figures, and that number is constantly changing. I figured, if I&rsquo;ve had to learn something more than once, I may as well make a centralized and permanent note of it. Moreover, if I do it in a public forum (👋) someone else may benefit from my mistakes.</p>
+<p>This list has been roughly divided into three sections: <a href="#optics"><em>Optics</em></a>, <a href="#lasers"><em>Lasers</em></a>, and <a href="#code"><em>Code</em></a>.</p>
+<h2 id="optics">Optics</h2>
+<ul>
+<li><em>Aperature</em> stops are <em>pupil</em> conjugate</li>
+<li><em>Field</em> stops are <em>sample</em> conjugate</li>
+<li>Pupil diameter <a href="https://www.microscopyu.com/microscopy-basics/infinity-optical-systems">$=2 NA f$</a>, where the objective&rsquo;s numerical aperture is NA and its effective focal length is $f$. The focal length can be calculated from the magnification and standard tube lens. For example, for a 60X Nikon objective where the tube lens has a nominal focal length of 200 mm the effective focal length of the objective is 200 mm/60 = 3.33 mm.</li>
+<li>Fourier transform property of lens: for a Gaussian beam propagating through a lens the beam sizes at each conjugate plane can be related to one another by the following equation:
+$$
+\sigma&rsquo; \sigma = \frac{\lambda f}{\pi}
+$$
+Where $\sigma'$ and $\sigma$ are the beam sizes at each conjugate plane and $\lambda$ is the wavelength of the light and $f$ is the focal length of the lens.</li>
+<li><a href="/post/angle-to-position-and-back">The relationship between angle and position at the sample and angle and position at the back pupil of a microscope objective.</a></li>
+<li>Herschel&rsquo;s and Abbe&rsquo;s Sine conditions
+<ul>
+<li><strong>Herschel&rsquo;s Condition</strong> invariance of axial magnification</li>
+<li><strong>Abbe&rsquo;s Sine Condition</strong> invariance of lateral magnification (and no coma or spherical aberration)</li>
+<li>Impossible to satisfy both conditions <em>simultaneously</em>, thus perfect volumetric imaging is impossible (this is different from collecting separate 2D planes like in normal microscopy).</li>
+</ul>
+</li>
+<li>If one approximates a diffraction limited PSF by a Gaussian profile the standard deviation of the profile is approximately equal to <a href="https://en.wikipedia.org/wiki/Airy_disk#Approximation_using_a_Gaussian_profile">$0.45 \lambda / 2 NA$</a> assuming that the <a href="https://en.wikipedia.org/wiki/Numerical_aperture">f-number is approximately equal to $1/2 NA$</a> (As a consequence: $FWHM \approx \lambda / 2 NA$)</li>
+<li>$f = \left(1 - \sqrt{1 - (\text{NA} / n)^2}\right) / 2$ where $f$ is the fraction of light collected by the objective as a function of numerical aperture (NA) and medium index ($n$). When NA is small this can be approximated as $(NA/n)^2/4$. Derived from <a href="https://en.wikipedia.org/wiki/Solid_angle">this</a>.</li>
+<li><a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1365-2818.1988.tb04563.x">Depth of field</a> is <a href="/post/otf-squishing/">$\Delta z = \lambda / \left(n_{sample} - \sqrt{n^2_{sample} - \text{NA}^2}\right)$</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. If you take the first order term of the Maclaurin series expansion you get the more familiar form of $\Delta z = 2 n \lambda / \text{NA}^2$</li>
+<li>An Airy unit (au) is defined as $1.22 \lambda / \text{NA}$.</li>
+<li>A subtle detail in Gustafsson et al.:<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> for confocal microscopy you can model the total PSF as $PSF_\text{total} = PSF_\text{excitation} \times PSF_\text{detection}$ but this isn&rsquo;t true for SIM or LLSM. The key is in the transformation from equation (4) to equation (5). Here Gustafsson makes the argument that if you keep the axial excitation pattern constant relative to the objective you now multiply the PSF by the axial component of the excitation before the convolution, thus the effective PSF is now $PSF_\text{total} = PSF_\text{axial excitation} \times PSF_\text{detection}$. For confocal, the excitation spot is also scanned so all components of the excitation have the same coordinate frame as the detection and therefore their PSFs can be multiplied. In light-sheet microscopy the light-sheet is (hopefully) kept aligned with focal plane of the detection objective and thus the situation is the same as for SIM, i.e. the effective axial PSF is the multiplication of the axial excitation profile and the axial detection PSF but the lateral PSF is just the lateral detection PSF.</li>
+</ul>
+<h2 id="lasers">Lasers</h2>
+<h2 id="lab">Lab</h2>
+<ul>
+<li><a href="https://www.henkel-adhesives.com/us/en/product/structural-adhesives/loctite_ea_608.html">Loctite EA 608</a> can be removed by applying heat as it&rsquo;s strength decreases with increasing temperature. Using a heat gun at 500+ °F for ~1 min seems to work for me.</li>
+</ul>
+<h2 id="code">Code</h2>
+<ul>
+<li>(╯°□°)╯︵ ┻━┻</li>
+<li>Assuming that <code>in1.shape == in2.shape</code> then <code>fftconvolve(in1, in2, &quot;same&quot;) != irfftn(rfftn(in1), rfftn(in2))</code>. The left hand side calculates the convolution with <em>explicit zero padding</em> while the right hand side calculates the convolution with <em>implicit reflection</em>.</li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_max</span>(xdata, ydata, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>):
+    <span style="color:#e6db74">&#34;&#34;&#34;Get the x value that corresponds to the max y value&#34;&#34;&#34;</span>
+    idx_max <span style="color:#f92672">=</span> ydata<span style="color:#f92672">.</span>argmax(axis)
+    max_x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>take_along_axis(xdata, np<span style="color:#f92672">.</span>expand_dims(idx_max, axis), axis)<span style="color:#f92672">.</span>squeeze()
+    <span style="color:#66d9ef">return</span> max_x
+</code></pre></div></li>
+</ul>
+<h2 id="useful-links">Useful links</h2>
+<ul>
+<li><a href="https://www.newport.com/n/focusing-and-collimating">https://www.newport.com/n/focusing-and-collimating</a></li>
+<li><a href="http://www.loreti.it/chapterspdf/ch06_diffn_effcy.pdf">http://www.loreti.it/chapterspdf/ch06_diffn_effcy.pdf</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>If $\text{NA} &gt; n_{sample}$ indicating that the objective is being used in a medium that is of a lower index than for which it was designed then $\Delta z = \lambda / n_{sample}$ <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="http://www.sciencedirect.com/science/article/pii/S0006349508703606">M. G. L. Gustafsson, L. Shao, P. M. Carlton, C. J. R. Wang, I. N. Golubovskaya, W. Z. Cande, D. A. Agard, J. W. Sedat, Three-Dimensional Resolution Doubling in Wide-Field Fluorescence Microscopy by Structured Illumination. Biophysical Journal. 94, 4957–4970 (2008).</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+    </article>
+<nav class="article-tags" aria-label="Topics"><a href="/tags/memories/">memories</a></nav>
+  </main>
+  <footer class="site-footer">
+    <p>David P. Hoffman <span>Scientist &amp; engineer</span></p>
+    <nav aria-label="Footer navigation">
+      <a href="https://github.com/david-hoffman">GitHub ↗</a>
+      <a href="https://scholar.google.com/citations?user=HGG__poAAAAJ&amp;hl=en">Google Scholar ↗</a>
+      <a href="/search/">Search</a>
+      <a href="/index.xml">RSS</a>
+    </nav>
+  </footer>
+  <script src="/assets/vendor/mathjax/config.js"></script>
+  <script defer src="/assets/vendor/mathjax/tex-svg.js"></script>
+</body>
+</html>

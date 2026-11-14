@@ -110,7 +110,8 @@ remote deployment, or change GitHub settings as part of a local-only task.
   merged pull requests. Branch protection requires a pull request and the
   `Validate website` check before `master` can change, including for administrators.
   No second reviewer is required, so the repository owner can merge their own
-  checked pull requests. Force pushes and branch deletion are blocked.
+  checked pull requests. Only squash merges are enabled, and `master` requires
+  linear history. Force pushes and branch deletion are blocked.
 - Manual redeploys are available through **Actions → Deploy GitHub Pages → Run
   workflow**. Select `master` and check **Publish the current master revision to
   the live website**. Other branches and unconfirmed manual runs cannot deploy.
@@ -130,13 +131,16 @@ These GitHub settings complement the versioned workflows:
    website lives in `site/`, so the old branch/root publishing mode must stay off.
 2. **Branch protection for `master`:** require a pull request, require the
    `Validate website` check from GitHub Actions, require the branch to be up to date,
-   apply the rules to administrators, and disallow force pushes and deletion.
+   require linear history, apply the rules to administrators, and disallow force
+   pushes and deletion.
    The required number of approving reviews is zero.
-3. **Environment `github-pages`:** allow deployments from protected branches only.
+3. **Settings → General → Pull Requests:** allow squash merging; disable merge
+   commits and rebase merging. These merge-method settings apply repository-wide.
+4. **Environment `github-pages`:** allow deployments from protected branches only.
    The workflow further restricts deployment to `master`.
 
 For a normal release, push a feature branch, open a pull request into `master`,
-wait for `Validate website`, then merge. Check **Deploy GitHub Pages** for the
+wait for `Validate website`, then squash-merge. Check **Deploy GitHub Pages** for the
 deployment result and verify <https://david-hoffman.github.io/>. A merge creates
 the push event used by the deployment workflow; ordinary feature-branch pushes
 only update the proposed change.

@@ -16,7 +16,8 @@ permissions:
 
 # Finish an active deployment before publishing the next revision.
 concurrency:
-  group: github-pages
+  # A rejected manual run must not displace a queued production deployment.
+  group: ${{ github.ref == 'refs/heads/master' && (github.event_name == 'push' || inputs.deploy) && 'github-pages' || github.run_id }}
   cancel-in-progress: false
 
 jobs:

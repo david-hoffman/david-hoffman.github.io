@@ -27,6 +27,9 @@ file map and current migration status.
   Update only affected entries. Keep draft material out of `site/`.
 - Use repository images and downloads. Prefer reasonably sized display copies;
   retain originals that existing published links still use.
+- Follow the sentence-case and image-frame conventions documented in `README.md`.
+  Preserve acronyms, proper names, published citation titles, and original figure
+  numbers. Use CSS grayscale for portraits; keep scientific image colors intact.
 
 ## Validate the result
 
@@ -39,6 +42,10 @@ Inspect the changed page at desktop and mobile widths. Check navigation and focu
 behavior for interaction changes, and inspect mathematical rendering and figures
 for article changes. If browser tools are unavailable, report that limit rather
 than claiming visual verification.
+
+For shared visual changes, inspect both light and dark palettes. For hero viewer
+changes, check pan bounds, zoom limits, keyboard reset, resize behavior, and that
+touch scrolling remains available before image zoom is engaged.
 
 Summarize the changed content, checks, and preview URL. Keep a preview server running
 when the user asks to view it. Follow the user's existing deployment authorization;

@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>David P. Hoffman — Scientist &amp; Engineer</title>
-  <meta name="description" content="David P. Hoffman is a scientist/engineer who builds robust, high-performance optical systems and loves data and python.">
-  <meta name="theme-color" content="#f5f3ec">
+  <meta name="description" content="David P. Hoffman is a scientist/engineer who builds robust, high-performance optical systems and loves data and Python.">
+  <meta name="theme-color" content="#f5f3ec" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#172126" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://david-hoffman.github.io/">
   <link rel="icon" href="/img/icon-32.png" sizes="32x32">
   <link rel="alternate" type="application/rss+xml" title="David P. Hoffman's writing" href="/post/index.xml">
   <meta property="og:type" content="website">
   <meta property="og:title" content="David P. Hoffman — Scientist &amp; Engineer">
-  <meta property="og:description" content="A scientist/engineer who builds robust, high-performance optical systems and loves data and python.">
+  <meta property="og:description" content="A scientist/engineer who builds robust, high-performance optical systems and loves data and Python.">
   <meta property="og:url" content="https://david-hoffman.github.io/">
   <meta property="og:image" content="https://david-hoffman.github.io/img/clem.png">
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/figures.css">
+  <script src="/assets/image-viewer.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -35,22 +38,29 @@
       <div class="hero-copy">
         <p class="eyebrow"><span class="small-cross" aria-hidden="true">✳</span> OPTICS · MICROSCOPY · CODE</p>
         <h1 id="hero-title">Curiosity,<br>made <em>useful.</em></h1>
-        <p class="hero-intro">My name is <strong>David P. Hoffman</strong>. I’m a <strong>scientist/engineer</strong> who builds <strong>robust, high-performance optical systems</strong> and loves <strong>data</strong> and <strong>python</strong></p>
-        <p class="hero-detail">I’ve probed <a href="https://pubs.acs.org/doi/abs/10.1021/acs.accounts.5b00508">ultrafast chemical reactions</a>, imaged <a href="https://science.sciencemag.org/content/367/6475/eaaz5357">nanoscale protein ultrastructure relationships</a>, and implemented a <a href="https://www.eikontx.com">high throughput screening platform</a>. Now I’m applying <a href="https://www.10xgenomics.com/in-situ-technology">optics 🔬 to omics 🧬</a>.</p>
+        <p class="hero-intro">My name is <strong>David P. Hoffman</strong>. I’m a <strong>scientist/engineer</strong> who builds <strong>robust, high-performance optical systems</strong> and loves <strong>data</strong> and <strong>Python</strong></p>
+        <p class="hero-detail">I’ve probed <a href="https://pubs.acs.org/doi/abs/10.1021/acs.accounts.5b00508">ultrafast chemical reactions</a>, imaged <a href="https://science.sciencemag.org/content/367/6475/eaaz5357">nanoscale protein ultrastructure relationships</a>, and implemented a <a href="https://www.eikontx.com">high throughput screening platform</a>. Now I’m applying <a href="https://www.10xgenomics.com/in-situ-technology">optics to omics</a>.</p>
         <div class="hero-actions">
           <a class="button" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
           <a class="text-link" href="/files/cv.pdf">Résumé <span class="file-label">PDF</span> <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <figure class="hero-figure">
+      <figure class="hero-figure" data-image-viewer>
         <div class="image-frame">
-          <span class="figure-label" aria-hidden="true">A CLOSER LOOK</span>
-          <img src="/assets/images/cells.jpg" alt="Correlative microscopy image revealing the colorful internal structures of a cell" width="1600" height="674" fetchpriority="high">
+          <span class="figure-label" aria-hidden="true">INSIDE A CELL</span>
+          <div class="image-viewport" data-image-viewport role="group" aria-label="Explore the cell image" aria-describedby="hero-viewer-help"><img src="/assets/images/cells.jpg" alt="Correlative microscopy image revealing the colorful internal structures of a cell" width="1600" height="674" fetchpriority="high"></div>
           <span class="image-corner top-left" aria-hidden="true"></span>
           <span class="image-corner bottom-right" aria-hidden="true"></span>
           <span class="figure-index" aria-hidden="true">FIG. 01 / CLEM</span>
         </div>
-        <figcaption><span>freeze-frame of whole cells</span><a href="/publication/clem/">The research ↗</a></figcaption>
+        <figcaption><span>Freeze-frame of whole cells</span><a href="/publication/clem/">The research ↗</a></figcaption>
+        <div class="image-controls" data-image-controls hidden>
+          <button type="button" data-zoom-out aria-label="Zoom out">−</button>
+          <output data-zoom-level aria-live="polite" aria-label="Image zoom">100%</output>
+          <button type="button" data-zoom-in aria-label="Zoom in">+</button>
+          <button type="button" data-zoom-reset>Reset</button>
+        </div>
+        <p class="image-help" id="hero-viewer-help" data-image-help hidden>Drag to explore. Zoom with + and −, then pinch or drag on touch. Arrow keys pan; 0 resets.</p>
       </figure>
     </section>
 
@@ -61,9 +71,9 @@
     </div>
 
     <section class="section-wrap section-space about-section" id="about" aria-labelledby="about-title">
-      <div class="section-marker"><span class="section-number">01 / ABOUT</span><img class="portrait" src="/assets/images/david-hoffman-headshot.jpg" width="1179" height="1703" alt="David P. Hoffman" loading="lazy"></div>
+      <div class="about-heading"><p class="section-number">01 / ABOUT</p><h2 id="about-title">About me</h2></div>
+      <img class="portrait" src="/assets/images/david-hoffman-headshot.jpg" width="1179" height="1703" alt="David P. Hoffman" loading="lazy">
       <div class="about-copy">
-        <h2 id="about-title">About me</h2>
         <p class="lead">I’m a scientist and engineer with a proven track record of hardware and software development whose research has been featured on the <a href="https://science.sciencemag.org/content/367/6475/eaaz5357">cover of <em>Science</em> magazine</a>.
         </p>
         <p>In graduate school at Berkeley I trained as a physical chemist and spectroscopist before diving into imaging and biology as a post-doc in Nobel Laureate <a href="https://www.janelia.org/lab/betzig-lab">Eric Betzig’s group</a>.
@@ -77,22 +87,22 @@
       <div class="section-wrap section-space" id="slider">
         <div class="section-heading"><div><p class="section-number">02 / SELECTED WORK</p><h2 id="work-title">Selected work</h2></div></div>
         <article class="featured-work">
-          <a class="work-image" href="/publication/clem/"><img src="/assets/images/microscope.jpg" width="960" height="639" loading="lazy" alt="Cryogenic microscopy instrumentation on an optical table"></a>
+          <a class="work-image" href="/publication/clem/"><span class="figure-label" aria-hidden="true">BUILT FOR THE COLD</span><img src="/assets/images/microscope.jpg" width="960" height="639" loading="lazy" alt="Cryogenic microscopy instrumentation on an optical table"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">FIG. 02 / MICROSCOPY</span></a>
           <div class="work-copy">
             <p class="eyebrow">MICROSCOPY / INSTRUMENTATION</p>
-            <h3><a href="/publication/clem/">❄️ super-cool microscopes ❄️</a></h3>
-            <p>our correlative pipeline is now available at the AIC @ Janelia</p>
+            <h3><a href="/publication/clem/">Super-cool microscopes</a></h3>
+            <p>Our correlative pipeline is now available at the AIC @ Janelia</p>
             <div class="work-links"><a class="text-link" href="/publication/clem/">Explore the research ↗</a><a href="https://www.aicjanelia.org/">Available at Janelia’s AIC ↗</a></div>
           </div>
         </article>
         <div class="work-grid">
           <article class="compact-work">
-            <a class="work-image" href="/publication/thesis/"><img src="/assets/images/laser.jpg" width="960" height="638" alt="Optics and laser components used for ultrafast spectroscopy" loading="lazy"></a>
-            <div class="work-copy"><p class="eyebrow">LASERS / SPECTROSCOPY</p><h3><a href="/publication/thesis/">ultrafast lasers + chemical dynamics</a></h3><p>in graduate school I used femtosecond spectroscopy to interogate molecular reactions</p><a class="text-link" href="/publication/thesis/">Read the thesis ↗</a></div>
+            <a class="work-image" href="/publication/thesis/"><span class="figure-label" aria-hidden="true">ULTRAFAST LIGHT</span><img src="/assets/images/laser.jpg" width="960" height="638" alt="Optics and laser components used for ultrafast spectroscopy" loading="lazy"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">FIG. 03 / SPECTROSCOPY</span></a>
+            <div class="work-copy"><p class="eyebrow">LASERS / SPECTROSCOPY</p><h3><a href="/publication/thesis/">Ultrafast lasers + chemical dynamics</a></h3><p>In graduate school I used femtosecond spectroscopy to interogate molecular reactions</p><a class="text-link" href="/publication/thesis/">Read the thesis ↗</a></div>
           </article>
           <article class="compact-work">
-            <a class="work-image" href="https://github.com/david-hoffman/pyOTF"><img src="/assets/images/aberrations.jpg" width="960" height="653" alt="Simulated optical aberrations showing different point spread functions" loading="lazy"></a>
-            <div class="work-copy"><p class="eyebrow">PYTHON / COMPUTATIONAL IMAGING</p><h3><a href="https://github.com/david-hoffman/pyOTF">pyotf</a></h3><p>a python package for simulating optical transfer functions and point spread functions for light microscopes</p><a class="text-link" href="https://github.com/david-hoffman/pyOTF">Explore pyOTF ↗</a></div>
+            <a class="work-image" href="https://github.com/david-hoffman/pyOTF"><span class="figure-label" aria-hidden="true">ABERRATIONS IN FOCUS</span><img src="/assets/images/aberrations.jpg" width="960" height="653" alt="Simulated optical aberrations showing different point spread functions" loading="lazy"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">FIG. 04 / pyOTF</span></a>
+            <div class="work-copy"><p class="eyebrow">PYTHON / COMPUTATIONAL IMAGING</p><h3><a href="https://github.com/david-hoffman/pyOTF">pyOTF</a></h3><p>A Python package for simulating optical transfer functions and point spread functions for light microscopes</p><a class="text-link" href="https://github.com/david-hoffman/pyOTF">Explore pyOTF ↗</a></div>
           </article>
         </div>
       </div>
@@ -101,12 +111,12 @@
     <section class="section-wrap section-space experience-section" id="experience" aria-labelledby="experience-title">
       <div class="section-marker"><p class="section-number">03 / EXPERIENCE</p><h2 id="experience-title">Experience</h2><p>Oh, the places you’ll go!</p><a class="text-link" href="/files/cv.pdf">Download résumé ↗</a></div>
       <div class="experience-list">
-        <article class="experience-entry"><div class="entry-meta"><span>2022 — PRESENT</span><span>Pleasanton, CA</span></div><h3>Staff Optical Engineer</h3><p class="organization"><a href="https://www.10xgenomics.com/">10x Genomics ↗</a></p><p>More 🔬 + 🧬: <a href="https://www.10xgenomics.com/in-situ-technology">Xenium</a></p><p class="date-detail">April 2022 – Present</p></article>
-        <article class="experience-entry"><div class="entry-meta"><span>2020 — 2022</span><span>Pleasanton, CA</span></div><h3>Senior Optical Engineer</h3><p class="organization"><a href="https://www.10xgenomics.com/">10x Genomics ↗</a></p><p>🔬 + 🧬</p><p class="date-detail">April 2020 – March 2022</p></article>
-        <article class="experience-entry"><div class="entry-meta"><span>2019 — 2020</span><span>Hayward, CA</span></div><h3>Engineer IV</h3><p class="organization"><a href="https://www.eikontx.com/">Eikon Therapeutics, Inc. ↗</a></p><p>I was developing the company’s core hardware technology platform, a high throughput single particle tracking (SPT) microscope 🔬. My focus was increasing throughput as efficiently as possible by engineering advanced illumination and analysis strategies. As a small startup I wore many other hats such as: developing our data analysis pipeline, introducing the use of Git and GitHub, helping set up company operations, and designing the company logo.</p><p class="date-detail">October 2019 – April 2020</p></article>
-        <article class="experience-entry"><div class="entry-meta"><span>2014 — 2019</span><span>Ashburn, VA</span></div><h3>Postdoctoral Researcher/Research Scientist</h3><p class="organization"><a href="https://www.janelia.org/lab/betzig-lab">HHMI, Janelia Research Campus ↗</a></p><p>I developed an advanced pipeline to collect and correlate data taken from a ❄️ cryogenic ❄️ super resolution fluorescent microscope (which I designed and built) and a customized focused ion beam scanning electron microscope (FIB-SEM), to elucidate key questions in cell biology, research which was featured on the <a href="/publication/clem/">January 17th, 2020 cover of <em>Science</em> magazine</a>.</p><p class="date-detail">August 2014 – October 2019</p></article>
-        <article class="experience-entry"><div class="entry-meta"><span>2008 — 2014</span><span>Berkeley, CA</span></div><h3>Graduate Student Researcher</h3><p class="organization"><a href="https://sites.google.com/site/themathieslab/">University of California, Berkeley ↗</a></p><p>I spent my time in graduate school applying femtosecond stimulated Raman spectroscopy (FSRS) to multiple chemical systems. In particular, I developed 2D-FSRS which offers an unprecedented view of chemical reaction dynamics. During my tenure, I rebuilt many of the optical subsystems of the spectrometer, such as the Ti:Sapphire femtosecond oscillator and the non-colinear optical parametric amplifier (NOPA), vastly improving system performance. In addition, I rewrote the analysis software and rewrote the LabVIEW instrument control software. In total, the changes I made increased mean time to failure from ~2 hours to months.</p><p class="date-detail">September 2008 – May 2014</p></article>
-        <div class="education"><p class="eyebrow">EDUCATION &amp; TRAINING</p><dl><div><dt>Post-doc in Microscopy</dt><dd>Janelia Research Campus · 2019</dd></div><div><dt>PhD in Physical Chemistry</dt><dd>University of California, Berkeley · 2014</dd></div><div><dt>BSc in Chemistry (minor in Physics)</dt><dd>McGill University · 2008</dd></div></dl></div>
+        <article class="experience-entry"><div class="entry-meta"><span>2022 — PRESENT</span><span>Pleasanton, CA</span></div><h3>Staff optical engineer</h3><p class="organization"><a href="https://www.10xgenomics.com/">10x Genomics ↗</a></p><p>More optics + omics: <a href="https://www.10xgenomics.com/in-situ-technology">Xenium</a></p><p class="date-detail">April 2022 – Present</p></article>
+        <article class="experience-entry"><div class="entry-meta"><span>2020 — 2022</span><span>Pleasanton, CA</span></div><h3>Senior optical engineer</h3><p class="organization"><a href="https://www.10xgenomics.com/">10x Genomics ↗</a></p><p>Optics + omics</p><p class="date-detail">April 2020 – March 2022</p></article>
+        <article class="experience-entry"><div class="entry-meta"><span>2019 — 2020</span><span>Hayward, CA</span></div><h3>Engineer IV</h3><p class="organization"><a href="https://www.eikontx.com/">Eikon Therapeutics, Inc. ↗</a></p><p>I was developing the company’s core hardware technology platform, a high throughput single particle tracking (SPT) microscope. My focus was increasing throughput as efficiently as possible by engineering advanced illumination and analysis strategies. As a small startup I wore many other hats such as: developing our data analysis pipeline, introducing the use of Git and GitHub, helping set up company operations, and designing the company logo.</p><p class="date-detail">October 2019 – April 2020</p></article>
+        <article class="experience-entry"><div class="entry-meta"><span>2014 — 2019</span><span>Ashburn, VA</span></div><h3>Postdoctoral researcher/research scientist</h3><p class="organization"><a href="https://www.janelia.org/lab/betzig-lab">HHMI, Janelia Research Campus ↗</a></p><p>I developed an advanced pipeline to collect and correlate data taken from a cryogenic super resolution fluorescent microscope (which I designed and built) and a customized focused ion beam scanning electron microscope (FIB-SEM), to elucidate key questions in cell biology, research which was featured on the <a href="/publication/clem/">January 17th, 2020 cover of <em>Science</em> magazine</a>.</p><p class="date-detail">August 2014 – October 2019</p></article>
+        <article class="experience-entry"><div class="entry-meta"><span>2008 — 2014</span><span>Berkeley, CA</span></div><h3>Graduate student researcher</h3><p class="organization"><a href="https://sites.google.com/site/themathieslab/">University of California, Berkeley ↗</a></p><p>I spent my time in graduate school applying femtosecond stimulated Raman spectroscopy (FSRS) to multiple chemical systems. In particular, I developed 2D-FSRS which offers an unprecedented view of chemical reaction dynamics. During my tenure, I rebuilt many of the optical subsystems of the spectrometer, such as the Ti:Sapphire femtosecond oscillator and the non-colinear optical parametric amplifier (NOPA), vastly improving system performance. In addition, I rewrote the analysis software and rewrote the LabVIEW instrument control software. In total, the changes I made increased mean time to failure from ~2 hours to months.</p><p class="date-detail">September 2008 – May 2014</p></article>
+        <div class="education"><p class="eyebrow">EDUCATION &amp; TRAINING</p><dl><div><dt>Post-doc in microscopy</dt><dd>Janelia Research Campus · 2019</dd></div><div><dt>PhD in physical chemistry</dt><dd>University of California, Berkeley · 2014</dd></div><div><dt>BSc in chemistry (minor in physics)</dt><dd>McGill University · 2008</dd></div></dl></div>
       </div>
     </section>
 
@@ -114,19 +124,19 @@
       <div class="section-wrap section-space">
         <div class="section-heading"><div><p class="section-number">04 / WRITING</p><h2 id="notes-title">Ramblings</h2><p>lengthy, confused, and inconsequential</p></div><a class="text-link" href="/post/">All writing ↗</a></div>
         <div class="notes-list">
-          <article><span class="note-number" aria-hidden="true">01</span><div><h3><a href="/post/dont-deconvolve-your-psf/">Don’t deconvolve your PSF</a></h3><p>Seriously, don&rsquo;t do it, it&rsquo;s not helpful</p></div><span class="note-topic">MICROSCOPY</span><a class="arrow-link" href="/post/dont-deconvolve-your-psf/" aria-label="Read Don't Deconvolve Your PSF">↗</a></article>
-          <article><span class="note-number" aria-hidden="true">02</span><div><h3><a href="/post/nyquist-sampling-smlm/">Nyquist sampling SMLM</a></h3><p>Getting really good <strong>real</strong> resolution in SMLM is really hard.</p></div><span class="note-topic">RESOLUTION</span><a class="arrow-link" href="/post/nyquist-sampling-smlm/" aria-label="Read Nyquist Sampling SMLM">↗</a></article>
+          <article><span class="note-number" aria-hidden="true">01</span><div><h3><a href="/post/dont-deconvolve-your-psf/">Don’t deconvolve your PSF</a></h3><p>Seriously, don&rsquo;t do it, it&rsquo;s not helpful</p></div><span class="note-topic">MICROSCOPY</span><a class="arrow-link" href="/post/dont-deconvolve-your-psf/" aria-label="Read Don't deconvolve your PSF">↗</a></article>
+          <article><span class="note-number" aria-hidden="true">02</span><div><h3><a href="/post/nyquist-sampling-smlm/">Nyquist sampling SMLM</a></h3><p>Getting really good <strong>real</strong> resolution in SMLM is really hard.</p></div><span class="note-topic">RESOLUTION</span><a class="arrow-link" href="/post/nyquist-sampling-smlm/" aria-label="Read Nyquist sampling SMLM">↗</a></article>
           <article><span class="note-number" aria-hidden="true">03</span><div><h3><a href="/post/otf-squishing/">Oh no, I squished my OTF!</a></h3><p>How to make your images look bad with high NA objectives</p></div><span class="note-topic">OPTICS</span><a class="arrow-link" href="/post/otf-squishing/" aria-label="Read Oh no, I squished my OTF">↗</a></article>
-          <article><span class="note-number" aria-hidden="true">04</span><div><h3><a href="/post/angle-to-position-and-back/">Angle to position and back</a></h3><p>The back pupil plane of a microscope objective is Fourier conjugate to it&rsquo;s image plane. We use this fact to perform laser scanning microscopy or create the interference patterns necessary for SIM or LLSM.</p></div><span class="note-topic">OPTICS</span><a class="arrow-link" href="/post/angle-to-position-and-back/" aria-label="Read Angle to Position and Back">↗</a></article>
-          <article><span class="note-number" aria-hidden="true">05</span><div><h3><a href="/post/things-ive-forgotten/">Things I’ve forgotten</a></h3><p>My basic <em>modus operandi</em> has been to learn and then, if not immediately, soon after forget them. This is a list I maintain of things once a remember them.</p></div><span class="note-topic">NOTES</span><a class="arrow-link" href="/post/things-ive-forgotten/" aria-label="Read Things I've Forgotten">↗</a></article>
+          <article><span class="note-number" aria-hidden="true">04</span><div><h3><a href="/post/angle-to-position-and-back/">Angle to position and back</a></h3><p>The back pupil plane of a microscope objective is Fourier conjugate to it&rsquo;s image plane. We use this fact to perform laser scanning microscopy or create the interference patterns necessary for SIM or LLSM.</p></div><span class="note-topic">OPTICS</span><a class="arrow-link" href="/post/angle-to-position-and-back/" aria-label="Read Angle to position and back">↗</a></article>
+          <article><span class="note-number" aria-hidden="true">05</span><div><h3><a href="/post/things-ive-forgotten/">Things I’ve forgotten</a></h3><p>My basic <em>modus operandi</em> has been to learn and then, if not immediately, soon after forget them. This is a list I maintain of things once a remember them.</p></div><span class="note-topic">NOTES</span><a class="arrow-link" href="/post/things-ive-forgotten/" aria-label="Read Things I've forgotten">↗</a></article>
         </div>
       </div>
     </section>
 
     <section class="section-wrap section-space publications-section" id="publication" aria-labelledby="publications-title">
-      <div class="section-heading"><div><p class="section-number">05 / PUBLICATIONS</p><h2 id="publications-title">Selected Publications</h2></div><a class="text-link" href="/publication/">All publications ↗</a></div>
+      <div class="section-heading"><div><p class="section-number">05 / PUBLICATIONS</p><h2 id="publications-title">Selected publications</h2></div><a class="text-link" href="/publication/">All publications ↗</a></div>
       <div class="paper-list">
-        <article><span class="paper-year">2020</span><div><h3><a href="/publication/clem/">freeze-frame of whole cells</a></h3><p>correlative three-dimensional super-resolution and block-face electron microscopy of whole vitreously frozen cells</p><p>Cells need to compartmentalize thousands of distinct proteins, but the nanoscale spatial relationship of many proteins to overall intracellular ultrastructure remains poorly understood. Correlated light and electron microscopy approaches can help. Hoffman et al. combined cryogenic super-resolution fluorescence microscopy and focused ion beam–milling scanning electron microscopy to visualize protein-ultrastructure relationships in three dimensions across whole cells. The fusion of the two imaging modalities enabled identification and three-dimensional segmentation of morphologically complex structures within the crowded intracellular environment. The researchers observed unexpected relationships within a variety of cell types, including a web-like protein adhesion network between juxtaposed cerebellar granule neurons.</p><a class="text-link" href="https://doi.org/10.1126/science.aaz5357"><em>Science</em> · Read the paper ↗</a></div></article>
+        <article><span class="paper-year">2020</span><div><h3><a href="/publication/clem/">Freeze-frame of whole cells</a></h3><p>Correlative three-dimensional super-resolution and block-face electron microscopy of whole vitreously frozen cells</p><p>Cells need to compartmentalize thousands of distinct proteins, but the nanoscale spatial relationship of many proteins to overall intracellular ultrastructure remains poorly understood. Correlated light and electron microscopy approaches can help. Hoffman et al. combined cryogenic super-resolution fluorescence microscopy and focused ion beam–milling scanning electron microscopy to visualize protein-ultrastructure relationships in three dimensions across whole cells. The fusion of the two imaging modalities enabled identification and three-dimensional segmentation of morphologically complex structures within the crowded intracellular environment. The researchers observed unexpected relationships within a variety of cell types, including a web-like protein adhesion network between juxtaposed cerebellar granule neurons.</p><a class="text-link" href="https://doi.org/10.1126/science.aaz5357"><em>Science</em> · Read the paper ↗</a></div></article>
         <article><span class="paper-year">2016</span><div><h3><a href="/publication/accounts-chemical-research/">Good vibrations?</a></h3><p>What role do vibrational coherences, if any, play in condensed phase photoreactivity? While we have observed vibrational coherences in almost any system where we look hard enough, it hasn&rsquo;t been clear if these are a cause or consequence of reactivity. In this survey of our own work we argue that for fast reactions (&lt; 10 ps) coordinate, coherent nuclear motion is required.</p><a class="text-link" href="https://doi.org/10.1021/acs.accounts.5b00508"><em>Accounts of Chemical Research</em> · Read the paper ↗</a></div></article>
       </div>
     </section>
@@ -135,7 +145,7 @@
       <div class="section-wrap contact-inner">
         <div class="contact-main">
           <p class="section-number">06 / GET IN TOUCH</p>
-          <h2 id="contact-title">contact me</h2>
+          <h2 id="contact-title">Contact me</h2>
           <form class="contact-form" name="contact" method="post" action="https://formspree.io/f/xaeoqzzn" aria-labelledby="contact-title">
             <fieldset>
               <div class="contact-form-row">

@@ -1,0 +1,57 @@
+/* Research image frames; photographs and scientific pixels retain their colors. */
+.work-image, .research-image { position: relative; }
+.figure-label, .figure-index, .image-corner { pointer-events: none; }
+.image-corner { z-index: 1; }
+.work-image:focus-visible { outline-offset: -4px; }
+.research-image {
+  display: block;
+  margin: 24px auto;
+  padding: 44px 20px;
+  background: #102322;
+  overflow: hidden;
+}
+.article-body .research-image img { margin: 0 auto; background: #fff; }
+.article-figure .research-image { margin-block: 0; }
+.research-image .figure-label { top: 12px; left: 24px; }
+.research-image .figure-index { bottom: 12px; right: 24px; }
+.research-image .image-corner { width: 14px; height: 14px; }
+.research-image .top-left { top: 10px; left: 10px; }
+.research-image .bottom-right { bottom: 10px; right: 10px; }
+
+/* Enhancement keeps the image and research link usable without JavaScript. */
+.image-viewport { position: absolute; inset: 0; overflow: hidden; touch-action: pan-y pinch-zoom; }
+.image-viewer-ready .image-viewport img { position: absolute; left: 0; top: 0; max-width: none; transform-origin: 0 0; user-select: none; }
+.image-viewer-ready .image-viewport { cursor: grab; }
+.image-viewport.is-zoomed { touch-action: none; }
+.image-viewport.is-dragging { cursor: grabbing; }
+.image-viewport:focus-visible { outline: 3px solid #fff; outline-offset: -5px; }
+.image-controls { display: flex; align-items: center; gap: 8px; margin-top: 16px; }
+.image-controls[hidden], .image-help[hidden] { display: none; }
+.image-controls button { min-width: 44px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); cursor: pointer; }
+.image-controls button:hover:not(:disabled) { background: var(--surface); }
+.image-controls button:disabled { opacity: .45; cursor: default; }
+.image-controls output { min-width: 55px; text-align: center; font: 11px var(--mono); }
+.image-controls [data-zoom-reset] { margin-left: auto; font-size: 12px; }
+.image-help { margin: 9px 0 0; font-size: 11px; line-height: 1.6; color: var(--muted); }
+
+/* Keep the portrait beside the About heading on small screens. */
+.about-section { grid-template-areas: "portrait heading" "portrait copy"; row-gap: 0; }
+.about-heading { grid-area: heading; }
+.about-heading .section-number { margin-bottom: 18px; }
+.about-heading h2 { margin-bottom: 28px; }
+.about-section > .portrait { grid-area: portrait; align-self: start; width: 172px; height: auto; margin-top: 0; }
+.about-copy { grid-area: copy; }
+.portrait, .author-photo { filter: grayscale(1); }
+@media (max-width: 760px) {
+  .about-section { grid-template-columns: minmax(0, 1fr) 104px; grid-template-areas: "heading portrait" "copy copy"; gap: 24px 18px; align-items: center; }
+  .about-heading h2 { margin: 0; font-size: clamp(2.1rem, 9vw, 2.65rem); }
+  .about-heading .section-number { margin-bottom: 14px; }
+  .about-section > .portrait { width: 104px; height: 124px; align-self: center; }
+  .research-image { padding: 38px 10px; }
+  .research-image .figure-label, .research-image .figure-index { font-size: 8px; }
+}
+@media print {
+  .image-controls, .image-help, .figure-label, .figure-index, .image-corner { display: none; }
+  .research-image { padding: 0; background: none; }
+  .portrait, .author-photo { display: none; }
+}

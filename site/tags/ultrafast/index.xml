@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ultrafast on David P. Hoffman, PhD.</title>
+    <title>Ultrafast on David P. Hoffman, PhD.</title>
     <link>https://david-hoffman.github.io/tags/ultrafast/</link>
-    <description>Recent content in ultrafast on David P. Hoffman, PhD.</description>
+    <description>Recent content in Ultrafast on David P. Hoffman, PhD.</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} David P. Hoffman</copyright>
@@ -13,12 +13,12 @@
     
     
     <item>
-      <title>Conversion Factors</title>
+      <title>Conversion factors</title>
       <link>https://david-hoffman.github.io/post/conversion-factors/</link>
       <pubDate>Wed, 04 Mar 2020 15:41:25 -0800</pubDate>
       
       <guid>https://david-hoffman.github.io/post/conversion-factors/</guid>
-      <description>&lt;h2 id=&#34;energy-conversion-factors&#34;&gt;Energy Conversion Factors&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;energy-conversion-factors&#34;&gt;Energy conversion factors&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -109,8 +109,8 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;colors-of-light&#34;&gt;Colors of Light&lt;/h2&gt;
-&lt;h3 id=&#34;visible-light&#34;&gt;Visible Light&lt;/h3&gt;
+&lt;h2 id=&#34;colors-of-light&#34;&gt;Colors of light&lt;/h2&gt;
+&lt;h3 id=&#34;visible-light&#34;&gt;Visible light&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -159,7 +159,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;all-light&#34;&gt;All Light&lt;/h3&gt;
+&lt;h3 id=&#34;all-light&#34;&gt;All light&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -220,7 +220,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;free-energies&#34;&gt;Free Energies&lt;/h2&gt;
+&lt;h2 id=&#34;free-energies&#34;&gt;Free energies&lt;/h2&gt;
 &lt;p&gt;$$
 \Delta(G) = RT \ln(K)
 $$
@@ -245,7 +245,7 @@ $$
 $$
 \Delta G = 1.36 \left( pK_{a1} - pK_{a2}\right)
 $$&lt;/p&gt;
-&lt;h2 id=&#34;atomic-units&#34;&gt;Atomic Units&lt;/h2&gt;
+&lt;h2 id=&#34;atomic-units&#34;&gt;Atomic units&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -298,7 +298,7 @@ $$&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;miscellaneous&#34;&gt;Miscellaneous&lt;/h2&gt;
-&lt;h3 id=&#34;force-constants&#34;&gt;Force Constants&lt;/h3&gt;
+&lt;h3 id=&#34;force-constants&#34;&gt;Force constants&lt;/h3&gt;
 &lt;p&gt;$$
 1\text{ dyn/cm} = 1.44 \times 10^{-3}\frac{\text{ kcal/mol}}{\text{Å}^2}
 $$
@@ -320,7 +320,7 @@ $$&lt;/p&gt;
     </item>
     
     <item>
-      <title>Derivation of the Transform Limit</title>
+      <title>Derivation of the transform limit</title>
       <link>https://david-hoffman.github.io/post/transform-limit/</link>
       <pubDate>Wed, 04 Mar 2020 15:24:05 -0800</pubDate>
       
@@ -378,7 +378,7 @@ $$&lt;/p&gt;
     </item>
     
     <item>
-      <title>Difference Bands TCNE</title>
+      <title>Difference bands TCNE</title>
       <link>https://david-hoffman.github.io/publication/difference-bands-tcne/</link>
       <pubDate>Wed, 21 Mar 2018 00:00:00 +0000</pubDate>
       
@@ -396,7 +396,7 @@ $$&lt;/p&gt;
     </item>
     
     <item>
-      <title>Ring Opening</title>
+      <title>Ring opening</title>
       <link>https://david-hoffman.github.io/publication/ring-opening/</link>
       <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
       
@@ -414,7 +414,7 @@ $$&lt;/p&gt;
     </item>
     
     <item>
-      <title>Ndab Isrs</title>
+      <title>NDAB ISRS</title>
       <link>https://david-hoffman.github.io/publication/ndab-isrs/</link>
       <pubDate>Fri, 18 Oct 2013 00:00:00 +0000</pubDate>
       
@@ -423,7 +423,7 @@ $$&lt;/p&gt;
     </item>
     
     <item>
-      <title>Etalon Fsrs</title>
+      <title>Etalon FSRS</title>
       <link>https://david-hoffman.github.io/publication/etalon-fsrs/</link>
       <pubDate>Fri, 06 Sep 2013 00:00:00 +0000</pubDate>
       
@@ -432,7 +432,7 @@ $$&lt;/p&gt;
     </item>
     
     <item>
-      <title>Dye Sensitized Fsrs</title>
+      <title>Dye sensitized FSRS</title>
       <link>https://david-hoffman.github.io/publication/dye-sensitized-fsrs/</link>
       <pubDate>Wed, 13 Mar 2013 00:00:00 +0000</pubDate>
       
@@ -441,7 +441,7 @@ $$&lt;/p&gt;
     </item>
     
     <item>
-      <title>Ndab</title>
+      <title>NDAB</title>
       <link>https://david-hoffman.github.io/publication/ndab-fsrs/</link>
       <pubDate>Wed, 01 Feb 2012 00:00:00 +0000</pubDate>
       

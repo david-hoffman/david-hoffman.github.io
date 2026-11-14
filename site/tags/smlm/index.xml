@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>smlm on David P. Hoffman, PhD.</title>
+    <title>SMLM on David P. Hoffman, PhD.</title>
     <link>https://david-hoffman.github.io/tags/smlm/</link>
-    <description>Recent content in smlm on David P. Hoffman, PhD.</description>
+    <description>Recent content in SMLM on David P. Hoffman, PhD.</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} David P. Hoffman</copyright>
@@ -13,12 +13,12 @@
     
     
     <item>
-      <title>Nyquist Sampling SMLM</title>
+      <title>Nyquist sampling SMLM</title>
       <link>https://david-hoffman.github.io/post/nyquist-sampling-smlm/</link>
       <pubDate>Thu, 16 Apr 2020 19:59:12 -0700</pubDate>
       
       <guid>https://david-hoffman.github.io/post/nyquist-sampling-smlm/</guid>
-      <description>&lt;p&gt;People have been arguing over the &amp;ldquo;real&amp;rdquo; resolution of &lt;a href=&#34;https://en.wikipedia.org/wiki/Super-resolution_microscopy#Localization_microscopy&#34;&gt;single molecule localization microscopy&lt;/a&gt; (&lt;a href=&#34;https://www.microscopyu.com/techniques/super-resolution/single-molecule-super-resolution-imaging&#34;&gt;SMLM&lt;/a&gt;) since it&amp;rsquo;s inception&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; (see the many references in Legant et al.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;). New comers are often wowed by the insanely small localization &lt;em&gt;precisions&lt;/em&gt; achievable with modern SMLM microscopes and dyes which can routinely drop below 10 nm (a factor of nearly 20 fold below the diffraction limit 🤯). However, it is clear to &amp;ldquo;those skilled in the art&amp;rdquo; that this merely represents the lower bound for the &lt;em&gt;actual resolution&lt;/em&gt; of one&amp;rsquo;s image.&lt;/p&gt;
+      <description>&lt;p&gt;People have been arguing over the &amp;ldquo;real&amp;rdquo; resolution of &lt;a href=&#34;https://en.wikipedia.org/wiki/Super-resolution_microscopy#Localization_microscopy&#34;&gt;single molecule localization microscopy&lt;/a&gt; (&lt;a href=&#34;https://www.microscopyu.com/techniques/super-resolution/single-molecule-super-resolution-imaging&#34;&gt;SMLM&lt;/a&gt;) since it&amp;rsquo;s inception&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; (see the many references in Legant et al.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;). New comers are often wowed by the insanely small localization &lt;em&gt;precisions&lt;/em&gt; achievable with modern SMLM microscopes and dyes which can routinely drop below 10 nm (a factor of nearly 20 fold below the diffraction limit). However, it is clear to &amp;ldquo;those skilled in the art&amp;rdquo; that this merely represents the lower bound for the &lt;em&gt;actual resolution&lt;/em&gt; of one&amp;rsquo;s image.&lt;/p&gt;
 &lt;p&gt;Early on in the debate, many made frequent appeals to the concept of &lt;a href=&#34;https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem&#34;&gt;Nyquist sampling&lt;/a&gt; which simply states that you must sample at twice the highest frequency you&amp;rsquo;re hoping to measure. Because images are made up of &lt;em&gt;spatial&lt;/em&gt; frequencies the argument is that you need a localization &lt;em&gt;density&lt;/em&gt; of at least twice the highest frequency you&amp;rsquo;re trying to measure. For instance, let&amp;rsquo;s say you wanted to measure &lt;a href=&#34;https://en.wikipedia.org/wiki/Endoplasmic_reticulum&#34;&gt;ER&lt;/a&gt; tubules of approximately 50 nm in diameter then you&amp;rsquo;d need at least one localization every 25 nm or 40 localizations every micron &amp;mdash; &lt;em&gt;in a single dimension&lt;/em&gt;! If you&amp;rsquo;d like to measure such a structure in 3D then you&amp;rsquo;d need &lt;em&gt;64,000 molecules per cubic micron&lt;/em&gt;! That means you&amp;rsquo;ll need millions or even billions&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; of localizations to achieve the resolution you want.&lt;/p&gt;
 &lt;p&gt;Unfortunately, the argument laid out above is really a best case scenario and even if you achieved such a high localization rate your signal to noise ratio (SNR) would be 1. To understand why, consider the simple model shown in Fig. 1 below. Here our sample is a one dimensional square wave of period $L$ (wavelength) and height $S$ (signal) offset by an amount $B$ (background). The background is representative of non-specific labeling or junk during imaging.&lt;/p&gt;
 
@@ -106,7 +106,7 @@ $$&lt;/p&gt;
 &lt;p&gt;Remember this would be 4M / µm$^3$ &lt;em&gt;only&lt;/em&gt; for the actual ER tubule. Considering that the mean diameter of a tubule is 50 nm this equates to roughly 8k molecules per micron of tubule. &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;This equates to roughly 220k molecules per micron of tubule. Also, 1 cubic micron is roughly 500 linear microns of ER tubule 😅. &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This equates to roughly 220k molecules per micron of tubule. Also, 1 cubic micron is roughly 500 linear microns of ER tubule. &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
 &lt;p&gt;One of the reasons regular &lt;a href=&#34;https://en.wikipedia.org/wiki/Electron_microscope&#34;&gt;EM&lt;/a&gt; is so damn good is due to the fact that the labeling density (e.g. &lt;a href=&#34;https://en.wikipedia.org/wiki/Staining#Electron_microscopy&#34;&gt;osmium staining&lt;/a&gt;) is so high. Even if you could build an optical microscope with the resolution of an electron microscope you&amp;rsquo;d never get to take advantage of it. &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;

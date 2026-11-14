@@ -132,7 +132,24 @@
     </section>
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="section-wrap contact-inner"><div><p class="section-number">06 / GET IN TOUCH</p><h2 id="contact-title">contact me</h2><a class="contact-email" href="mailto:dave.p.hoffman@gmail.com">dave.p.hoffman@gmail.com <span aria-hidden="true">↗</span></a></div><div class="contact-links"><a href="https://www.linkedin.com/in/dphoffman/">LinkedIn ↗</a><a href="https://github.com/david-hoffman">GitHub ↗</a><a href="https://scholar.google.com/citations?user=HGG__poAAAAJ&amp;hl=en">Google Scholar ↗</a><a href="/files/cv.pdf">Download résumé ↗</a><a href="https://stackoverflow.com/users/5030014/david-hoffman">Stack Overflow ↗</a><a href="https://twitter.com/davephoffman">Twitter ↗</a></div></div>
+      <div class="section-wrap contact-inner">
+        <div class="contact-main">
+          <p class="section-number">06 / GET IN TOUCH</p>
+          <h2 id="contact-title">contact me</h2>
+          <form class="contact-form" name="contact" method="post" action="https://formspree.io/f/xaeoqzzn" aria-labelledby="contact-title">
+            <fieldset>
+              <div class="contact-form-row">
+                <label for="contact-name">Name<input type="text" name="name" id="contact-name" autocomplete="name" required></label>
+                <label for="contact-email">Email<input type="email" name="email" id="contact-email" autocomplete="email" required></label>
+              </div>
+              <label for="contact-message">Message<textarea name="message" id="contact-message" rows="5" required></textarea></label>
+              <label hidden>Leave this field empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+              <button class="button" type="submit">Send <span aria-hidden="true">↗</span></button>
+            </fieldset>
+          </form>
+        </div>
+        <div class="contact-links"><a href="https://www.linkedin.com/in/dphoffman/">LinkedIn ↗</a><a href="https://github.com/david-hoffman">GitHub ↗</a><a href="https://scholar.google.com/citations?user=HGG__poAAAAJ&amp;hl=en">Google Scholar ↗</a><a href="/files/cv.pdf">Download résumé ↗</a><a href="https://stackoverflow.com/users/5030014/david-hoffman">Stack Overflow ↗</a><a href="https://twitter.com/davephoffman">Twitter ↗</a></div>
+      </div>
     </section>
   </main>
 

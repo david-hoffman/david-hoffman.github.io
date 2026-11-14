@@ -49,7 +49,7 @@ the site-specific editing workflow. It is versioned here and linked from
 
 ## Contact form
 
-The homepage uses a native HTML POST form at `https://formspree.io/f/moqwproy`,
+The homepage uses a native HTML POST form at `https://formspree.io/f/xaeoqzzn`,
 using the form ID confirmed in David’s Formspree dashboard.
 It requires a name, reply email, and message, and includes a hidden spam-trap field.
 Formspree handles submission and the response page; no JavaScript library or build

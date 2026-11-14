@@ -10,5 +10,5 @@ design, or navigation. There is no generator: HTML under `site/` is the source.
 - Use supplied facts for résumé edits. The migration preserves the 2022 employment record; “Present” is not evidence that a role remains current. Do not invent later positions, dates, metrics, or claims.
 - Preserve David’s existing wording when changing the design. Rewrite copy only when he asks for a rewrite.
 - Run `python3 scripts/check.py` after edits. Preview with `python3 scripts/preview.py` and inspect affected pages on desktop and mobile for design changes.
-- This migration is local-only. Do not push, deploy, change hosting settings, or rewrite history without a later user instruction authorizing that action. The checked-in Actions workflow validates only.
+- Use a feature branch and pull request for changes to `master`; the `Validate website` check must pass before merging. Merging publishes `site/` automatically through `pages.yml`. Manual redeploys require `master` and the deployment confirmation input. Do not push, merge, deploy, change hosting settings, or rewrite history without authorization for that task.
 - Use Superpowers only when explicitly invoked by the user.

@@ -1,0 +1,60 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Publish the current master revision to the live website
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+# Finish an active deployment before publishing the next revision.
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    # Branch protection requires a checked PR before master can change.
+    # Manual redeploys require an explicit confirmation on that same branch.
+    if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || inputs.deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v6
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Check pages and local links
+        run: python3 scripts/check.py
+      - name: Package website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site/
+
+  deploy:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Read GitHub Pages configuration
+        uses: actions/configure-pages@v5
+        with:
+          enablement: false
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v5

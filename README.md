@@ -61,15 +61,52 @@ migration. Review those facts with David before a future publication.
 
 ## GitHub Actions and hosting
 
-**Nothing in this branch deploys the website.** The Actions workflow runs the local
-checker for pull requests or manual invocations. It has read-only repository
-permission and contains no upload or deployment step.
+**Merging a pull request into `master` publishes the website.** Keep local edits
+on a feature branch until publication is authorized. Do not push, merge, run a
+remote deployment, or change GitHub settings as part of a local-only task.
 
-When publication is explicitly requested, GitHub Pages can publish `site/` through
-an artifact-based Actions workflow. Upload only `site/`, use the official Pages
-actions, and configure the Pages publishing source to GitHub Actions. The site
-itself needs no build step. Do not switch the current live site's settings as part
-of local preview work.
+- `.github/workflows/check.yml` validates pull requests and manual runs. It has
+  read-only repository permission and does not deploy.
+- `.github/workflows/pages.yml` validates the site, packages only `site/`, and
+  deploys that artifact to GitHub Pages. It runs on pushes to `master`, including
+  merged pull requests. Branch protection requires a pull request and the
+  `Validate website` check before `master` can change, including for administrators.
+  No second reviewer is required, so the repository owner can merge their own
+  checked pull requests. Force pushes and branch deletion are blocked.
+- Manual redeploys are available through **Actions → Deploy GitHub Pages → Run
+  workflow**. Select `master` and check **Publish the current master revision to
+  the live website**. Other branches and unconfirmed manual runs cannot deploy.
+- Validation must succeed before packaging and deployment. Only the deployment
+  job receives Pages write and identity-token permissions. Deployments are
+  serialized without cancelling one already in progress.
+
+There is no build step, Jekyll processing, deployment branch, or custom secret.
+The official Pages actions use the workflow’s automatically provided GitHub token.
+Repository documentation and tooling stay outside the published artifact.
+
+### Repository configuration
+
+These GitHub settings complement the versioned workflows:
+
+1. **Settings → Pages → Build and deployment → Source:** GitHub Actions. The new
+   website lives in `site/`, so the old branch/root publishing mode must stay off.
+2. **Branch protection for `master`:** require a pull request, require the
+   `Validate website` check from GitHub Actions, require the branch to be up to date,
+   apply the rules to administrators, and disallow force pushes and deletion.
+   The required number of approving reviews is zero.
+3. **Environment `github-pages`:** allow deployments from protected branches only.
+   The workflow further restricts deployment to `master`.
+
+For a normal release, push a feature branch, open a pull request into `master`,
+wait for `Validate website`, then merge. Check **Deploy GitHub Pages** for the
+deployment result and verify <https://david-hoffman.github.io/>. A merge creates
+the push event used by the deployment workflow; ordinary feature-branch pushes
+only update the proposed change.
+
+This follows GitHub’s [custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+and [publishing-source setup](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+Local checks validate the site and workflow syntax; GitHub permissions, environment
+rules, and the deployment itself can only be verified during an authorized remote run.
 
 Images and PDFs stay in this repository. Keep ordinary commit history for rollback;
 consider history cleanup only when size becomes a practical problem.

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angle to Position and Back | David P. Hoffman</title>
+  <meta name="description" content="The back pupil plane of a microscope objective is Fourier conjugate to it&#x27;s image plane. We use this fact to perform laser scanning microscopy or create the interference patterns necessary for SIM or LLSM.">
+  <link rel="canonical" href="https://david-hoffman.github.io/post/angle-to-position-and-back/">
+  <meta property="og:title" content="Angle to Position and Back">
+  <meta property="og:description" content="The back pupil plane of a microscope objective is Fourier conjugate to it&#x27;s image plane. We use this fact to perform laser scanning microscopy or create the interference patterns necessary for SIM or LLSM.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://david-hoffman.github.io/post/angle-to-position-and-back/">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:site" content="@davephoffman">
+  <meta property="twitter:creator" content="@davephoffman">
+  <meta property="og:image" content="https://david-hoffman.github.io/post/angle-to-position-and-back/featured.jpg">
+  <meta property="twitter:image" content="https://david-hoffman.github.io/post/angle-to-position-and-back/featured.jpg">
+  <meta property="article:published_time" content="2020-03-11T13:46:31-07:00">
+  <meta property="article:modified_time" content="2020-04-15T21:02:12-07:00">
+  <link rel="icon" href="/img/icon-32.png" sizes="32x32">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/archive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/">David P. Hoffman<span class="brand-note">SCIENTIST &amp; ENGINEER</span></a>
+    <nav aria-label="Main navigation">
+      <a href="/#work">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/post/">Writing</a>
+      <a href="/publication/">Publications</a>
+      <a class="nav-contact" href="/#contact">Contact ↗</a>
+    </nav>
+  </header>
+  <main id="main" class="archive-main">
+    <header class="article-heading">
+      <a class="archive-back" href="/post/">← All writing</a>
+      <p class="eyebrow">Writing</p>
+      <h1>Angle to Position and Back</h1>
+      <p class="article-meta">David P. Hoffman · Updated Apr 15, 2020 · 3 min read</p>
+
+    </header>
+    <article class="article-body">
+<figure class="article-figure"><img src="/post/angle-to-position-and-back/featured_hu6ba43bf5b785ef9ec42ded42ac9708d0_222405_680x500_fill_q90_lanczos_smart1.jpg" alt="Angle to Position and Back" loading="lazy"><figcaption>Is this what cells see???</figcaption></figure>
+
+<p>When designing an fluorescent microscope (or general optical system) one often wants to scan the beam position and/or angle at the sample (or object plane). It&rsquo;s useful to remember that for any lens, especially for objective lenses, the back pupil plane is Fourier conjugate to the sample (object) plane of the lens.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> This has two important consequences for system design.</p>
+<ol>
+<li>A beam that is focused in the back pupil will be collimated at the object plane and <em>vice versa</em>. For instance, if you completely fill the back pupil of an objective with light (preferably overfilling it) then you will have a diffraction limited spot at the sample plane.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+<li>If the beam enters the back pupil at an angle relative to the optical axis the position at the sample plane will be shifted relative to the optical axis.</li>
+</ol>
+<p>Basically: <strong>angle</strong> in the back pupil is <strong>position</strong> at the object plane and <strong>position</strong> in the back pupil is <strong>angle</strong> at the object plane.</p>
+<h2 id="scanning-the-beam-position">Scanning the beam position</h2>
+<p><img src="angle_to_position.png" alt="How input angle at the back focal plane effects positional offset at the object plane"></p>
+<p>We can make a simple geometrical argument for this case (see figure above). The most important ray here is the chief ray (solid orange line) which passes through the center of the lens, the marginal rays (dashed orange lines) have been added for clarity. In this case we imagine a collimated beam of light entering the back aperture of an aplanatic lens at an angle $\theta$ with respect to the optical axis. The collimated (parallel) rays converge at the focal plane a distance $f$ away from the lens forming a spot at a perpendicular distance $y$ from the optical axis. We can relate these quantities together with the following equation based solely on geometrical reasoning:</p>
+<p>$$
+y = f \tan \theta
+$$</p>
+<p>For simple lenses and large angles this equation doesn&rsquo;t hold. But for specially designed optical systems, particularly <a href="https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=2910">scan lenses</a> which are designed to specifically for this task, it can hold for very large angles and therefore fields of view.</p>
+<h2 id="scanning-the-beam-angle">Scanning the beam angle</h2>
+<p><img src="position_to_angle.png" alt=""></p>
+<p>Here we take a slightly different approach. We know that if we were to launch a ray parallel to the optical axis from the very edge of the objective&rsquo;s back pupil then the ray exiting the front of the objective would make an angle $\theta$ with the optical axis such that $NA = n \sin \theta_{max}$ (the classic equation for numerical aperture). That means that if the ray were launched a distance $y$ from the optical axis that was less than half the pupil diameter we could define an <em>effective</em> NA as $NA_{eff} = y / f$ where $f$ is the focal length of the lens. We can derive this equation knowing that the pupil <em>diameter</em> is $D = 2 NA f$. This means we can solve for $\theta$ as a function of $y$.</p>
+<p>$$
+\theta = \sin^{-1} \left(\frac{y}{fn}\right)
+$$</p>
+<h3 id="why-arent-the-two-equations-the-same">Why aren&rsquo;t the two equations the same?</h3>
+<p>I was surprised that these two equations would be different. The best explanation I can come up with is that for a well corrected, high magnification, system (such as a microscope objective) the entrance pupil (the pupil facing the object) is curved (in fact it lies on part of a spherical shell) while the exit pupil (the pupil facing infinity space) is flat. The entrance pupil has to be curved because a single point source (ignoring the fact that it&rsquo;s an oscillating dipole) forms a spherical wave.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>I&rsquo;ll use sample plane and object plane interchangeably throughout. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Approximately <a href="/post/things-ive-forgotten">$\sigma&rsquo; \sigma = \frac{\lambda f}{\pi}$</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+    </article>
+<nav class="article-tags" aria-label="Topics"><a href="/tags/optics/">optics</a> <a href="/tags/microscopy/">microscopy</a></nav>
+  </main>
+  <footer class="site-footer">
+    <p>David P. Hoffman <span>Scientist &amp; engineer</span></p>
+    <nav aria-label="Footer navigation">
+      <a href="https://github.com/david-hoffman">GitHub ↗</a>
+      <a href="https://scholar.google.com/citations?user=HGG__poAAAAJ&amp;hl=en">Google Scholar ↗</a>
+      <a href="/search/">Search</a>
+      <a href="/index.xml">RSS</a>
+    </nav>
+  </footer>
+  <script src="/assets/vendor/mathjax/config.js"></script>
+  <script defer src="/assets/vendor/mathjax/tex-svg.js"></script>
+</body>
+</html>

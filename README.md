@@ -49,12 +49,12 @@ the site-specific editing workflow. It is versioned here and linked from
 
 ## Contact form
 
-The homepage uses a native HTML POST form with David’s supplied Formspree endpoint.
+The homepage uses a native HTML POST form at `https://formspree.io/f/moqwproy`,
+using the form ID confirmed in David’s Formspree dashboard.
 It requires a name, reply email, and message, and includes a hidden spam-trap field.
 Formspree handles submission and the response page; no JavaScript library or build
-step is needed. The recipient address is absent from visible page text but remains
-in the form’s action URL. An opaque form ID would be needed to remove it from the
-HTML source as well. The downloadable CV is unchanged.
+step is needed. The recipient address is absent from both visible homepage text
+and its HTML source. The downloadable CV is unchanged.
 
 Check field validation and responsive layout locally. Sending a real message is a
 separate end-to-end delivery check and requires explicit authorization.

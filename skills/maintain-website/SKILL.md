@@ -17,6 +17,8 @@ file map and current migration status.
 - Articles and publications use directory URLs such as `/post/otf-squishing/`.
   Preserve these paths, existing heading IDs, relative figure paths, equations,
   and download links when rewriting page structure.
+- Figure numbers are explicit caption text. Preserve their correspondence with
+  references in the prose; do not rely on a theme or CSS counters to supply them.
 - Header/footer HTML is intentionally repeated across pages. For a shared navigation
   change, search affected pages and update them together. Do not add a runtime
   templating dependency just to avoid this small duplication.

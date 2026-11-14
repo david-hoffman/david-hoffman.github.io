@@ -80,7 +80,7 @@
 .article-body td,
 .article-body th { padding: 8px 14px; border: 1px solid #c9c9bf; text-align: left; }
 .article-body iframe { max-width: 100%; }
-.article-body mjx-container:not([display="true"]) { display: inline-block; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-block: 2px; }
+.article-body mjx-container:not([display="true"]) { display: inline-block; vertical-align: middle; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-block: 2px; }
 .article-body mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: 8px 0; max-width: 100%; }
 .footnotes { margin-top: 48px; font-size: .88rem; }
 .footnotes hr { border: 0; border-top: 1px solid #c9c9bf; }

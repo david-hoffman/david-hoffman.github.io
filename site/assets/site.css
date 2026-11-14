@@ -66,7 +66,7 @@ button, input { font: inherit; }
 .discipline-strip { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding-block: 21px; font: 11px/1.5 var(--mono); letter-spacing: .04em; color: var(--muted); }
 .discipline-strip [aria-hidden] { color: var(--accent); font-size: 17px; }
 .about-section, .experience-section { display: grid; grid-template-columns: 1fr 2fr; gap: 78px; }
-.portrait { width: 172px; aspect-ratio: 5/6; object-fit: cover; margin-top: 34px; filter: grayscale(1); border: 1px solid var(--rule); }
+.portrait { width: 172px; aspect-ratio: 5/6; object-fit: cover; margin-top: 34px; border: 1px solid var(--rule); }
 .about-copy h2 { margin-top: -8px; }
 .about-copy p { max-width: 680px; }
 .about-copy .lead { font-size: 21px; line-height: 1.6; }

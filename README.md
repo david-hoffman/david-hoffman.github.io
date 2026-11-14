@@ -47,6 +47,18 @@ The [repository maintenance skill](skills/maintain-website/SKILL.md) gives agent
 the site-specific editing workflow. It is versioned here and linked from
 `AGENTS.md`; no global skill installation is needed.
 
+## Contact form
+
+The homepage uses a native HTML POST form with David’s supplied Formspree endpoint.
+It requires a name, reply email, and message, and includes a hidden spam-trap field.
+Formspree handles submission and the response page; no JavaScript library or build
+step is needed. The recipient address is absent from visible page text but remains
+in the form’s action URL. An opaque form ID would be needed to remove it from the
+HTML source as well. The downloadable CV is unchanged.
+
+Check field validation and responsive layout locally. Sending a real message is a
+separate end-to-end delivery check and requires explicit authorization.
+
 ## Migration scope
 
 The starting point is published commit `d045391b76e9766a70b8e11341f833488c020ddf`

@@ -1,6 +1,6 @@
 # David P. Hoffman — personal website
 
-A buildless résumé, publications, and scientific writing site. Edit the HTML directly.
+A buildless resume, publications, and scientific writing site. Edit the HTML directly.
 The complete public website lives in `site/`; there is no Hugo theme, application
 framework, dependency installation, or generated build directory to maintain.
 
@@ -20,10 +20,10 @@ Ctrl+C. If port 8000 is occupied, use `python3 scripts/preview.py --port 8001`.
 
 | Location | Purpose |
 | --- | --- |
-| `site/index.html` | Résumé homepage and selected work |
-| `site/resume/index.html` | Complete HTML résumé |
-| `site/assets/resume.css` | Résumé layout and print styles |
-| `site/files/cv.pdf` | Current downloadable résumé; preserve this public URL |
+| `site/index.html` | Resume homepage and selected work |
+| `site/resume/index.html` | Complete HTML resume |
+| `site/assets/resume.css` | Resume layout and print styles |
+| `site/files/cv.pdf` | Current downloadable resume; preserve this public URL |
 | `site/assets/site.css` | Shared visual styles |
 | `site/assets/archive.css` | Article, publication, and index layouts |
 | `site/assets/figures.css` | Research image frames, portrait layout, and image controls |
@@ -66,7 +66,7 @@ figure numbers remain tied to their captions. Portraits use CSS grayscale and
 do not receive research frames.
 
 Emoji add personality in the matching homepage/author interests and occasional
-article punchlines. Keep editorial headings and résumé details free of emoji,
+article punchlines. Keep editorial headings and resume details free of emoji,
 avoid stacking redundant reactions, and preserve quotations verbatim. Article
 edits must also reach the search index and relevant feeds.
 
@@ -83,7 +83,7 @@ using the form ID confirmed in David’s Formspree dashboard.
 It requires a name, reply email, and message, and includes a hidden spam-trap field.
 Formspree handles submission and the response page; no JavaScript library or build
 step is needed. The recipient address is absent from both visible homepage text
-and its HTML source. Résumé updates are maintained separately from contact-form changes.
+and its HTML source. Resume updates are maintained separately from contact-form changes.
 
 Check field validation and responsive layout locally. Sending a real message is a
 separate end-to-end delivery check and requires explicit authorization.
@@ -97,16 +97,16 @@ published scientific content, assets, and downloads. Original source remains in
 the separate private `portfolio-page` repository; unpublished drafts were not imported.
 
 The migration initially retained the 2022 employment record. The November 14,
-2026 résumé update uses the approved general edition
-`resume/editions/2026-11-14-base-v07/` from David’s separate résumé repository.
+2026 resume update uses the approved general edition
+`resume/editions/2026-11-14-base-v07/` from David’s separate resume repository.
 Its `resume.pdf` is copied byte-for-byte to `site/files/cv.pdf` (SHA-256:
 `c7518b9a3efb92242f1317d378bc2019c403cdabda281f897c1bb4db911752f3`).
 The full HTML version at `/resume/`, homepage experience, and author biography
 use that edition’s supplied facts and wording. The legacy `/files/cv.ps` remains
 available at its existing URL as a historical download.
 
-For future résumé updates, use an approved general edition, not a tailored
-application draft. Replace the PDF at its stable URL and update the HTML résumé,
+For future resume updates, use an approved general edition, not a tailored
+application draft. Replace the PDF at its stable URL and update the HTML resume,
 homepage, author profile, search data, author feed, and sitemap together. Preserve
 formal citation titles and keep private source material outside `site/`.
 

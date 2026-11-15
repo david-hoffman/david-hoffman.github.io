@@ -1,4 +1,4 @@
-/* The full résumé shares the site palette and remains readable without JavaScript. */
+/* The full resume shares the site palette and remains readable without JavaScript. */
 .resume-main { max-width: 1040px; padding-top: 64px; }
 .resume-heading { padding-bottom: 30px; border-bottom: 1px solid var(--rule); }
 .resume-heading .eyebrow { margin-bottom: 20px; }

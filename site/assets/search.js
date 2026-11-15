@@ -66,7 +66,7 @@ async function search() {
       article.className = 'archive-entry';
       const meta = document.createElement('p');
       meta.className = 'entry-meta';
-      meta.textContent = {post: 'Writing', publication: 'Publication', resume: 'Résumé'}[entry.section];
+      meta.textContent = {post: 'Writing', publication: 'Publication', resume: 'Resume'}[entry.section];
       const heading = document.createElement('h2');
       const link = document.createElement('a');
       link.href = entry.relpermalink;

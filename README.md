@@ -21,6 +21,9 @@ Ctrl+C. If port 8000 is occupied, use `python3 scripts/preview.py --port 8001`.
 | Location | Purpose |
 | --- | --- |
 | `site/index.html` | Résumé homepage and selected work |
+| `site/resume/index.html` | Complete HTML résumé |
+| `site/assets/resume.css` | Résumé layout and print styles |
+| `site/files/cv.pdf` | Current downloadable résumé; preserve this public URL |
 | `site/assets/site.css` | Shared visual styles |
 | `site/assets/archive.css` | Article, publication, and index layouts |
 | `site/assets/figures.css` | Research image frames, portrait layout, and image controls |
@@ -80,7 +83,7 @@ using the form ID confirmed in David’s Formspree dashboard.
 It requires a name, reply email, and message, and includes a hidden spam-trap field.
 Formspree handles submission and the response page; no JavaScript library or build
 step is needed. The recipient address is absent from both visible homepage text
-and its HTML source. The downloadable CV is unchanged.
+and its HTML source. Résumé updates are maintained separately from contact-form changes.
 
 Check field validation and responsive layout locally. Sending a real message is a
 separate end-to-end delivery check and requires explicit authorization.
@@ -93,9 +96,19 @@ same. The migration replaces the Hugo/Academia page structure while preserving
 published scientific content, assets, and downloads. Original source remains in
 the separate private `portfolio-page` repository; unpublished drafts were not imported.
 
-Employment dates and claims come from the published site. In particular, the
-“April 2022–Present” role was not independently updated or verified during the
-migration. Review those facts with David before a future publication.
+The migration initially retained the 2022 employment record. The November 14,
+2026 résumé update uses the approved general edition
+`resume/editions/2026-11-14-base-v07/` from David’s separate résumé repository.
+Its `resume.pdf` is copied byte-for-byte to `site/files/cv.pdf` (SHA-256:
+`c7518b9a3efb92242f1317d378bc2019c403cdabda281f897c1bb4db911752f3`).
+The full HTML version at `/resume/`, homepage experience, and author biography
+use that edition’s supplied facts and wording. The legacy `/files/cv.ps` remains
+available at its existing URL as a historical download.
+
+For future résumé updates, use an approved general edition, not a tailored
+application draft. Replace the PDF at its stable URL and update the HTML résumé,
+homepage, author profile, search data, author feed, and sitemap together. Preserve
+formal citation titles and keep private source material outside `site/`.
 
 ## GitHub Actions and hosting
 

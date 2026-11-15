@@ -77,7 +77,7 @@ button, input, textarea { font: inherit; }
 .hero h1 em { color: var(--accent); font-weight: 400; }
 .hero-intro { font-size: 20px; line-height: 1.6; max-width: 460px; margin-bottom: 16px; }
 .hero-detail { max-width: 440px; color: var(--muted); font-size: 15px; }
-.hero-actions { display: flex; align-items: center; gap: 28px; margin-top: 32px; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-top: 32px; }
 .button { display: inline-flex; gap: 30px; justify-content: space-between; align-items: center; padding: 12px 21px; background: var(--ink); color: var(--paper); font-size: 13px; text-decoration: none; }
 .button:hover { background: var(--accent); color: var(--on-accent); }
 .button span { font-size: 20px; line-height: 1; }
@@ -136,6 +136,12 @@ button, input, textarea { font: inherit; }
 .organization a { text-decoration: none; color: var(--accent); }
 .experience-entry > p:not(.organization) { font-size: 14px; color: var(--muted); }
 .experience-entry .date-detail { font-size: 11px; margin-bottom: 0; }
+.experience-entry ul { padding-left: 20px; font-size: 14px; color: var(--muted); }
+.experience-entry li + li { margin-top: 12px; }
+.role-history { margin-block: 18px 24px; font-size: 13px; }
+.role-history div + div { margin-top: 10px; }
+.role-history dd { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+.resume-links { display: flex; flex-wrap: wrap; gap: 16px 24px; }
 .education { background: var(--surface); padding: 28px 32px; margin-top: 12px; }
 .education dl { margin-bottom: 0; }
 .education dl div + div { margin-top: 18px; }
@@ -197,7 +203,7 @@ button, input, textarea { font: inherit; }
   .section-wrap, .site-header, .site-footer { width: calc(100% - 40px); }
   .site-header { min-height: 0; padding-block: 23px 18px; flex-wrap: wrap; gap: 23px; }
   .brand { font-size: 23px; }
-  .site-header nav { width: 100%; justify-content: space-between; gap: 10px; }
+  .site-header nav { width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 12px 20px; }
   .site-header nav a { font-size: 12px; }
   .site-header .nav-contact { border-left: 0; padding: 0; }
   .hero { grid-template-columns: 1fr; gap: 38px; padding-block: 44px 32px; }

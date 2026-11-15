@@ -12,7 +12,9 @@ file map and current migration status.
 
 ## Choose the smallest coherent edit
 
-- Résumé updates belong in `site/index.html`. Retain the user's facts and voice;
+- Résumé updates belong in `site/resume/index.html`, `site/files/cv.pdf`, and the
+  homepage summary in `site/index.html`. Keep the author profile, search data, and
+  author feed aligned; see `README.md` for the approved source edition. Retain the user's facts and voice;
   request missing factual details rather than extrapolating employment dates or achievements.
 - Articles and publications use directory URLs such as `/post/otf-squishing/`.
   Preserve these paths, existing heading IDs, relative figure paths, equations,

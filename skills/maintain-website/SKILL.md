@@ -1,6 +1,6 @@
 ---
 name: maintain-website
-description: Edit David P. Hoffman's static résumé website, scientific articles, publications, and navigation in this repository, then check and preview the changed pages.
+description: Edit David P. Hoffman's static resume website, scientific articles, publications, and navigation in this repository, then check and preview the changed pages.
 ---
 
 # Maintain this website
@@ -12,7 +12,7 @@ file map and current migration status.
 
 ## Choose the smallest coherent edit
 
-- Résumé updates belong in `site/resume/index.html`, `site/files/cv.pdf`, and the
+- Resume updates belong in `site/resume/index.html`, `site/files/cv.pdf`, and the
   homepage summary in `site/index.html`. Keep the author profile, search data, and
   author feed aligned; see `README.md` for the approved source edition. Retain the user's facts and voice;
   request missing factual details rather than extrapolating employment dates or achievements.

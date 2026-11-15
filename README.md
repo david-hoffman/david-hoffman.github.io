@@ -27,6 +27,7 @@ Ctrl+C. If port 8000 is occupied, use `python3 scripts/preview.py --port 8001`.
 | `site/assets/site.css` | Shared visual styles |
 | `site/assets/archive.css` | Article, publication, and index layouts |
 | `site/assets/figures.css` | Research image frames, portrait layout, and image controls |
+| `site/assets/interactive-figures.css` | Shared styling for interactive scientific plots and controls |
 | `site/assets/image-viewer.js` | Progressive hero image zoom and pan |
 | `site/post/` | Scientific writing and its original figures |
 | `site/publication/` | Publications and abstracts |
@@ -48,6 +49,11 @@ not fetch external URLs or execute JavaScript. Inspect changed pages in a browse
 including a narrow mobile viewport. For scientific articles, inspect equations and
 figures as well as the text.
 
+The OTF article also has a numerical regression check against its original
+notebook: `python3 scripts/check_otf_vectorial.py` (requires NumPy, SciPy, and
+Node.js in the development environment; `--node PATH` selects the executable).
+These dependencies are not used by the website.
+
 The [repository maintenance skill](skills/maintain-website/SKILL.md) gives agents
 the site-specific editing workflow. It is versioned here and linked from
 `AGENTS.md`; no global skill installation is needed.
@@ -64,6 +70,23 @@ unrelated images.
 Scientific plots retain their original pixels on a white background; existing
 figure numbers remain tied to their captions. Portraits use CSS grayscale and
 do not receive research frames.
+
+Interactive figures use native SVG or canvas and page-local JavaScript in the
+Nyquist sampling, angle-to-position, OTF squishing, transform-limit, and
+deconvolution articles. Their shared styling uses a warm light plotting mat,
+rust and green marks, and the site's typography; controls follow the system color
+scheme. Keep original figures or static plot fallbacks available without
+JavaScript and in print. The optical diagrams use separate geometric and
+sine-condition models; the objective drawing is schematic and pupil offsets stay
+inside its aperture. The OTF article includes annotated geometric constructions and live vectorial
+diffraction calculations. Its original Python code stays in the article, and
+Matplotlib outputs provide static fallbacks and print figures. The documented
+notebook includes the saved outputs; live defaults follow the published code’s
+parameter order. The deconvolution article adds a live scalar-pupil simulation
+with Poisson noise and Richardson–Lucy reconstruction on a compact image grid.
+Figures 1, 2, and 3 retain their original static images and captions. The simulation
+regression check is `python3 scripts/check_deconvolution_model.py`, using the
+same NumPy/SciPy and Node.js development tools described above.
 
 Emoji add personality in the matching homepage/author interests and occasional
 article punchlines. Keep editorial headings and resume details free of emoji,

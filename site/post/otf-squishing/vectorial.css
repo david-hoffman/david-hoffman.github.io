@@ -1,0 +1,42 @@
+.vectorial-figure { scroll-margin-top: 24px; }
+.vectorial-chart { display: block; width: 100%; height: auto; overflow: hidden; }
+.vectorial-chart text { fill: var(--plot-muted); font: 10px var(--mono); }
+.vectorial-chart .vectorial-axis-label { fill: var(--plot-ink); font-size: 11px; }
+.vectorial-grid { stroke: var(--plot-rule); stroke-width: 1; }
+.vectorial-zero { stroke: var(--plot-muted); stroke-width: 1; stroke-dasharray: 3 4; }
+.vectorial-curve { fill: none; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+.vectorial-curve.is-selected { stroke-width: 2.8; }
+.vectorial-curve.is-muted { opacity: .65; }
+.vectorial-point { stroke: var(--plot-paper); stroke-width: 1.2; }
+.vectorial-probe-line { stroke: var(--plot-ink); stroke-width: 1; stroke-dasharray: 2 4; opacity: .6; }
+.vectorial-probe-point { stroke: var(--plot-paper); stroke-width: 2; }
+.vectorial-figure .vectorial-title { margin: 0 0 15px; color: var(--plot-ink); font: 1.25rem/1.3 var(--serif); letter-spacing: -.02em; }
+.vectorial-controls .vectorial-parameters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 22px; }
+.vectorial-controls .vectorial-settings { margin: 10px 0 18px; }
+.vectorial-settings summary { width: fit-content; padding: 10px 0; cursor: pointer; font: .72rem/1.5 var(--mono); }
+.vectorial-settings[open] summary { margin-bottom: 10px; }
+.vectorial-controls .plot-actions { margin-top: 14px; }
+.vectorial-controls .plot-readout { margin-block: 16px; align-items: flex-start; }
+.vectorial-controls .plot-value { display: block; font-size: 1.8rem; }
+.vectorial-unit { margin-left: 4px; font: .72rem var(--mono); letter-spacing: 0; color: var(--muted); }
+.vectorial-controls .vectorial-legend { display: flex; flex-wrap: wrap; gap: 6px; margin: 5px 0 18px; }
+.vectorial-legend button { display: flex; align-items: center; gap: 7px; padding: 8px 10px; }
+.vectorial-key { display: inline-block; width: 17px; flex-shrink: 0; border-top: 3px solid var(--curve); }
+.vectorial-key.is-dashed { border-top-style: dashed; }
+.vectorial-legend button[aria-pressed="true"] .vectorial-key { border-color: currentColor; }
+.vectorial-controls .vectorial-static-legend { margin: 0 0 14px; }
+.vectorial-controls .vectorial-status { min-height: 1.65em; }
+.vectorial-controls .vectorial-probe { margin-top: 16px; }
+.vectorial-figure [aria-busy="true"] .vectorial-chart { opacity: .55; }
+.vectorial-figure input:focus-visible, .vectorial-figure summary:focus-visible, .vectorial-figure button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.vectorial-shared-link { color: inherit; text-underline-offset: 3px; }
+@media (max-width: 600px) {
+  .vectorial-controls .vectorial-parameters { grid-template-columns: 1fr; gap: 3px; }
+  .vectorial-controls .plot-value { font-size: 1.65rem; }
+  .vectorial-controls .plot-readout { gap: 15px 22px; }
+  .vectorial-figure .vectorial-title { font-size: 1.15rem; margin-inline: 8px; }
+  .vectorial-legend button { font-size: .68rem; }
+}
+@media print {
+  .vectorial-figure .plot-fallback[hidden] { display: block !important; }
+}

@@ -1,0 +1,26 @@
+/* Square-wave geometry; shared figure presentation is in interactive-figures.css. */
+.wave-chart-scroll { overflow-x: auto; background: var(--plot-paper); }
+.wave-chart-scroll:focus-visible { outline: 2px solid var(--plot-accent); outline-offset: 4px; }
+.wave-chart { display: block; width: 100%; min-width: 560px; height: auto; background: var(--plot-paper); color: var(--plot-ink); }
+.wave-scroll-hint { display: none; }
+.wave-chart text { fill: currentColor; font: 13px var(--mono); }
+.wave-chart .wave-axis-label { fill: var(--plot-muted); font: 14px var(--sans); }
+.wave-grid { stroke: var(--plot-rule); stroke-width: 1; }
+.wave-axis { stroke: var(--plot-muted); stroke-width: 1; }
+.wave-total { stroke: var(--plot-accent); stroke-width: 3.5; fill: none; }
+.wave-background { stroke: var(--plot-accent); stroke-width: 1.5; stroke-dasharray: 7 5; }
+.wave-signal { stroke: var(--plot-secondary); stroke-width: 1.8; fill: none; }
+.wave-period { stroke: var(--plot-ink); stroke-width: 1.2; }
+.wave-key { width: 22px; border-top: 3px solid var(--accent); }
+.wave-key-signal { border-color: var(--plot-ui-secondary); }
+.wave-key-background { border-top: 2px dashed var(--accent); }
+.wave-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 24px; margin-bottom: 14px; }
+.article-body .wave-readout p { margin: 0; font-size: .8rem; }
+.wave-readout output { display: inline-block; margin-left: 12px; vertical-align: middle; }
+@media (max-width: 620px) {
+  .wave-controls { grid-template-columns: 1fr; gap: 2px; }
+  .wave-chart text { font-size: 18px; }
+  .wave-chart .wave-axis-label { font-size: 18px; }
+  .article-body .wave-scroll-hint { display: block; margin: 0 0 12px; font-size: .76rem; color: var(--muted); }
+  .wave-legend { gap: 4px 14px; }
+}

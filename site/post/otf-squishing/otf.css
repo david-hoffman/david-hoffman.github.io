@@ -1,0 +1,67 @@
+/* Both diagrams retain equal horizontal and vertical scales as they resize. */
+.otf-chart { display: block; width: 100%; height: auto; overflow: hidden; }
+.otf-chart text { fill: var(--plot-muted); font: 11px var(--mono); }
+.otf-chart .otf-label { fill: var(--plot-ink); }
+.otf-chart .otf-panel-title { font-weight: 600; }
+.otf-chart .otf-ink-air { fill: var(--plot-secondary); }
+.otf-chart .otf-ink-sample { fill: var(--plot-accent); }
+.otf-chart .otf-halo { paint-order: stroke; stroke: var(--plot-paper); stroke-width: 4px; stroke-linejoin: round; }
+.otf-chart .otf-angle-label { font-size: 13px; }
+.otf-angle-guide { opacity: .55; }
+.otf-support-details { border-top: 1px solid var(--plot-rule); padding: 20px 18px; background: var(--plot-paper); color: var(--plot-ink); }
+.article-body .otf-support-heading { margin: 0 0 12px; font: 600 .78rem/1.5 var(--mono); }
+.article-body .otf-support-equations > p { margin: 12px 0; font-size: .94rem; }
+.article-body .otf-support-equations > .otf-support-heading { font-size: .78rem; }
+.article-body .otf-support-equations > .otf-support-note { color: var(--plot-muted); font-size: .78rem; line-height: 1.65; }
+.otf-support-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+.otf-support-card { min-width: 0; padding: 14px; border: 1px solid var(--plot-rule); }
+.otf-support-air .otf-support-heading { color: var(--plot-secondary); }
+.otf-support-sample .otf-support-heading { color: var(--plot-accent); }
+.otf-support-card dl { display: grid; gap: 8px; margin: 0; font: .8rem/1.5 var(--mono); }
+.otf-support-card dl > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 10px; }
+.otf-support-card dt, .otf-support-card dd { margin: 0; }
+.otf-support-card dd { font-variant-numeric: tabular-nums; }
+.otf-support-card dd span { color: var(--plot-muted); font-size: .65rem; }
+.otf-equation-panel { fill: var(--plot-paper); stroke: var(--plot-rule); stroke-width: 1; }
+.otf-dimension { stroke: var(--plot-ink); stroke-width: 1.2; }
+.otf-dimension-air, .otf-angle-air { fill: none; stroke: var(--plot-secondary); stroke-width: 1.3; }
+.otf-dimension-sample, .otf-angle-sample { fill: none; stroke: var(--plot-accent); stroke-width: 1.3; }
+.otf-extent-guide { stroke-dasharray: 3 3; opacity: .5; }
+.otf-construction-air { stroke: var(--plot-secondary); stroke-width: 1.2; stroke-dasharray: 5 4; opacity: .8; }
+.otf-construction-sample { stroke: var(--plot-accent); stroke-width: 1.2; stroke-dasharray: 3 4; opacity: .8; }
+.otf-center-air { fill: var(--plot-secondary); }
+.otf-center-sample { fill: var(--plot-accent); }
+.otf-critical { stroke: var(--plot-muted); stroke-width: 1.4; stroke-dasharray: 2 4; }
+.otf-boundary-angle { fill: none; }
+.otf-grid { fill: none; stroke: var(--plot-rule); stroke-width: 1; }
+.otf-axis { fill: none; stroke: var(--plot-muted); stroke-width: 1; }
+.otf-normal { stroke: var(--plot-muted); stroke-width: 1; stroke-dasharray: 4 5; }
+.otf-sample-medium { fill: var(--plot-secondary); opacity: .06; }
+.otf-objective-medium { fill: var(--plot-accent); opacity: .06; }
+.otf-incident, .otf-reflected { fill: none; stroke: var(--plot-accent); stroke-width: 2.2; }
+.otf-incident, .otf-reflected, .otf-transmitted { marker-end: url(#otf-ray-arrow); }
+.otf-reflected { stroke-dasharray: 5 4; }
+.otf-transmitted { fill: none; stroke: var(--plot-secondary); stroke-width: 2.2; }
+.otf-angle { fill: none; stroke: var(--plot-muted); stroke-width: 1; }
+.otf-source { fill: var(--plot-accent); stroke: var(--plot-paper); stroke-width: 2; }
+.otf-air-fill { fill: var(--plot-secondary); opacity: .11; }
+.otf-sample-fill { fill: var(--plot-accent); opacity: .17; }
+.otf-air-edge { fill: none; stroke: var(--plot-secondary); stroke-width: 1.8; stroke-dasharray: 5 4; }
+.otf-sample-edge { fill: none; stroke: var(--plot-accent); stroke-width: 2; }
+.otf-controls .otf-parameters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.otf-controls .plot-actions { margin-top: 16px; }
+.otf-controls .plot-value { display: block; font-size: 2rem; }
+.otf-unit { margin-left: 5px; color: var(--muted); font: .8rem var(--mono); letter-spacing: 0; }
+.otf-key { display: inline-block; width: 22px; border-top: 2px solid var(--accent); }
+.otf-key-air { border-top-color: var(--plot-ui-secondary); border-top-style: dashed; }
+.otf-key-transmitted { border-top-color: var(--plot-ui-secondary); }
+.otf-hero .research-image { background: var(--plot-paper); border: 1px solid var(--rule); color: var(--plot-ink); }
+.otf-hero .figure-label, .otf-hero .figure-index { color: var(--plot-muted); background: none; }
+.otf-hero .image-corner { border-color: #abb3a7; }
+@media (max-width: 600px) {
+  .otf-support-comparison { grid-template-columns: 1fr; gap: 10px; }
+  .article-body .otf-support-equations > p { font-size: .88rem; }
+  .otf-controls .otf-parameters { grid-template-columns: 1fr; gap: 3px; }
+  .otf-controls .plot-readout { gap: 16px 20px; }
+  .otf-controls .plot-value { font-size: 1.9rem; }
+}

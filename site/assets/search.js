@@ -9,7 +9,7 @@ const archive = fetch('/index.json')
     if (!response.ok) throw new Error('Archive unavailable');
     return response.json();
   })
-  .then(entries => entries.filter(entry => ['post', 'publication'].includes(entry.section)));
+  .then(entries => entries.filter(entry => ['post', 'publication', 'resume'].includes(entry.section)));
 
 function decodeText(value) {
   // Hugo's archive contains both encoded and double-encoded entities. Decode
@@ -66,7 +66,7 @@ async function search() {
       article.className = 'archive-entry';
       const meta = document.createElement('p');
       meta.className = 'entry-meta';
-      meta.textContent = entry.section === 'post' ? 'Writing' : 'Publication';
+      meta.textContent = {post: 'Writing', publication: 'Publication', resume: 'Résumé'}[entry.section];
       const heading = document.createElement('h2');
       const link = document.createElement('a');
       link.href = entry.relpermalink;

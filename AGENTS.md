@@ -7,7 +7,7 @@ design, or navigation. There is no generator: HTML under `site/` is the source.
 - Serve and eventually publish only `site/`. Root documentation and scripts are not website files.
 - Keep the site buildless: semantic HTML, shared CSS, and small JavaScript files for actual interactions. Use local assets and existing conventions.
 - Preserve published URLs, article equations, figure references, publication metadata, and downloads. Keep private source drafts private.
-- Use supplied facts for résumé edits. The migration preserves the 2022 employment record; “Present” is not evidence that a role remains current. Do not invent later positions, dates, metrics, or claims.
+- Use supplied facts for résumé edits. The current résumé comes from approved base edition `2026-11-14-base-v07`; see `README.md` for provenance. “Present” is not evidence that a role remains current beyond the supplied record. Do not invent later positions, dates, metrics, or claims.
 - Preserve David’s existing wording when changing the design. Rewrite copy only when he asks for a rewrite.
 - Use sentence case for editorial titles and headings. Preserve proper names, scientific acronyms, software names such as pyOTF, and formal paper titles in citation fields. Keep repeated titles in lists, search, feeds, and metadata aligned.
 - Use the shared research image frames for illustrations, but not portraits. Give each image a short label grounded in its content, rather than repeating a generic slogan. Preserve scientific figure numbers and keep plots on a light mat. Portrait grayscale is a CSS treatment, not an edited source image.

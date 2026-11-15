@@ -15,12 +15,18 @@
   <meta property="twitter:creator" content="@davephoffman">
   <meta property="og:image" content="https://david-hoffman.github.io/post/otf-squishing/featured.png">
   <meta property="twitter:image" content="https://david-hoffman.github.io/post/otf-squishing/featured.png">
+  <meta property="og:image:alt" content="Original air-and-ice OTF diagram: overlapping kx–kz sections show reduced axial bandwidth at fixed numerical aperture.">
+  <meta property="og:image:width" content="2073">
+  <meta property="og:image:height" content="760">
   <meta property="article:published_time" content="2020-04-11T00:00:00+00:00">
   <meta property="article:modified_time" content="2020-07-15T22:35:21-07:00">
   <link rel="icon" href="/img/icon-32.png" sizes="32x32">
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/assets/archive.css">
   <link rel="stylesheet" href="/assets/figures.css">
+  <link rel="stylesheet" href="/assets/interactive-figures.css">
+  <link rel="stylesheet" href="otf.css">
+  <link rel="stylesheet" href="vectorial.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -44,7 +50,7 @@
 
     </header>
     <article class="article-body">
-<figure class="article-figure"><span class="research-image"><span class="figure-label" aria-hidden="true">THE SQUISHED OTF</span><img src="/post/otf-squishing/featured_huaa3e9352c88b1136a75e92c15e3241aa_101195_680x500_fill_q90_lanczos_smart1_2.png" alt="Oh no, I squished my OTF!" loading="lazy"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">OVERVIEW / OTF</span></span><figcaption>Geometrical proof of squishing</figcaption></figure>
+<figure class="article-figure interactive-figure otf-hero"><span class="research-image"><span class="figure-label" aria-hidden="true">THE GEOMETRY OF OTF SQUISHING</span><a href="featured.png"><img src="featured.png" width="2073" height="760" alt="Original OTF construction in the kx–kz plane. At the same numerical aperture, the green air support and magenta ice support have equal lateral cutoffs, but the ice support has a smaller axial extent. Radius lines, aperture angles, and the complete axial-extent expressions explain the difference."></a><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">OVERVIEW / OTF</span></span><figcaption>Geometrical proof of squishing</figcaption></figure>
 
 <h2 id="a-question-of-index">A question of index</h2>
 <p>Something I learned the hard way during my post-doc is the effect index mismatching can have on images taken with high NA air objectives (in my case a Nikon CFI L Plan EPI CRB 100X 0.85 NA lens). Many<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> previous<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> authors<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> have commented on and analyzed degradation of image quality when the index for which an objective is designed does not match the one in which it is used. Even so, many users of optical microscopes remain unaware of this issue. The problems induced by index mismatch can be summarized as follows (where $n_{obj}$ is the design index and $n_{sample}$ is the mounting index):</p>
@@ -54,10 +60,33 @@
 <li>Increasing spherical aberration as the objective&rsquo;s focus is moved deeper into the sample when $n_{obj} \neq n_{sample}$</li>
 </ol>
 <p>To explain the first problem imagine we are imaging a point source radiating spherical waves of light embedded in a medium of index $n_{sample}$ near the interface with a medium of index $n_{obj}$ (c.f. Figure 1). After a certain axial distance the spherical wave encounters the interface and refracts. Appealing to geometrical optical arguments we say that only the bottom hemisphere of light can be captured. The maximum angle of rays that can be captured are rays that propagate along the interface (i.e. at an angle of 90° relative to the interface normal) and these are refracted at an angle <a href="https://en.wikipedia.org/wiki/Total_internal_reflection#Critical_angle">$\theta_c = \arcsin(n_{sample}/n_{obj})$</a>. According to <a href="https://en.wikipedia.org/wiki/Snell%27s_law">Snell&rsquo;s law</a> and the definition for <a href="https://en.wikipedia.org/wiki/Numerical_aperture">NA</a> this means that the maximum possible NA for this configuration is $NA = n_{obj} \sin(\theta_c) = n_{sample} \sin(\pi/2) = n_{sample}$</p>
-<figure>
+<figure class="interactive-figure otf-figure" data-otf="refraction" id="refraction-model">
+  <div class="plot-fallback">
   <a data-fancybox="" href="TIRF_Diagram.png" >
 <span class="research-image"><span class="figure-label" aria-hidden="true">REFRACTION AT AN INTERFACE</span><img src="TIRF_Diagram.png" ><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">FIG. 1 / OTF</span></span>
 </a>
+  </div>
+  <div class="plot-interactive" hidden>
+    <div class="research-image">
+      <span class="figure-label" aria-hidden="true">REFRACTION AT AN INTERFACE</span>
+      <svg class="otf-chart" viewBox="0 0 680 288" role="img" aria-labelledby="refraction-title refraction-desc"><title id="refraction-title">A ray crossing the sample interface</title><desc id="refraction-desc">Change either index or the incident angle to explore Snell’s law.</desc><g data-drawing></g></svg>
+      <span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">FIG. 1 / INTERACTIVE</span>
+    </div>
+    <div class="plot-controls otf-controls">
+      <ul class="plot-legend" aria-label="Ray legend"><li><span class="otf-key" aria-hidden="true"></span>Incident ray</li><li><span class="otf-key otf-key-transmitted" aria-hidden="true"></span>Transmitted ray</li></ul>
+      <div class="otf-parameters" role="group" aria-label="Refraction parameters">
+        <div class="plot-control"><label for="refraction-sample">Sample index<output for="refraction-sample">1.00</output></label><input id="refraction-sample" data-sample data-digits="2" type="range" min="1" max="1.6" step="0.01" value="1" aria-describedby="refraction-note"></div>
+        <div class="plot-control"><label for="refraction-objective">Objective index<output for="refraction-objective">1.50</output></label><input id="refraction-objective" data-objective data-digits="2" type="range" min="1" max="1.6" step="0.01" value="1.5" aria-describedby="refraction-note"></div>
+        <div class="plot-control"><label for="refraction-angle">Incident angle, θₛ<output for="refraction-angle">60.0°</output></label><input id="refraction-angle" data-angle data-digits="1" data-unit="°" type="range" min="0" max="89.5" step="0.5" value="60" aria-describedby="refraction-note"></div>
+      </div>
+      <div class="plot-readout" aria-live="polite">
+        <div><span class="plot-kicker">Transmitted angle, θₒ</span><output class="plot-value" data-refracted for="refraction-sample refraction-objective refraction-angle"></output></div>
+        <div><span class="plot-kicker">Interface NA ceiling</span><output class="plot-value" data-ceiling for="refraction-sample refraction-objective"></output></div>
+      </div>
+      <div class="plot-actions"><button type="button" data-reset>Reset diagram</button></div>
+      <p class="plot-note" id="refraction-note">The dot marks a point source. Angles are measured from the dashed interface normal; the drawing uses equal horizontal and vertical scales. The interface ceiling is the smaller index; an objective’s aperture can reduce it further. Ray directions only; Fresnel intensities are not shown. <span data-refraction-status></span></p>
+    </div>
+  </div>
 <figcaption class="numbered">
   <h4><strong>Figure 1:</strong> A point source emitting from a lower index material to a higher index material</h4>
 </figcaption>
@@ -67,10 +96,65 @@
 \Delta z = \frac{\lambda}{n_{sample} - \sqrt{n_{sample}^2 - NA^2}}
 $$</p>
 <p>and herein lies the observed squishing effect<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>: as $n_{sample}$ increases relative to $NA$ the denominator decreases and $\Delta z$ increases.</p>
-<figure>
+<figure class="interactive-figure otf-figure" data-otf="support" id="otf-support-model">
+  <div class="plot-fallback">
   <a data-fancybox="" href="featured.png" >
 <span class="research-image"><span class="figure-label" aria-hidden="true">THE SQUISHED OTF</span><img src="featured.png" ><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">FIG. 2 / OTF</span></span>
 </a>
+  </div>
+  <div class="plot-interactive" hidden>
+    <div class="research-image">
+      <span class="figure-label" aria-hidden="true">THE SQUISHED OTF</span>
+      <svg class="otf-chart" viewBox="0 0 680 388" role="img" aria-labelledby="otf-support-title otf-support-desc"><title id="otf-support-title">OTF support in air and a higher-index sample</title><desc id="otf-support-desc">Change sample index, numerical aperture, or wavelength to compare the supported spatial frequencies.</desc><g data-drawing></g></svg>
+      <span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">FIG. 2 / INTERACTIVE</span>
+    </div>
+    <div class="plot-controls otf-controls">
+      <ul class="plot-legend" aria-label="Support legend"><li><span class="otf-key otf-key-air" aria-hidden="true"></span>Air reference · n = 1</li><li><span class="otf-key" aria-hidden="true"></span>Sample</li></ul>
+      <div class="otf-parameters" role="group" aria-label="OTF support parameters">
+        <div class="plot-control"><label for="otf-index">Sample index<output for="otf-index">1.30</output></label><input id="otf-index" data-index data-digits="2" type="range" min="1" max="1.6" step="0.01" value="1.3" aria-describedby="otf-support-note"></div>
+        <div class="plot-control"><label for="otf-na">Numerical aperture<output for="otf-na">0.85</output></label><input id="otf-na" data-na data-digits="2" type="range" min="0.1" max="1" step="0.01" value="0.85" aria-describedby="otf-support-note"></div>
+        <div class="plot-control"><label for="otf-wavelength">Wavelength, λ<output for="otf-wavelength">520 nm</output></label><input id="otf-wavelength" data-wavelength data-digits="0" data-unit=" nm" type="range" min="400" max="700" step="5" value="520" aria-describedby="otf-support-note"></div>
+      </div>
+      <div class="plot-readout" aria-live="polite">
+        <div><span class="plot-kicker">Air · Δz</span><span class="plot-value"><output data-air-resolution for="otf-na otf-wavelength"></output><span class="otf-unit">µm</span></span></div>
+        <div><span class="plot-kicker">Sample · Δz</span><span class="plot-value"><output data-sample-resolution for="otf-index otf-na otf-wavelength"></output><span class="otf-unit">µm</span></span></div>
+        <div><span class="plot-kicker">Axial stretch</span><output class="plot-value" data-stretch for="otf-index otf-na"></output></div>
+      </div>
+      <div class="plot-actions"><button type="button" data-match>Match air index</button><button type="button" data-reset>Reset air / ice</button></div>
+      <p class="plot-note" id="otf-support-note">Geometric support from the autocorrelation of a spherical pupil cap. Shading marks supported frequencies, not transmission strength. Axes fit the current support and construction lines, with equal horizontal and vertical scales. Both media share the same NA, limited to 1 by the air reference. Δz uses the equation above, not a vectorial point spread function width. <span data-support-status></span></p>
+    </div>
+      <div class="otf-support-details">
+        <div class="otf-support-equations">
+          <p class="otf-support-heading">Axial extent</p>
+          <p>$B = \max |k_z|$</p>
+          <p>$\displaystyle B = \frac{n}{\lambda}(1 - \cos\theta)$</p>
+          <p>$\displaystyle B = \frac{n - \sqrt{n^2 - NA^2}}{\lambda} = \frac{1}{\Delta z}$</p>
+          <p class="otf-support-note">Support reaches $+B$ and $-B$, so the full vertical span is $2B$. These extrema occur at $|k_x| = NA/\lambda$; only the origin is supported on the $k_z$ axis.</p>
+          <p>$\displaystyle NA = n\sin\theta,\qquad c = \frac{n\cos\theta}{\lambda}$</p>
+          <p class="otf-support-note">Use $n_a$ and $\theta_a$ for air, or $n_s$ and $\theta_s$ for the sample. Dashed radii have length $n/\lambda$. The angles are measured from the vertical, and $c$ is the circle center depth. Vertical bars mark the positive extent $B = n/\lambda - c$.</p>
+        </div>
+        <div class="otf-support-comparison">
+          <div class="otf-support-card otf-support-air" data-support-air>
+            <p class="otf-support-heading">Air reference · nₐ = <output data-support-index>1.00</output></p>
+            <dl>
+              <div><dt>Angle θₐ</dt><dd><output data-support-angle>58.2°</output></dd></div>
+              <div><dt>Radius nₐ/λ</dt><dd><output data-support-radius>1.92</output> <span>cycles/µm</span></dd></div>
+              <div><dt>Center depth cₐ</dt><dd><output data-support-depth>1.01</output> <span>cycles/µm</span></dd></div>
+              <div><dt>Extent Bₐ</dt><dd><output data-support-bandwidth>0.910</output> <span>cycles/µm</span></dd></div>
+            </dl>
+          </div>
+          <div class="otf-support-card otf-support-sample" data-support-sample>
+            <p class="otf-support-heading">Sample · nₛ = <output data-support-index>1.30</output></p>
+            <dl>
+              <div><dt>Angle θₛ</dt><dd><output data-support-angle>40.8°</output></dd></div>
+              <div><dt>Radius nₛ/λ</dt><dd><output data-support-radius>2.50</output> <span>cycles/µm</span></dd></div>
+              <div><dt>Center depth cₛ</dt><dd><output data-support-depth>1.89</output> <span>cycles/µm</span></dd></div>
+              <div><dt>Extent Bₛ</dt><dd><output data-support-bandwidth>0.608</output> <span>cycles/µm</span></dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+  </div>
 <figcaption class="numbered">
   <h4><strong>Figure 2:</strong> OTF support for fixed NA and variable index of refraction ($n$), specifically comparing air ($n=1$) to vitreous ice ($n=1.3$)</h4>
 </figcaption>
@@ -133,7 +217,10 @@ ax<span style="color:#f92672">.</span>legend()
 ax<span style="color:#f92672">.</span>yaxis<span style="color:#f92672">.</span>set_major_locator(plt<span style="color:#f92672">.</span>NullLocator())
 ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Axial Position (µm)&#34;</span>)
 ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Computation Test, Oil Objective&#34;</span>)
-</code></pre></div><p><span class="research-image"><span class="figure-label" aria-hidden="true">COMPARING AXIAL PROFILES</span><img src="output_4_1.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p>
+</code></pre></div><figure class="interactive-figure vectorial-figure" data-vectorial="oil" id="vectorial-oil">
+<div class="plot-interactive" hidden></div>
+<div class="plot-fallback"><p><span class="research-image"><span class="figure-label" aria-hidden="true">COMPARING AXIAL PROFILES</span><img src="output_4_1.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p></div>
+</figure>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># we need an esimate of the focal shift in order to reduce computation time</span>
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">otf_ratio</span>(n1, n2, NA):
     <span style="color:#e6db74">&#34;&#34;&#34;The OTF ratio as calculated from the geometrical proof&#34;&#34;&#34;</span>
@@ -208,7 +295,10 @@ ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34
 [ 0.         -2.05250791  2.91190777  2.94368608  1.49427111  6.83299954
  14.99787706 39.09604286]
 </code></pre>
-<p><span class="research-image"><span class="figure-label" aria-hidden="true">FOCUS THROUGH GLYCEROL</span><img src="output_8_2.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p>
+<figure class="interactive-figure vectorial-figure" data-vectorial="glycerol" id="vectorial-glycerol">
+<div class="plot-interactive" hidden></div>
+<div class="plot-fallback"><p><span class="research-image"><span class="figure-label" aria-hidden="true">FOCUS THROUGH GLYCEROL</span><img src="output_8_2.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p></div>
+</figure>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">with</span> sns<span style="color:#f92672">.</span>color_palette(<span style="color:#e6db74">&#34;inferno&#34;</span>):
     <span style="color:#75715e"># our confocal calculations</span>
     fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(dpi<span style="color:#f92672">=</span><span style="color:#ae81ff">150</span>)
@@ -240,7 +330,10 @@ ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34
 [ 0.         48.28097585 59.70939519 65.5089603  70.36385208 72.25077729
  75.80157613 81.9156686 ]
 </code></pre>
-<p><span class="research-image"><span class="figure-label" aria-hidden="true">FOCUS THROUGH WATER</span><img src="output_9_2.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p>
+<figure class="interactive-figure vectorial-figure" data-vectorial="water" id="vectorial-water">
+<div class="plot-interactive" hidden></div>
+<div class="plot-fallback"><p><span class="research-image"><span class="figure-label" aria-hidden="true">FOCUS THROUGH WATER</span><img src="output_9_2.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p></div>
+</figure>
 <p>Our simulations match the reported focal length shift to a few percent. However, there is larger error between the our intensity and theirs.</p>
 <h2 id="simulations-for-the-cryo-scope">Simulations for the cryo-scope</h2>
 <p>Here the objective is a 0.85 NA air objective and the sample medium is vitreous ice so $n_1=1$ and $n_2=1.3$.</p>
@@ -255,7 +348,10 @@ ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34
             line<span style="color:#f92672">.</span>remove()
     ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Computation Test, Air Objective in Ice&#34;</span>)
     ax<span style="color:#f92672">.</span>legend(nfps, title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;NFP (µm)&#34;</span>)
-</code></pre></div><p><span class="research-image"><span class="figure-label" aria-hidden="true">FOCUS THROUGH ICE</span><img src="output_12_0.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p>
+</code></pre></div><figure class="interactive-figure vectorial-figure" data-vectorial="ice" id="vectorial-ice">
+<div class="plot-interactive" hidden></div>
+<div class="plot-fallback"><p><span class="research-image"><span class="figure-label" aria-hidden="true">FOCUS THROUGH ICE</span><img src="output_12_0.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p></div>
+</figure>
 <p>Clearly, spherical aberrations start to become problematic when you&rsquo;re more than 10 µm from the best focal position (and this effect is worse the larger the mismatch between refractive indices).</p>
 <p>One question we can ask is: how well does our geometric argument fare against the more complex vectorial calculation? We&rsquo;ll calculate the actual focal position with the complex calculation for multiple nominal focal positions and compare the to the simpler calculation to see the size of the deviation.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># make some NFPs in µm</span>
@@ -271,7 +367,10 @@ ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#3
 ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Nominal Focal Position (µm)&#34;</span>)
 ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Calculation Comparison&#34;</span>)
 ax<span style="color:#f92672">.</span>legend()
-</code></pre></div><p><span class="research-image"><span class="figure-label" aria-hidden="true">TWO FOCUS MODELS</span><img src="output_15_1.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p>
+</code></pre></div><figure class="interactive-figure vectorial-figure" data-vectorial="comparison" id="vectorial-comparison">
+<div class="plot-interactive" hidden></div>
+<div class="plot-fallback"><p><span class="research-image"><span class="figure-label" aria-hidden="true">TWO FOCUS MODELS</span><img src="output_15_1.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p></div>
+</figure>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># geometrical stretch</span>
 geom_m <span style="color:#f92672">=</span> otf_ratio(<span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">1.3</span>, <span style="color:#ae81ff">0.85</span>)
 fig, (ax1, ax2) <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">2</span>, dpi<span style="color:#f92672">=</span><span style="color:#ae81ff">150</span>, sharex<span style="color:#f92672">=</span>True)
@@ -281,7 +380,10 @@ ax1<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#
 ax2<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;$\Delta$ (%)&#34;</span>)
 ax2<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Nominal Focal Position (µm)&#34;</span>)
 ax1<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Difference between Vectorial and Geometrical Calculations&#34;</span>)
-</code></pre></div><p><span class="research-image"><span class="figure-label" aria-hidden="true">THE MODELS' DIFFERENCE</span><img src="output_16_1.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p>
+</code></pre></div><figure class="interactive-figure vectorial-figure" data-vectorial="difference" id="vectorial-difference">
+<div class="plot-interactive" hidden></div>
+<div class="plot-fallback"><p><span class="research-image"><span class="figure-label" aria-hidden="true">THE MODELS' DIFFERENCE</span><img src="output_16_1.png" alt="png"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OTF</span></span></p></div>
+</figure>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">slope_ratio <span style="color:#f92672">=</span> (AFP[<span style="color:#ae81ff">1</span>:, <span style="color:#ae81ff">0</span>] <span style="color:#f92672">/</span> NFP[<span style="color:#ae81ff">1</span>:])<span style="color:#f92672">.</span>mean() <span style="color:#f92672">/</span> geom_m
 <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;The ratio between the complex slope and the simple slope is {slope_ratio:.0%}&#34;</span>)
 </code></pre></div><pre><code>The ratio between the complex slope and the simple slope is 99%
@@ -289,7 +391,7 @@ ax1<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#3
 <p>At least as far as focal position is concerned the simple calculation is more than adequate over short distances.</p>
 <h2 id="conclusions">Conclusions</h2>
 <p>When talking about three dimensional imaging it seems that NA alone doesn&rsquo;t tell the full story.<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> As shown <a href="#a-question-of-index">above</a>, NA is the sole determinant of lateral resolution but the index of the sample comes into the equation for axial resolution. To put it another way, the lateral resolution of a 0.95 NA water objective is exactly the same (in theory) as the lateral resolution of 0.95 NA air objective <em>but</em> the axial resolution of the water objective is more than 70% worse! Moreover, index mismatch adds spherical aberration to the images. This can be alleviated to a certain extent with confocal imaging (c.f. Figure 1). Even so, it is to the microscopist&rsquo;s advantage to use an objective with a design index as close as possible to the sample of interest (except in the case of TIRF microscopy).</p>
-<p>If you want to download the Jupyter notebook I used to create this post you can do so <a href="/files/Vectorial%20Estimation%20of%20focal%20shift.ipynb" target="_blank">here</a>.</p>
+<p>The interactive figures above run in JavaScript. Download the <a href="/files/Vectorial%20Estimation%20of%20focal%20shift.ipynb">documented Python notebook</a> for the original vectorial calculations and saved Matplotlib figures.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -330,5 +432,8 @@ ax1<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#3
   </footer>
   <script src="/assets/vendor/mathjax/config.js"></script>
   <script defer src="/assets/vendor/mathjax/tex-svg.js"></script>
+  <script defer src="otf.js"></script>
+  <script defer src="vectorial-model.js"></script>
+  <script defer src="vectorial.js"></script>
 </body>
 </html>

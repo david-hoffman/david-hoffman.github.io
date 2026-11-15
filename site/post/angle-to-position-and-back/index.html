@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/assets/archive.css">
   <link rel="stylesheet" href="/assets/figures.css">
+  <link rel="stylesheet" href="/assets/interactive-figures.css">
+  <link rel="stylesheet" href="optics.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -53,14 +55,60 @@
 </ol>
 <p>Basically: <strong>angle</strong> in the back pupil is <strong>position</strong> at the object plane and <strong>position</strong> in the back pupil is <strong>angle</strong> at the object plane.</p>
 <h2 id="scanning-the-beam-position">Scanning the beam position</h2>
-<p><span class="research-image"><span class="figure-label" aria-hidden="true">ANGLE BECOMES POSITION</span><img src="angle_to_position.png" alt="How input angle at the back focal plane effects positional offset at the object plane"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OPTICS</span></span></p>
+<figure class="interactive-figure optics-figure" data-optics="position" id="scan-position">
+  <div class="plot-fallback"><span class="research-image"><span class="figure-label" aria-hidden="true">ANGLE BECOMES POSITION</span><img src="angle_to_position.png" alt="How input angle at the back focal plane effects positional offset at the object plane"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OPTICS</span></span></div>
+  <div class="plot-interactive" hidden>
+    <div class="research-image">
+      <span class="figure-label" aria-hidden="true">ANGLE BECOMES POSITION</span>
+      <svg class="optics-chart" viewBox="0 0 680 300" role="img" aria-labelledby="scan-position-title scan-position-desc">
+        <title id="scan-position-title">Input angle moves the focal spot</title>
+        <desc id="scan-position-desc">Adjust the controls to explore the optical model.</desc>
+        <g data-drawing></g>
+      </svg>
+      <span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">INTERACTIVE / OPTICS</span>
+    </div>
+    <div class="plot-controls optics-controls">
+      <ul class="plot-legend" aria-label="Ray legend"><li><span class="optics-key" aria-hidden="true"></span>Chief ray</li><li><span class="optics-key optics-key-dashed" aria-hidden="true"></span>Marginal rays</li></ul>
+      <div class="optics-parameters optics-parameters-two" role="group" aria-label="Angle to position parameters"><div class="plot-control"><label for="scan-position-input">Input angle, θ<output for="scan-position-input">10°</output></label><input id="scan-position-input" type="range" min="-20" max="20" step="0.5" value="10" data-unit="°"></div><div class="plot-control"><label for="scan-position-focal">Focal length, f<output for="scan-position-focal">4 mm</output></label><input id="scan-position-focal" type="range" min="2" max="8" step="0.5" value="4" data-unit=" mm"></div></div>
+      <div class="plot-readout">
+        <div><span class="plot-kicker">Focal spot displacement</span><span class="plot-value"><output data-result for="scan-position-input scan-position-focal" aria-live="polite"></output><span class="optics-unit">mm</span></span></div>
+        <span class="optics-equation" data-equation></span>
+      </div>
+      <div class="plot-actions"><button type="button" data-center>Center beam</button><button type="button" data-reset>Reset model</button></div>
+      <p class="plot-note">Ideal geometric scan model. The drawing uses the same horizontal and vertical scale. Drag the input point or use the sliders.</p>
+    </div>
+  </div>
+</figure>
 <p>We can make a simple geometrical argument for this case (see figure above). The most important ray here is the chief ray (solid orange line) which passes through the center of the lens, the marginal rays (dashed orange lines) have been added for clarity. In this case we imagine a collimated beam of light entering the back aperture of an aplanatic lens at an angle $\theta$ with respect to the optical axis. The collimated (parallel) rays converge at the focal plane a distance $f$ away from the lens forming a spot at a perpendicular distance $y$ from the optical axis. We can relate these quantities together with the following equation based solely on geometrical reasoning:</p>
 <p>$$
 y = f \tan \theta
 $$</p>
 <p>For simple lenses and large angles this equation doesn&rsquo;t hold. But for specially designed optical systems, particularly <a href="https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=2910">scan lenses</a> which are designed to specifically for this task, it can hold for very large angles and therefore fields of view.</p>
 <h2 id="scanning-the-beam-angle">Scanning the beam angle</h2>
-<p><span class="research-image"><span class="figure-label" aria-hidden="true">POSITION BECOMES ANGLE</span><img src="position_to_angle.png" alt=""><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OPTICS</span></span></p>
+<figure class="interactive-figure optics-figure" data-optics="angle" id="scan-angle">
+  <div class="plot-fallback"><span class="research-image"><span class="figure-label" aria-hidden="true">POSITION BECOMES ANGLE</span><img src="position_to_angle.png" alt="Light focused at an offset back-pupil position emerges from the objective as a tilted parallel beam."><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">IMAGE / OPTICS</span></span></div>
+  <div class="plot-interactive" hidden>
+    <div class="research-image">
+      <span class="figure-label" aria-hidden="true">POSITION BECOMES ANGLE</span>
+      <svg class="optics-chart" viewBox="0 0 680 300" role="img" aria-labelledby="scan-angle-title scan-angle-desc">
+        <title id="scan-angle-title">Pupil position tilts the output beam</title>
+        <desc id="scan-angle-desc">Adjust the controls to explore the optical model.</desc>
+        <g data-drawing></g>
+      </svg>
+      <span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">INTERACTIVE / OPTICS</span>
+    </div>
+    <div class="plot-controls optics-controls">
+      <ul class="plot-legend" aria-label="Ray legend"><li><span class="optics-key" aria-hidden="true"></span>Chief ray</li><li><span class="optics-key optics-key-dashed" aria-hidden="true"></span>Marginal rays</li></ul>
+      <div class="optics-parameters" role="group" aria-label="Position to angle parameters"><div class="plot-control"><label for="scan-angle-input">Pupil offset, y<output for="scan-angle-input">2 mm</output></label><input id="scan-angle-input" type="range" min="-3.2" max="3.2" step="0.05" value="2" data-unit=" mm"></div><div class="plot-control"><label for="scan-angle-focal">Focal length, f<output for="scan-angle-focal">4 mm</output></label><input id="scan-angle-focal" type="range" min="2" max="8" step="0.5" value="4" data-unit=" mm"></div><div class="plot-control"><label for="scan-angle-index">Sample index, n<output for="scan-angle-index">1.33</output></label><input id="scan-angle-index" type="range" min="1" max="1.6" step="0.01" value="1.33" data-unit=""></div></div>
+      <div class="plot-readout">
+        <div><span class="plot-kicker">Output beam angle</span><span class="plot-value"><output data-result for="scan-angle-input scan-angle-focal scan-angle-index" aria-live="polite"></output><span class="optics-unit">°</span></span></div>
+        <span class="optics-equation" data-equation></span>
+      </div>
+      <div class="plot-actions"><button type="button" data-center>Center beam</button><button type="button" data-reset>Reset model</button></div>
+      <p class="plot-note">Sine-condition objective model; the drawing is schematic. Numerical aperture (NA) is fixed at 0.80. Positive pupil offsets tilt the output downward. Drag the pupil point or use the sliders. <span data-pupil-limit></span></p>
+    </div>
+  </div>
+</figure>
 <p>Here we take a slightly different approach. We know that if we were to launch a ray parallel to the optical axis from the very edge of the objective&rsquo;s back pupil then the ray exiting the front of the objective would make an angle $\theta$ with the optical axis such that $NA = n \sin \theta_{max}$ (the classic equation for numerical aperture). That means that if the ray were launched a distance $y$ from the optical axis that was less than half the pupil diameter we could define an <em>effective</em> NA as $NA_{eff} = y / f$ where $f$ is the focal length of the lens. We can derive this equation knowing that the pupil <em>diameter</em> is $D = 2 NA f$. This means we can solve for $\theta$ as a function of $y$.</p>
 <p>$$
 \theta = \sin^{-1} \left(\frac{y}{fn}\right)
@@ -90,6 +138,7 @@ $$</p>
       <a href="/index.xml">RSS</a>
     </nav>
   </footer>
+  <script defer src="optics.js"></script>
   <script src="/assets/vendor/mathjax/config.js"></script>
   <script defer src="/assets/vendor/mathjax/tex-svg.js"></script>
 </body>

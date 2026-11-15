@@ -17,7 +17,8 @@
       <pubDate>Wed, 15 Jul 2020 14:21:08 -0700</pubDate>
       
       <guid>https://david-hoffman.github.io/post/dont-deconvolve-your-psf/</guid>
-      <description>&lt;blockquote&gt;
+      <description>&lt;p&gt;Interactive deconvolution simulation. Change the optics, photon count, and iteration count to recompute a point emitter or a small resolution target. Compare the true specimen, its blurred observation, and the reconstruction in real or frequency space. Illustrative 2D scalar model. &lt;a href="https://david-hoffman.github.io/post/dont-deconvolve-your-psf/#live-deconvolution"&gt;Try the calculation.&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;h2 id=&#34;post-processing-cannot-increase-information&#34;&gt;Post-processing cannot increase information&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;— &lt;a href=&#34;https://en.wikipedia.org/wiki/Data_processing_inequality&#34;&gt;Normand Beaudry&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -550,7 +551,7 @@ ax1&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set_title(&lt;span st
 &lt;p&gt;At least as far as focal position is concerned the simple calculation is more than adequate over short distances.&lt;/p&gt;
 &lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
 &lt;p&gt;When talking about three dimensional imaging it seems that NA alone doesn&amp;rsquo;t tell the full story.&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; As shown &lt;a href=&#34;#a-question-of-index&#34;&gt;above&lt;/a&gt;, NA is the sole determinant of lateral resolution but the index of the sample comes into the equation for axial resolution. To put it another way, the lateral resolution of a 0.95 NA water objective is exactly the same (in theory) as the lateral resolution of 0.95 NA air objective &lt;em&gt;but&lt;/em&gt; the axial resolution of the water objective is more than 70% worse! Moreover, index mismatch adds spherical aberration to the images. This can be alleviated to a certain extent with confocal imaging (c.f. Figure 1). Even so, it is to the microscopist&amp;rsquo;s advantage to use an objective with a design index as close as possible to the sample of interest (except in the case of TIRF microscopy).&lt;/p&gt;
-&lt;p&gt;If you want to download the Jupyter notebook I used to create this post you can do so &lt;a href=&#34;https://david-hoffman.github.io/files/Vectorial%20Estimation%20of%20focal%20shift.ipynb&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The interactive figures above run in JavaScript. Download the &lt;a href=&#34;https://david-hoffman.github.io/files/Vectorial%20Estimation%20of%20focal%20shift.ipynb&#34;&gt;documented Python notebook&lt;/a&gt; for the original vectorial calculations and saved Matplotlib figures.&lt;/p&gt;
 &lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
@@ -1002,7 +1003,8 @@ $$&lt;/p&gt;
       <pubDate>Wed, 04 Mar 2020 15:24:05 -0800</pubDate>
       
       <guid>https://david-hoffman.github.io/post/transform-limit/</guid>
-      <description>&lt;p&gt;Let us define the dispersion of a function about zero as,&lt;/p&gt;
+      <description>&lt;figure&gt;&lt;img src="https://david-hoffman.github.io/post/transform-limit/pulse-reference.svg" alt="A 100 fs Gaussian intensity pulse and its 147.2 inverse-centimeter Gaussian intensity spectrum. Markers show each full width at half maximum."&gt;&lt;figcaption&gt;Explore the Gaussian transform limit. These are the intensities of a Gaussian field and its Fourier transform, with flat spectral phase. The frequency–duration product is 2 ln 2 / π; converting frequency to cm⁻¹ gives about 14.72 ps cm⁻¹.&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;A 30 fs pulse needs 490.6 cm⁻¹ of bandwidth; 100 fs needs 147.2 cm⁻¹; 300 fs needs 49.1 cm⁻¹. Each pair has the same duration–bandwidth product, about 14.72 ps cm⁻¹.&lt;/p&gt;&lt;p&gt;&lt;a href="https://david-hoffman.github.io/post/transform-limit/#pulse-explorer"&gt;Explore the interactive pulse and spectrum plots.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Let us define the dispersion of a function about zero as,&lt;/p&gt;
 &lt;p&gt;$$
 D_0(f)=\int_{-\infty}^\infty x^2 |f(x)|^2 dx
 $$&lt;/p&gt;
@@ -1045,7 +1047,7 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;p&gt;We can rearrange this to be&lt;/p&gt;
 &lt;p&gt;$$
-\Delta t (\text{fs}) \Delta \nu (\text{cm}^{-1})=1470\text{ fs cm}^{-1}
+\Delta t (\text{fs}) \Delta \nu (\text{cm}^{-1})=14700\text{ fs cm}^{-1}
 $$&lt;/p&gt;
 &lt;p&gt;Or&lt;/p&gt;
 &lt;p&gt;$$

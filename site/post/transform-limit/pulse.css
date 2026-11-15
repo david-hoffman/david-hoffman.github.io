@@ -1,0 +1,33 @@
+.pulse-hero .research-image { background: #fffdf7; border: 1px solid var(--rule); }
+.pulse-hero .figure-label, .pulse-hero .figure-index { color: #616660; background: none; }
+.pulse-hero .image-corner { border-color: #abb3a7; }
+.pulse-hero picture, .pulse-hero img { display: block; width: 100%; height: auto; }
+.pulse-hero img { max-height: none; }
+.pulse-plots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.pulse-figure .plot-fallback img { width: min(100%, 380px); }
+.pulse-figure > figcaption { margin-top: 12px; color: var(--muted); font-size: .85rem; line-height: 1.7; }
+.pulse-chart { display: block; width: 100%; height: auto; overflow: hidden; }
+.pulse-chart text { fill: var(--plot-muted); font: 10px var(--mono); }
+.pulse-chart .pulse-title { fill: var(--plot-ink); font: 16px var(--serif); }
+.pulse-grid { stroke: var(--plot-rule); stroke-width: 1; }
+.pulse-half { stroke: var(--plot-muted); stroke-dasharray: 3 5; stroke-width: 1; opacity: .65; }
+.pulse-curve { fill: none; stroke: var(--plot-accent); stroke-width: 2.5; }
+.pulse-spectrum .pulse-curve { stroke: var(--plot-secondary); }
+.pulse-fill { fill: var(--plot-accent); opacity: .07; }
+.pulse-spectrum .pulse-fill { fill: var(--plot-secondary); }
+.pulse-reference { fill: none; stroke: var(--plot-muted); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.pulse-width { fill: none; stroke: var(--plot-accent); stroke-width: 2; }
+.pulse-spectrum .pulse-width { stroke: var(--plot-secondary); }
+.pulse-chart .pulse-width-label { fill: var(--plot-ink); font-size: 11px; }
+.pulse-parameters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.pulse-controls .plot-readout { margin-top: 12px; }
+.pulse-controls .plot-value { display: block; }
+.pulse-controls .pulse-unit { font: .76rem var(--mono); color: var(--muted); letter-spacing: 0; }
+.pulse-controls .pulse-equality { color: var(--muted); font: .8rem var(--mono); }
+.pulse-controls .plot-actions { margin-top: 16px; }
+.pulse-reference-key { display: inline-block; width: 22px; margin-right: 6px; border-top: 1.5px dashed var(--muted); vertical-align: middle; }
+.pulse-controls .plot-legend { margin-bottom: 14px; }
+@media (max-width: 620px) {
+  .pulse-plots { grid-template-columns: 1fr; gap: 18px; }
+  .pulse-parameters { grid-template-columns: 1fr; gap: 5px; }
+}

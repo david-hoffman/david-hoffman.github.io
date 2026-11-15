@@ -1,0 +1,31 @@
+/* Geometry is redrawn at the available width so labels stay readable. */
+.optics-chart { display: block; width: 100%; height: auto; color: var(--plot-ink); overflow: hidden; }
+.optics-chart text { fill: var(--plot-muted); font: 11px var(--mono); }
+.optics-chart .optics-label { fill: var(--plot-ink); font-size: 12px; }
+.optics-axis { stroke: var(--plot-rule); stroke-width: 1; stroke-dasharray: 4 5; }
+.optics-plane { stroke: var(--plot-secondary); stroke-width: 1; opacity: .65; }
+.optics-lens { fill: #e6ece3; stroke: var(--plot-secondary); stroke-width: 1.3; }
+.optics-ray { stroke: var(--plot-accent); stroke-width: 2; fill: none; }
+.optics-marginal { stroke-dasharray: 5 5; stroke-width: 1.3; }
+.optics-beam { fill: var(--plot-accent); opacity: .09; }
+.optics-dimension { fill: none; stroke: var(--plot-secondary); stroke-width: 1; }
+.optics-spot { fill: var(--plot-accent); stroke: var(--plot-paper); stroke-width: 2; }
+.optics-handle { cursor: ns-resize; touch-action: none; }
+.optics-handle .optics-hit { fill: transparent; }
+.optics-handle .optics-halo { fill: var(--plot-accent); opacity: .12; }
+.optics-handle:hover .optics-halo, .optics-chart.is-dragging .optics-halo { opacity: .25; }
+.optics-controls .optics-parameters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.optics-controls .optics-parameters-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.optics-controls .plot-readout { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.optics-equation { color: var(--muted); font: .85rem var(--mono); }
+.optics-controls .plot-value { display: block; }
+.optics-controls .plot-value .optics-unit { font: .8rem var(--mono); margin-left: 5px; color: var(--muted); }
+.optics-controls .plot-actions { margin-top: 16px; }
+.optics-controls .plot-note { margin-top: 14px; }
+.optics-controls .plot-legend { margin: 0 0 18px; }
+.optics-key { display: inline-block; width: 22px; margin-right: 6px; border-top: 2px solid var(--accent); vertical-align: middle; }
+.optics-key-dashed { border-top-style: dashed; }
+@media (max-width: 540px) {
+  .optics-controls .optics-parameters, .optics-controls .optics-parameters-two { grid-template-columns: 1fr; gap: 4px; }
+  .optics-equation { font-size: .78rem; }
+}

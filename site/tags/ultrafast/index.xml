@@ -325,7 +325,8 @@ $$&lt;/p&gt;
       <pubDate>Wed, 04 Mar 2020 15:24:05 -0800</pubDate>
       
       <guid>https://david-hoffman.github.io/post/transform-limit/</guid>
-      <description>&lt;p&gt;Let us define the dispersion of a function about zero as,&lt;/p&gt;
+      <description>&lt;figure&gt;&lt;img src="https://david-hoffman.github.io/post/transform-limit/pulse-reference.svg" alt="A 100 fs Gaussian intensity pulse and its 147.2 inverse-centimeter Gaussian intensity spectrum. Markers show each full width at half maximum."&gt;&lt;figcaption&gt;Explore the Gaussian transform limit. These are the intensities of a Gaussian field and its Fourier transform, with flat spectral phase. The frequency–duration product is 2 ln 2 / π; converting frequency to cm⁻¹ gives about 14.72 ps cm⁻¹.&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;A 30 fs pulse needs 490.6 cm⁻¹ of bandwidth; 100 fs needs 147.2 cm⁻¹; 300 fs needs 49.1 cm⁻¹. Each pair has the same duration–bandwidth product, about 14.72 ps cm⁻¹.&lt;/p&gt;&lt;p&gt;&lt;a href="https://david-hoffman.github.io/post/transform-limit/#pulse-explorer"&gt;Explore the interactive pulse and spectrum plots.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Let us define the dispersion of a function about zero as,&lt;/p&gt;
 &lt;p&gt;$$
 D_0(f)=\int_{-\infty}^\infty x^2 |f(x)|^2 dx
 $$&lt;/p&gt;
@@ -368,7 +369,7 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;p&gt;We can rearrange this to be&lt;/p&gt;
 &lt;p&gt;$$
-\Delta t (\text{fs}) \Delta \nu (\text{cm}^{-1})=1470\text{ fs cm}^{-1}
+\Delta t (\text{fs}) \Delta \nu (\text{cm}^{-1})=14700\text{ fs cm}^{-1}
 $$&lt;/p&gt;
 &lt;p&gt;Or&lt;/p&gt;
 &lt;p&gt;$$

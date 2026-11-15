@@ -13,14 +13,20 @@
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:site" content="@davephoffman">
   <meta property="twitter:creator" content="@davephoffman">
-  <meta property="og:image" content="https://david-hoffman.github.io/post/transform-limit/featured.jpg">
-  <meta property="twitter:image" content="https://david-hoffman.github.io/post/transform-limit/featured.jpg">
+  <meta property="og:image" content="https://david-hoffman.github.io/post/transform-limit/pulse-bandwidth.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Paired Gaussian intensity ridges: shorter pulses require broader spectra.">
+  <meta property="twitter:image" content="https://david-hoffman.github.io/post/transform-limit/pulse-bandwidth.jpg">
+  <meta property="twitter:image:alt" content="Paired Gaussian intensity ridges: shorter pulses require broader spectra.">
   <meta property="article:published_time" content="2020-03-04T15:24:05-08:00">
   <meta property="article:modified_time" content="2020-04-17T14:39:41-07:00">
   <link rel="icon" href="/img/icon-32.png" sizes="32x32">
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/assets/archive.css">
   <link rel="stylesheet" href="/assets/figures.css">
+  <link rel="stylesheet" href="/assets/interactive-figures.css">
+  <link rel="stylesheet" href="pulse.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -44,7 +50,38 @@
 
     </header>
     <article class="article-body">
-<figure class="article-figure"><span class="research-image"><span class="figure-label" aria-hidden="true">A GAUSSIAN PULSE</span><img src="/post/transform-limit/featured_hu6a9d1f823f3493ad8582977aab8e8624_91602_680x500_fill_q90_lanczos_smart1.jpg" alt="Derivation of the transform limit" loading="lazy"><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">OVERVIEW / SPECTROSCOPY</span></span></figure>
+<figure class="article-figure pulse-hero"><span class="research-image"><span class="figure-label" aria-hidden="true">THE SHAPE OF THE TRANSFORM LIMIT</span><picture><source media="(max-width: 620px)" srcset="pulse-bandwidth-mobile.svg" width="600" height="1030"><img src="pulse-bandwidth.svg" width="1200" height="630" alt="Less time. More bandwidth. From back to front, Gaussian intensity pulses narrow from 300 to 30 fs while their spectra broaden from 49.1 to 490.6 cm⁻¹. For flat spectral phase, the full widths at half maximum have a constant product of 14.72 ps cm⁻¹."></picture><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">OVERVIEW / SPECTROSCOPY</span></span></figure>
+
+<figure class="interactive-figure pulse-figure" data-transform id="pulse-explorer">
+  <div class="plot-fallback">
+    <span class="research-image"><span class="figure-label" aria-hidden="true">TIME AND BANDWIDTH</span><img src="pulse-reference.svg" alt="A 100 fs Gaussian intensity pulse and its 147.2 inverse-centimeter Gaussian intensity spectrum. Markers show each full width at half maximum."><span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">GAUSSIAN / TRANSFORM LIMIT</span></span>
+    <p class="plot-note">A 30 fs pulse needs 490.6 cm⁻¹ of bandwidth; 100 fs needs 147.2 cm⁻¹; 300 fs needs 49.1 cm⁻¹. Each pair has the same duration–bandwidth product, about 14.72 ps cm⁻¹.</p>
+  </div>
+  <div class="plot-interactive" hidden>
+    <div class="research-image">
+      <span class="figure-label" aria-hidden="true">TIME AND BANDWIDTH</span>
+      <div class="pulse-plots">
+        <svg class="pulse-chart" viewBox="0 0 320 270" role="img" aria-labelledby="pulse-time-title pulse-time-description"><title id="pulse-time-title">Gaussian pulse intensity in time</title><desc id="pulse-time-description">A transform-limited pulse with a 100 fs full width at half maximum.</desc><g data-drawing></g></svg>
+        <svg class="pulse-chart pulse-spectrum" viewBox="0 0 320 270" role="img" aria-labelledby="pulse-spectrum-title pulse-spectrum-description"><title id="pulse-spectrum-title">Gaussian pulse intensity spectrum</title><desc id="pulse-spectrum-description">The linked intensity spectrum with a 147.2 inverse-centimeter full width at half maximum.</desc><g data-drawing></g></svg>
+      </div>
+      <span class="image-corner top-left" aria-hidden="true"></span><span class="image-corner bottom-right" aria-hidden="true"></span><span class="figure-index" aria-hidden="true">GAUSSIAN / TRANSFORM LIMIT</span>
+    </div>
+    <div class="plot-controls pulse-controls">
+      <ul class="plot-legend"><li><span class="pulse-reference-key" aria-hidden="true"></span>Dashed reference: 100 fs pulse</li></ul>
+      <div class="pulse-parameters">
+        <div class="plot-control"><label for="pulse-duration">Pulse duration <output id="pulse-duration-value" for="pulse-duration" data-duration-value>100.0 fs</output></label><input id="pulse-duration" data-duration type="range" min="30" max="300" step="any" value="100" aria-describedby="pulse-explanation"></div>
+        <div class="plot-control"><label for="pulse-bandwidth">Spectral bandwidth <output id="pulse-bandwidth-value" for="pulse-bandwidth" data-bandwidth-value>147.2 cm⁻¹</output></label><input id="pulse-bandwidth" data-bandwidth type="range" min="49.064" max="490.641" step="any" value="147.192" aria-describedby="pulse-explanation"></div>
+      </div>
+      <div class="plot-readout">
+        <div><p class="plot-kicker">DURATION × BANDWIDTH</p><span class="plot-value">14.72 <span class="pulse-unit">ps cm⁻¹</span></span></div>
+        <output class="pulse-equality" for="pulse-duration pulse-bandwidth" data-pulse-summary>100.0 fs × 147.2 cm⁻¹</output>
+      </div>
+      <div class="plot-actions"><button type="button" data-preset="30">30 fs pulse</button><button type="button" data-reset>Reset to 100 fs</button><button type="button" data-preset="300">300 fs pulse</button></div>
+      <p class="plot-note" id="pulse-explanation">Move either slider: shortening the pulse broadens its spectrum. The bars mark the full width at half maximum (FWHM). Both axes stay fixed, and each intensity is normalized to its own peak. Frequency is shown as wavenumber offset from the pulse’s central frequency.</p>
+    </div>
+  </div>
+  <figcaption>Explore the Gaussian transform limit. These are the intensities of a Gaussian field and its Fourier transform, with flat spectral phase. The frequency–duration product is 2 ln 2 / π; converting frequency to cm⁻¹ gives about 14.72 ps cm⁻¹.</figcaption>
+</figure>
 
 <p>Let us define the dispersion of a function about zero as,</p>
 <p>$$
@@ -89,7 +126,7 @@ $$</p>
 $$</p>
 <p>We can rearrange this to be</p>
 <p>$$
-\Delta t (\text{fs}) \Delta \nu (\text{cm}^{-1})=1470\text{ fs cm}^{-1}
+\Delta t (\text{fs}) \Delta \nu (\text{cm}^{-1})=14700\text{ fs cm}^{-1}
 $$</p>
 <p>Or</p>
 <p>$$
@@ -109,5 +146,6 @@ $$</p>
   </footer>
   <script src="/assets/vendor/mathjax/config.js"></script>
   <script defer src="/assets/vendor/mathjax/tex-svg.js"></script>
+  <script defer src="pulse.js"></script>
 </body>
 </html>

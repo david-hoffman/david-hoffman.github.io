@@ -1,0 +1,24 @@
+/* The ring shares the warm mat and restrained palette of the ray diagrams. */
+.circle-layout { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: stretch; }
+.circle-layout .circle-frame { display: flex; align-items: center; width: 100%; border-right: 1px solid var(--plot-rule); border-bottom: 0; padding-inline: 12px; }
+.circle-chart { display: block; width: 100%; height: auto; background: var(--plot-paper); }
+.circle-band { fill: #e8ede3; stroke: var(--plot-secondary); stroke-width: 1.2; stroke-dasharray: 5 4; }
+.circle-points { fill: var(--plot-accent); }
+.circle-count { fill: var(--plot-muted); font: 20px var(--mono); }
+.circle-controls { min-width: 0; align-self: center; font-size: .82rem; line-height: 1.5; }
+.circle-control { margin-bottom: 16px; }
+.circle-controls .circle-help { margin: 0; color: var(--muted); font-size: .73rem; line-height: 1.65; }
+.circle-presets, .circle-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.circle-presets button { flex: 1; padding-inline: 7px; }
+.circle-reveal { display: flex; gap: 10px; align-items: center; min-height: 44px; cursor: pointer; }
+.circle-reveal input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); flex-shrink: 0; }
+.circle-actions { margin-block: 10px 16px; }
+.circle-controls .circle-status { margin: 8px 0 0; color: var(--muted); font-size: .73rem; }
+.circle-status:empty { display: none; }
+@media (max-width: 650px) {
+  .circle-layout { grid-template-columns: 1fr; }
+  .circle-layout .circle-frame { border-right: 0; border-bottom: 1px solid var(--plot-rule); }
+  .circle-chart { max-width: 440px; margin-inline: auto; }
+  .circle-controls { font-size: .86rem; }
+  .circle-control { margin-bottom: 14px; }
+}

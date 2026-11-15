@@ -1,0 +1,73 @@
+/* Interactive scientific figures share the site's paper, rules, and type. */
+.interactive-figure {
+  --plot-paper: #fffdf7;
+  --plot-ink: #202b30;
+  --plot-muted: #616660;
+  --plot-rule: #deded3;
+  --plot-accent: #ab492b;
+  --plot-secondary: #31685d;
+  --plot-ui-secondary: #31685d;
+  margin-block: 28px;
+}
+.plot-interactive[hidden], .plot-fallback[hidden] { display: none; }
+.plot-interactive { border: 1px solid var(--rule); background: var(--paper); }
+.interactive-figure .research-image { margin: 0; }
+.plot-interactive .research-image {
+  padding: 46px 18px 36px;
+  background: var(--plot-paper);
+  border-bottom: 1px solid var(--plot-rule);
+  color: var(--plot-ink);
+  color-scheme: light;
+}
+.plot-interactive .research-image .figure-label,
+.plot-interactive .research-image .figure-index {
+  padding: 0;
+  color: var(--plot-muted);
+  background: none;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+.plot-interactive .research-image .figure-label { top: 17px; left: 22px; }
+.plot-interactive .research-image .figure-index { bottom: 14px; right: 22px; }
+.plot-interactive .research-image .image-corner { border-color: #abb3a7; }
+.plot-controls { padding: 22px 24px; }
+.plot-control { min-width: 0; }
+.plot-control > label { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 10px; font-size: .82rem; }
+.plot-control output { font: .85rem var(--mono); font-variant-numeric: tabular-nums; }
+.plot-control input[type="range"] { display: block; width: 100%; height: 44px; margin: 2px 0 0; accent-color: var(--accent); cursor: pointer; }
+.plot-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.plot-interactive button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 9px 14px;
+  border: 1px solid var(--field-border);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: .72rem/1.4 var(--mono);
+  cursor: pointer;
+}
+.plot-interactive button:hover { background: var(--surface); }
+.plot-interactive button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.plot-readout { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; border-block: 1px solid var(--rule); padding: 16px 0; }
+.article-body .plot-kicker { margin: 0 0 5px; color: var(--muted); font: .65rem/1.6 var(--mono); letter-spacing: .09em; }
+.plot-value { font: 2.25rem/1.1 var(--serif); letter-spacing: -.035em; font-variant-numeric: tabular-nums; }
+.article-body .plot-note { margin: 12px 0 0; color: var(--muted); font-size: .76rem; line-height: 1.65; }
+.interactive-figure .plot-original { margin: 12px 0; font: .68rem/1.6 var(--mono); color: var(--muted); }
+.plot-legend { display: flex; flex-wrap: wrap; gap: 5px 20px; margin: 0 0 18px; padding: 0; list-style: none; font-size: .76rem; }
+.article-body .plot-legend li { display: flex; align-items: center; gap: 7px; margin: 0; }
+@media screen and (prefers-color-scheme: dark) {
+  .interactive-figure { --plot-ui-secondary: #94baae; }
+}
+@media (max-width: 620px) {
+  .plot-controls { padding: 18px; }
+  .plot-interactive .research-image { padding: 42px 10px 32px; }
+  .plot-interactive .research-image .figure-label { left: 19px; font-size: 8px; }
+  .plot-interactive .research-image .figure-index { right: 19px; font-size: 8px; }
+  .plot-control > label { font-size: .86rem; }
+}
+@media print {
+  .plot-interactive { display: none !important; }
+  .plot-fallback[hidden] { display: block; }
+  .interactive-figure .plot-original { display: none; }
+}

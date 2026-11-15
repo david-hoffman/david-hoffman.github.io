@@ -1,0 +1,63 @@
+/* Live calculations keep the article's light scientific plotting mat. */
+.deconvolution-lab { scroll-margin-top: 24px; }
+.article-body .deconvolution-lab h3 { margin: 0 0 10px; }
+.article-body .deconvolution-intro { font-size: .9rem; }
+.deconvolution-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; }
+.deconvolution-controls fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
+.deconvolution-controls legend { margin-bottom: 7px; font-size: .8rem; }
+.deconvolution-wide { grid-column: 1 / -1; }
+.deconvolution-switches { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+.deconvolution-switches .plot-actions { gap: 6px; }
+.deconvolution-noise { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
+.deconvolution-noise label { display: flex; align-items: center; gap: 8px; min-height: 44px; font-size: .8rem; }
+.deconvolution-noise input { width: 18px; height: 18px; accent-color: var(--accent); }
+.deconvolution-controls button:disabled { opacity: .45; cursor: default; }
+.deconvolution-controls input:disabled { opacity: .45; cursor: default; }
+.deconvolution-controls .plot-actions { justify-content: space-between; }
+.article-body .deconvolution-status { margin: 0; color: var(--muted); font: .66rem/1.7 var(--mono); min-height: 1.7em; }
+.deconvolution-lab[data-state="error"] .deconvolution-status { color: var(--accent); }
+.deconvolution-lab .research-image { border-top: 1px solid var(--plot-rule); }
+.deconvolution-images { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.deconvolution-image { min-width: 0; }
+.article-body .deconvolution-image h4 { color: var(--plot-ink); margin: 0 0 8px; font: .69rem/1.6 var(--mono); min-height: 3.2em; letter-spacing: 0; }
+.deconvolution-image h4 span { display: block; color: var(--plot-muted); font-size: .6rem; }
+.deconvolution-image h4 b { font-weight: normal; }
+.deconvolution-image canvas { display: block; width: 100%; height: auto; aspect-ratio: 1; background: #162126; image-rendering: pixelated; }
+.deconvolution-scale { display: flex; align-items: center; justify-content: flex-end; gap: 7px; min-height: 27px; color: var(--plot-muted); font: .59rem var(--mono); white-space: nowrap; }
+.deconvolution-scale i { display: block; height: 3px; background: var(--plot-ink); }
+.deconvolution-images, .deconvolution-profile { transition: opacity .15s ease; }
+.deconvolution-lab[data-state="busy"] .deconvolution-images,
+.deconvolution-lab[data-state="busy"] .deconvolution-profile { opacity: .45; }
+.article-body .deconvolution-view-note { margin: 8px 0 16px; color: var(--plot-muted); font: .63rem/1.7 var(--mono); }
+.deconvolution-profile { display: block; width: 100%; height: auto; overflow: visible; }
+.deconvolution-profile text { fill: var(--plot-muted); font: 11px var(--mono); }
+.deconvolution-profile .profile-axis { stroke: #a4aaa3; stroke-width: 1; }
+.deconvolution-profile .profile-grid { stroke: var(--plot-rule); stroke-width: 1; }
+.deconvolution-profile .profile-cutoff { stroke: #616660; stroke-width: 1.2; stroke-dasharray: 4 4; }
+.deconvolution-profile .profile-line { fill: none; stroke-width: 2; vector-effect: non-scaling-stroke; }
+.deconvolution-lab .plot-legend { margin: 10px 0 0; gap: 4px 14px; color: var(--plot-ink); font-size: .66rem; }
+.deconvolution-lab .plot-legend i { width: 17px; height: 2px; display: inline-block; background: var(--line-color); }
+.deconvolution-readout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 18px 24px; }
+.deconvolution-readout .plot-value { font-size: 1.7rem; }
+.deconvolution-readout .plot-kicker { margin: 0; }
+.deconvolution-readout small { font: .65rem var(--mono); }
+.deconvolution-model-note { padding: 0 24px 20px; }
+.deconvolution-model-note summary { padding-block: 9px; cursor: pointer; color: var(--muted); font: .72rem/1.7 var(--mono); }
+.article-body .deconvolution-model-note p { margin: 8px 0 0; color: var(--muted); font-size: .77rem; line-height: 1.7; }
+.article-body .deconvolution-jump { font: .7rem/1.8 var(--mono); }
+@media (max-width: 540px) {
+  .deconvolution-controls { gap: 12px 16px; }
+  .deconvolution-images { gap: 7px; }
+  .article-body .deconvolution-image h4 { font-size: .68rem; min-height: 4.8em; }
+  .deconvolution-image h4 span { font-size: .6rem; }
+  .deconvolution-scale { gap: 4px; font-size: .53rem; }
+  .deconvolution-readout { padding: 16px 18px; gap: 12px; }
+  .deconvolution-readout .plot-value { font-size: 1.4rem; }
+  .deconvolution-model-note { padding-inline: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .deconvolution-images, .deconvolution-profile { transition: none; }
+}
+@media print {
+  .deconvolution-lab, .deconvolution-jump { display: none; }
+}
